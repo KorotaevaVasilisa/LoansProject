@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_container"
-    android:name="ru.vsls.korotaevahomework.UsersListFragment"
+    android:name="ru.vsls.korotaevahomework.presentation.EnterFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    tools:layout="@layout/fragment_users_list" />
+    tools:layout="@layout/fragment_enter" />
 
