@@ -17,9 +17,9 @@ import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.presentation.EnterState
 
 @Composable
-internal fun LoginForm(state: EnterState){
+internal fun LoginForm(state: EnterState.Login){
     OutlinedTextField(
-        value = "",
+        value = state.login,
         onValueChange = { },
         label = { Text(stringResource(R.string.lodin)) },
         modifier = Modifier.fillMaxWidth()
@@ -29,7 +29,7 @@ internal fun LoginForm(state: EnterState){
 
 
     OutlinedTextField(
-        value = "",
+        value = state.password,
         onValueChange = { },
         label = { Text(stringResource(R.string.password)) },
         modifier = Modifier.fillMaxWidth()

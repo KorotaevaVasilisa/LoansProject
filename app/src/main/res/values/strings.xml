@@ -4,7 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logo">Шифт займы</string>
     <string name="password">Пароль</string>
+    <string name="replay_password">Повторите пароль</string>
     <string name="log_in">Войти</string>
+    <string name="regist_in">Зарегистрироваться</string>
     <string name="enter">Вход</string>
     <string name="lodin">Логин</string>
     <string name="registration">Регистрация</string>
