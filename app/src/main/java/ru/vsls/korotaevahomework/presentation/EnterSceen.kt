@@ -2,6 +2,7 @@ package ru.vsls.korotaevahomework.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -42,7 +44,7 @@ fun EnterScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF0B1424)),
+            .background(MaterialTheme.colorScheme.primaryContainer),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Box(
@@ -51,7 +53,9 @@ fun EnterScreen() {
                 .weight(1f, fill = true)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.logo_night),
+                painter = if (!isSystemInDarkTheme())
+                    painterResource(id = R.drawable.logo_light) else
+                    painterResource(id = R.drawable.logo_night),
                 contentDescription = stringResource(R.string.logo),
                 modifier = Modifier
                     .align(Alignment.Center)
@@ -65,7 +69,7 @@ fun EnterScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight(),
-            colors = CardDefaults.cardColors(containerColor = Color.White)
+            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
         ) {
             Column(
                 modifier = Modifier
@@ -123,7 +127,7 @@ fun EnterScreen() {
                     shape = RoundedCornerShape(8.dp),
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(48.dp)
+                        .height(48.dp),
                 ) {
                     Text(
                         stringResource(R.string.log_in),
