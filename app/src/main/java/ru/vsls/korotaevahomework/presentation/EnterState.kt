@@ -1,0 +1,18 @@
+package ru.vsls.korotaevahomework.presentation
+
+sealed interface EnterState {
+    data object Initial : EnterState
+
+    data object Loading : EnterState
+
+    data class Login(
+        val login: String = "",
+        val password: String = "",
+    ) : EnterState
+
+    data class Registration(
+        val login: String = "",
+        val password: String = "",
+        val passwordRepeat: String = ""
+    ) : EnterState
+}

@@ -16,13 +16,13 @@ class EnterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_enter, container, false)
+        val view = inflater.inflate(R.layout.fragment_enter, container, false)
         val composeView = view.findViewById<ComposeView>(R.id.compose_view)
         composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    EnterScreen()
+                    EnterScreen(viewModel = EnterViewModel())
                 }
             }
         }
