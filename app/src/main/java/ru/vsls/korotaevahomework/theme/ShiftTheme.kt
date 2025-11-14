@@ -12,7 +12,7 @@ private val LightColorScheme = lightColorScheme(
     primary = PermanentPrimary,
     onPrimary = FontDayPrimary,
 
-    secondary = BGDaySecondary,
+    secondary = FontDaySecondary,
     onSecondary = FontDayPrimary,
 
     background = BGDayPrimary,
