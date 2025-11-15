@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.presentation
+package ru.vsls.korotaevahomework.presentation.model
 
 sealed interface EnterState {
     data object Initial : EnterState

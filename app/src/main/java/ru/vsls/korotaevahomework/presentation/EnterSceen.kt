@@ -7,6 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import ru.vsls.korotaevahomework.presentation.common.LoadingScreen
 import ru.vsls.korotaevahomework.presentation.components.EnterContent
+import ru.vsls.korotaevahomework.presentation.model.EnterState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -30,7 +31,7 @@ fun EnterScreen(
             switchToRegistration = viewModel::switchToRegistration,
             loginUser = viewModel::loginUser,
             registerUser = viewModel::registrationUser,
-            onValueChange = viewModel::onValueChange
+            onFieldChange = viewModel::handleFieldChanged
         )
     }
 }

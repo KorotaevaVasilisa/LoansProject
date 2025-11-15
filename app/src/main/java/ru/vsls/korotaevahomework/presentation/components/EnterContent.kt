@@ -18,7 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.presentation.EnterState
+import ru.vsls.korotaevahomework.presentation.model.EnterState
+import ru.vsls.korotaevahomework.presentation.model.FieldEvent
 
 @Composable
 internal fun EnterContent(
@@ -27,7 +28,7 @@ internal fun EnterContent(
     switchToRegistration: () -> Unit,
     loginUser: () -> Unit,
     registerUser: () -> Unit,
-    onValueChange: (String) -> Unit
+    onFieldChange: (FieldEvent) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -47,7 +48,7 @@ internal fun EnterContent(
             switchToRegistration = switchToRegistration,
             loginUser = loginUser,
             registrationUser = registerUser,
-            onValueChange = onValueChange
+            onFieldChange = onFieldChange
         )
     }
 }

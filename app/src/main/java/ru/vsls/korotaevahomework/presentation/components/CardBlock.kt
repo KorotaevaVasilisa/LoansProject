@@ -23,7 +23,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.presentation.EnterState
+import ru.vsls.korotaevahomework.presentation.model.EnterState
+import ru.vsls.korotaevahomework.presentation.model.FieldEvent
 
 @Composable
 internal fun CardBlock(
@@ -32,7 +33,7 @@ internal fun CardBlock(
     switchToRegistration: () -> Unit,
     loginUser: () -> Unit,
     registrationUser: () -> Unit,
-    onValueChange: (String) -> Unit,
+    onFieldChange: (FieldEvent) -> Unit,
 ) {
     Card(
         shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
@@ -76,13 +77,13 @@ internal fun CardBlock(
             when (state) {
                 is EnterState.Login -> LoginForm(
                     state = state,
-                    onValueChange = onValueChange,
+                    onFieldChange = onFieldChange,
                     onClick = loginUser
                 )
 
                 is EnterState.Registration -> RegistrationForm(
                     state = state,
-                    onValueChange = onValueChange,
+                    onFieldChange = onFieldChange,
                     onClick = registrationUser
                 )
 

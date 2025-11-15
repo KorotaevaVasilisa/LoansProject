@@ -18,17 +18,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.presentation.model.FieldEvent
 
 @Composable
 internal fun PasswordField(
     password: String,
-    onValueChange: (String) -> Unit,
+    onValueChange: (FieldEvent) -> Unit,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
     OutlinedTextField(
         value = password,
-        onValueChange = onValueChange,
+        onValueChange = { onValueChange(FieldEvent.PasswordChanged(it)) },
         label = { Text(stringResource(R.string.password)) },
         modifier = Modifier
             .fillMaxWidth(),
@@ -54,13 +55,13 @@ internal fun PasswordField(
 internal fun RepeatPasswordField(
     password: String,
     isError: Boolean,
-    onValueChange: (String) -> Unit,
+    onValueChange: (FieldEvent) -> Unit,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
 
     OutlinedTextField(
         value = password,
-        onValueChange = onValueChange,
+        onValueChange = { onValueChange(FieldEvent.RepeatPasswordChanged(it)) },
         label = { Text(stringResource(R.string.replay_password)) },
         modifier = Modifier
             .fillMaxWidth(),

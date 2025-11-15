@@ -7,16 +7,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.presentation.model.FieldEvent
 
 @Composable
 internal fun LoginField(
     login: String,
     isError: Boolean,
-    onValueChange: (String) -> Unit,
+    onValueChange: (FieldEvent) -> Unit,
 ) {
     OutlinedTextField(
         value = login,
-        onValueChange = onValueChange,
+        onValueChange = { onValueChange(FieldEvent.LoginChanged(it)) },
         label = { Text(stringResource(R.string.login)) },
         modifier = Modifier
             .fillMaxWidth(),
