@@ -4,6 +4,6 @@ import ru.vsls.korotaevahomework.enter.data.model.UserDto
 import ru.vsls.korotaevahomework.enter.domain.User
 
 fun User.toDto() = UserDto(
-    login = login,
+    name = login,
     password = password
 )

@@ -1,9 +1,14 @@
 package ru.vsls.korotaevahomework.enter.presentation
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.enter.domain.usecase.LoginUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.RegistrationUserUseCase
 import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
@@ -17,6 +22,9 @@ class EnterViewModel @Inject constructor(
     private var _state = MutableStateFlow<EnterState>(EnterState.Initial)
     val state = _state.asStateFlow()
 
+    private var previousState: EnterState? = null
+    private val _errors = MutableSharedFlow<String>()
+    val errors = _errors.asSharedFlow()
     fun initForm() {
         _state.update { EnterState.Login() }
     }
@@ -30,7 +38,14 @@ class EnterViewModel @Inject constructor(
     }
 
     fun loginUser() {
+        val state = _state.value as? EnterState.Login ?: return
 
+        previousState = _state.value
+        _state.update { EnterState.Loading }
+        viewModelScope.launch(exceptionHandler) {
+            val response = loginUserUseCase(state.login, state.password)
+            val token = response.string()
+        }
     }
 
     fun registrationUser() {}
@@ -95,6 +110,16 @@ class EnterViewModel @Inject constructor(
             }
 
             else -> Unit
+        }
+    }
+
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+        previousState?.let { safePrev ->
+            _state.value = safePrev
+        }
+
+        viewModelScope.launch {
+            _errors.emit(throwable.message ?: "Неизвестная ошибка")
         }
     }
 }

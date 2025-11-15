@@ -13,7 +13,7 @@ import retrofit2.converter.kotlinx.serialization.asConverterFactory
 @Module
 interface NetworkModule {
     companion object {
-        const val BASE_URL = "https://shift-courses-result.yc.ftc.ru/v2/api-docs/"
+        const val BASE_URL = "https://shift-courses-result.yc.ftc.ru"
 
         @Provides
         fun provideJson(): Json = Json { ignoreUnknownKeys = true }
