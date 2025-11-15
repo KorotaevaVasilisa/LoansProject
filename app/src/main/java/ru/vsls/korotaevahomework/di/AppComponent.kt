@@ -6,7 +6,7 @@ import dagger.Component
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.presentation.EnterFragment
 
-@Component(modules = [NetworkModule::class])
+@Component(modules = [NetworkModule::class, EnterModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(enterFragment: EnterFragment)

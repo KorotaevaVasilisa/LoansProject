@@ -3,8 +3,10 @@ package ru.vsls.korotaevahomework.data
 import ru.vsls.korotaevahomework.data.mapper.toDto
 import ru.vsls.korotaevahomework.domain.EnterRepository
 import ru.vsls.korotaevahomework.domain.User
+import javax.inject.Inject
 
-class EnterRepositoryImpl(private val apiService: EnterApiService) : EnterRepository {
+class EnterRepositoryImpl @Inject constructor(private val apiService: EnterApiService) :
+    EnterRepository {
     override suspend fun loginUser(user: User): String {
         return apiService.loginUser(user.toDto())
     }

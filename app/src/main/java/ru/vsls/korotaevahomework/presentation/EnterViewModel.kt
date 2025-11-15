@@ -4,10 +4,16 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import ru.vsls.korotaevahomework.domain.usecase.LoginUserUseCase
+import ru.vsls.korotaevahomework.domain.usecase.RegistrationUserUseCase
 import ru.vsls.korotaevahomework.presentation.model.EnterState
 import ru.vsls.korotaevahomework.presentation.model.FieldEvent
+import javax.inject.Inject
 
-class EnterViewModel : ViewModel() {
+class EnterViewModel @Inject constructor(
+    private val loginUserUseCase: LoginUserUseCase,
+    private val registrationUserUseCase: RegistrationUserUseCase,
+) : ViewModel() {
     private var _state = MutableStateFlow<EnterState>(EnterState.Initial)
     val state = _state.asStateFlow()
 
@@ -23,14 +29,14 @@ class EnterViewModel : ViewModel() {
         _state.update { EnterState.Registration() }
     }
 
-    fun loginUser(){
+    fun loginUser() {
 
     }
 
-    fun registrationUser(){}
+    fun registrationUser() {}
 
-    fun handleFieldChanged(event: FieldEvent){
-        when(event){
+    fun handleFieldChanged(event: FieldEvent) {
+        when (event) {
             is FieldEvent.LoginChanged -> onLoginChanged(event.login)
             is FieldEvent.PasswordChanged -> onPasswordChanged(event.password)
             is FieldEvent.RepeatPasswordChanged -> onRepeatPasswordChanged(event.repeatPassword)
