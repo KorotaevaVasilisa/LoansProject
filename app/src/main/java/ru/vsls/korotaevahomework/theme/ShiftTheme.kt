@@ -35,6 +35,7 @@ private val DarkColorScheme = darkColorScheme(
 
     primary = PermanentPrimary,
     primaryContainer = FontNightPrimary,
+    onPrimary = FontNightPrimary,
 
     error = IndicatorNightError,
 )

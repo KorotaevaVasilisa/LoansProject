@@ -21,7 +21,7 @@ internal fun RegistrationForm(state: EnterState.Registration){
     OutlinedTextField(
         value = state.login,
         onValueChange = { },
-        label = { Text(stringResource(R.string.lodin)) },
+        label = { Text(stringResource(R.string.login)) },
         modifier = Modifier.fillMaxWidth()
     )
 

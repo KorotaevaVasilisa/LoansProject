@@ -27,7 +27,10 @@ fun EnterScreen(
             -> EnterContent(
             state = state,
             switchToLogin = viewModel::switchToLogin,
-            switchToRegistration = viewModel::switchToRegistration
+            switchToRegistration = viewModel::switchToRegistration,
+            loginUser = viewModel::loginUser,
+            registerUser = viewModel::registrationUser,
+            onValueChange = viewModel::onValueChange
         )
     }
 }

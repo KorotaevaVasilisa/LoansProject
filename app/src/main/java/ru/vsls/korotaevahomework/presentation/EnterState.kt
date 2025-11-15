@@ -8,6 +8,7 @@ sealed interface EnterState {
     data class Login(
         val login: String = "",
         val password: String = "",
+        val isLoginError: Boolean = false
     ) : EnterState
 
     data class Registration(

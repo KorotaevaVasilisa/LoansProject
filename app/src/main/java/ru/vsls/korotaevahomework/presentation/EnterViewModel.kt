@@ -20,4 +20,14 @@ class EnterViewModel : ViewModel() {
     fun switchToRegistration() {
         _state.update { EnterState.Registration() }
     }
+
+    fun loginUser(){
+
+    }
+
+    fun registrationUser(){}
+
+    fun onValueChange(input: String){
+
+    }
 }

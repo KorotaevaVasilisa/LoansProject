@@ -8,6 +8,9 @@
     <string name="log_in">Войти</string>
     <string name="regist_in">Зарегистрироваться</string>
     <string name="enter">Вход</string>
-    <string name="lodin">Логин</string>
+    <string name="login">Логин</string>
     <string name="registration">Регистрация</string>
+    <string name="error_login">Только цифры и латинские буквы</string>
+    <string name="show_password">Показать пароль</string>
+    <string name="hide_password">Скрыть пароль</string>
 </resources>

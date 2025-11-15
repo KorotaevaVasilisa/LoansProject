@@ -25,6 +25,9 @@ internal fun EnterContent(
     state: EnterState,
     switchToLogin: () -> Unit,
     switchToRegistration: () -> Unit,
+    loginUser: () -> Unit,
+    registerUser: () -> Unit,
+    onValueChange: (String) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -41,7 +44,10 @@ internal fun EnterContent(
         CardBlock(
             state = state,
             switchToLogin = switchToLogin,
-            switchToRegistration = switchToRegistration
+            switchToRegistration = switchToRegistration,
+            loginUser = loginUser,
+            registrationUser = registerUser,
+            onValueChange = onValueChange
         )
     }
 }
