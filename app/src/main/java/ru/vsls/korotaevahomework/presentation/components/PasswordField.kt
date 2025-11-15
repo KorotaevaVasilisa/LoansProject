@@ -51,6 +51,39 @@ internal fun PasswordField(
 }
 
 @Composable
+internal fun RepeatPasswordField(
+    password: String,
+    isError: Boolean,
+    onValueChange: (String) -> Unit,
+) {
+    var passwordVisible by remember { mutableStateOf(false) }
+
+    OutlinedTextField(
+        value = password,
+        onValueChange = onValueChange,
+        label = { Text(stringResource(R.string.replay_password)) },
+        modifier = Modifier
+            .fillMaxWidth(),
+        singleLine = true,
+        isError = isError,
+        supportingText = { GetSupportingText(isError) },
+        visualTransformation = if (passwordVisible)
+            VisualTransformation.None
+        else
+            PasswordVisualTransformation(),
+        trailingIcon = {
+            IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                Icon(
+                    painter = getVisibilityIcon(passwordVisible),
+                    contentDescription = getIconVisibilityDescription(passwordVisible),
+                    tint = MaterialTheme.colorScheme.secondary
+                )
+            }
+        }
+    )
+}
+
+@Composable
 internal fun getVisibilityIcon(passwordVisible: Boolean): Painter {
     return if (passwordVisible)
         painterResource(R.drawable.outline_visibility)
@@ -64,4 +97,10 @@ internal fun getIconVisibilityDescription(passwordVisible: Boolean): String {
         stringResource(R.string.hide_password)
     else
         stringResource(R.string.show_password)
+}
+
+@Composable
+private fun GetSupportingText(isError: Boolean) {
+    if (isError)
+        Text(stringResource(R.string.error_password))
 }

@@ -64,9 +64,8 @@ internal fun CardBlock(
                 VerticalDivider(
                     modifier = Modifier
                         .fillMaxHeight(),
-                    thickness = 2.dp,
-
-                    )
+                    thickness = 2.dp
+                )
 
                 RegistrationTextButton(
                     modifier = Modifier.weight(1f),
@@ -81,7 +80,12 @@ internal fun CardBlock(
                     onClick = loginUser
                 )
 
-                is EnterState.Registration -> RegistrationForm(state)
+                is EnterState.Registration -> RegistrationForm(
+                    state = state,
+                    onValueChange = onValueChange,
+                    onClick = registrationUser
+                )
+
                 else -> {}
             }
         }
@@ -126,5 +130,5 @@ private fun RegistrationTextButton(
 @Preview(showBackground = true)
 @Composable
 private fun LoginFormPreview() {
-    CardBlock(state = EnterState.Login(), {}, {}, {}, {}, {})
+    CardBlock(state = EnterState.Registration(), {}, {}, {}, {}, {})
 }
