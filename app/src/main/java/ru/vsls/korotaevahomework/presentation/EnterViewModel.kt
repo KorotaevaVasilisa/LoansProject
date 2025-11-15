@@ -38,14 +38,57 @@ class EnterViewModel : ViewModel() {
     }
 
     private fun onRepeatPasswordChanged(repeatPassword: String) {
-        TODO("Not yet implemented")
+        val current = _state.value
+        if (current !is EnterState.Registration) return
+
+        val isMatch = repeatPassword == current.password
+
+        _state.value = current.copy(
+            passwordRepeat = repeatPassword,
+            isPasswordError = !isMatch
+        )
     }
 
     private fun onPasswordChanged(password: String) {
-        TODO("Not yet implemented")
+        when (val current = _state.value) {
+
+            is EnterState.Login -> {
+                _state.value = current.copy(password = password)
+            }
+
+            is EnterState.Registration -> {
+                val isMatch = password == current.passwordRepeat
+
+                _state.value = current.copy(
+                    password = password,
+                    isPasswordError = !isMatch
+                )
+            }
+
+            else -> Unit
+        }
     }
 
     private fun onLoginChanged(login: String) {
-        TODO("Not yet implemented")
+        val isValid = login.matches(Regex("^[A-Za-z0-9]*$"))
+
+        when (val current = _state.value) {
+
+            is EnterState.Login -> {
+                _state.value = current.copy(
+                    login = login,
+                    isLoginError = !isValid
+                )
+            }
+
+            is EnterState.Registration -> {
+                _state.value = current.copy(
+                    login = login,
+                    isLoginError = !isValid
+                )
+            }
+
+            else -> Unit
+        }
     }
 }

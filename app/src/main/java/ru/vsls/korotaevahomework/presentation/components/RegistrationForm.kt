@@ -24,7 +24,7 @@ internal fun RegistrationForm(
     )
 
     RepeatPasswordField(
-        password = state.password,
+        password = state.passwordRepeat,
         isError = state.isPasswordError,
         onValueChange = onFieldChange
     )
