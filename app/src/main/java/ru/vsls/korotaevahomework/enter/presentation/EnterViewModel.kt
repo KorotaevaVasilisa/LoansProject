@@ -40,7 +40,7 @@ class EnterViewModel @Inject constructor(
     fun loginUser() {
         val state = _state.value as? EnterState.Login ?: return
 
-        previousState = _state.value
+        previousState = state
         _state.update { EnterState.Loading }
         viewModelScope.launch(exceptionHandler) {
             val response = loginUserUseCase(state.login, state.password)
@@ -48,7 +48,21 @@ class EnterViewModel @Inject constructor(
         }
     }
 
-    fun registrationUser() {}
+    fun registrationUser() {
+        val current = _state.value as? EnterState.Registration ?: return
+
+        previousState = current
+        _state.value = EnterState.Loading
+
+        viewModelScope.launch(exceptionHandler) {
+            registrationUserUseCase(
+                current.login,
+                current.password
+            )
+            val response = loginUserUseCase(current.login, current.password)
+            val token = response.string()
+        }
+    }
 
     fun handleFieldChanged(event: FieldEvent) {
         when (event) {
