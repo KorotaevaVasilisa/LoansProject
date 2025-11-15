@@ -8,7 +8,13 @@ import androidx.core.view.WindowInsetsCompat
 import ru.vsls.korotaevahomework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val component by lazy {
+        (application as App).component
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        component.inject(this)
+
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val binding = ActivityMainBinding.inflate(layoutInflater)
