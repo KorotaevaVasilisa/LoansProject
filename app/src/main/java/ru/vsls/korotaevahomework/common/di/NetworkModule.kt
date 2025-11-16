@@ -4,6 +4,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.json.Json
+import okhttp3.Interceptor
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,6 +12,7 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import ru.vsls.korotaevahomework.common.data.TokenRepositoryImpl
+import ru.vsls.korotaevahomework.common.data.interceptors.TokenInterceptor
 import ru.vsls.korotaevahomework.common.domain.TokenRepository
 
 @Module
@@ -32,8 +34,10 @@ interface NetworkModule {
         @Provides
         fun provideOkHttpClient(
             loggingInterceptor: HttpLoggingInterceptor,
+            tokenInterceptor: Interceptor,
         ): OkHttpClient =
             OkHttpClient.Builder()
+                .addInterceptor(tokenInterceptor)
                 .addInterceptor(loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
 
@@ -51,4 +55,7 @@ interface NetworkModule {
 
     @Binds
     fun bindTokenRepository(impl: TokenRepositoryImpl): TokenRepository
+
+    @Binds
+    fun bindTokenInterceptor(impl: TokenInterceptor): Interceptor
 }
