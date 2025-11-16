@@ -54,7 +54,7 @@ internal fun EnterContent(
 }
 
 @Composable
-private fun LogoBlock(modifier: Modifier) {
+internal fun LogoBlock(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier
     ) {
