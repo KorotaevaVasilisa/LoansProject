@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.theme.ShiftTheme
+import ru.vsls.korotaevahomework.main.StartFragment
 import javax.inject.Inject
 import kotlin.getValue
 
@@ -42,9 +43,15 @@ class EnterFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    EnterScreen(viewModel = viewModel)
+                    EnterScreen(viewModel = viewModel, navigateToMain = ::navigateToMainScreen)
                 }
             }
         }
+    }
+
+    private fun navigateToMainScreen() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.main_container, StartFragment())
+            .commit()
     }
 }

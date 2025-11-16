@@ -3,12 +3,15 @@ package ru.vsls.korotaevahomework.enter.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import ru.vsls.korotaevahomework.enter.domain.usecase.GetTokenUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.LoginUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.RegistrationUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.SaveTokenUseCase
@@ -19,7 +22,8 @@ import javax.inject.Inject
 class EnterViewModel @Inject constructor(
     private val loginUserUseCase: LoginUserUseCase,
     private val registrationUserUseCase: RegistrationUserUseCase,
-    private val saveTokenUseCase: SaveTokenUseCase
+    private val saveTokenUseCase: SaveTokenUseCase,
+    private val getTokenUseCase: GetTokenUseCase,
 ) : ViewModel() {
     private var _state = MutableStateFlow<EnterState>(EnterState.Initial)
     val state = _state.asStateFlow()
@@ -27,8 +31,19 @@ class EnterViewModel @Inject constructor(
     private var previousState: EnterState? = null
     private val _errors = MutableSharedFlow<String>()
     val errors = _errors.asSharedFlow()
+
+    private val _navigationChannel = Channel<EnterNavigationRoute>(Channel.BUFFERED)
+    val navigation = _navigationChannel.receiveAsFlow()
     fun initForm() {
-        _state.update { EnterState.Login() }
+        _state.update { EnterState.Loading }
+        val token = getTokenUseCase()
+        if (token.isNullOrEmpty()) {
+            _state.update { EnterState.Login() }
+        } else {
+            viewModelScope.launch {
+                _navigationChannel.send(EnterNavigationRoute.Main)
+            }
+        }
     }
 
     fun switchToLogin() {
@@ -48,6 +63,9 @@ class EnterViewModel @Inject constructor(
             val response = loginUserUseCase(state.login, state.password)
             val token = response.string()
             saveTokenUseCase(token)
+            viewModelScope.launch {
+                _navigationChannel.send(EnterNavigationRoute.Main)
+            }
         }
     }
 
@@ -65,6 +83,9 @@ class EnterViewModel @Inject constructor(
             val response = loginUserUseCase(current.login, current.password)
             val token = response.string()
             saveTokenUseCase(token)
+            viewModelScope.launch {
+                _navigationChannel.send(EnterNavigationRoute.Main)
+            }
         }
     }
 
@@ -137,7 +158,11 @@ class EnterViewModel @Inject constructor(
         }
 
         viewModelScope.launch {
-            _errors.emit(throwable.message ?: "Неизвестная ошибка")
+            _errors.emit(throwable.message ?: "Unknown error")
         }
     }
+}
+
+sealed interface EnterNavigationRoute {
+    data object Main : EnterNavigationRoute
 }
