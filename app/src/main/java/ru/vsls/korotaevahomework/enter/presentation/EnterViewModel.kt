@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.enter.domain.usecase.LoginUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.RegistrationUserUseCase
+import ru.vsls.korotaevahomework.enter.domain.usecase.SaveTokenUseCase
 import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
 import ru.vsls.korotaevahomework.enter.presentation.model.FieldEvent
 import javax.inject.Inject
@@ -18,6 +19,7 @@ import javax.inject.Inject
 class EnterViewModel @Inject constructor(
     private val loginUserUseCase: LoginUserUseCase,
     private val registrationUserUseCase: RegistrationUserUseCase,
+    private val saveTokenUseCase: SaveTokenUseCase
 ) : ViewModel() {
     private var _state = MutableStateFlow<EnterState>(EnterState.Initial)
     val state = _state.asStateFlow()
@@ -45,6 +47,7 @@ class EnterViewModel @Inject constructor(
         viewModelScope.launch(exceptionHandler) {
             val response = loginUserUseCase(state.login, state.password)
             val token = response.string()
+            saveTokenUseCase(token)
         }
     }
 
@@ -61,6 +64,7 @@ class EnterViewModel @Inject constructor(
             )
             val response = loginUserUseCase(current.login, current.password)
             val token = response.string()
+            saveTokenUseCase(token)
         }
     }
 

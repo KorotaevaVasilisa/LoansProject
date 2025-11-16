@@ -1,5 +1,6 @@
 package ru.vsls.korotaevahomework.common.di
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import kotlinx.serialization.json.Json
@@ -9,6 +10,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import ru.vsls.korotaevahomework.common.data.TokenRepositoryImpl
+import ru.vsls.korotaevahomework.common.domain.TokenRepository
 
 @Module
 interface NetworkModule {
@@ -45,4 +48,7 @@ interface NetworkModule {
                 .addConverterFactory(jsonConverterFactory)
                 .build()
     }
+
+    @Binds
+    fun bindTokenRepository(impl: TokenRepositoryImpl): TokenRepository
 }
