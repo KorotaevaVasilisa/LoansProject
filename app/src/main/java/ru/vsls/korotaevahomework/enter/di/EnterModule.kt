@@ -26,5 +26,5 @@ interface EnterModule {
     @Binds
     @IntoMap
     @ViewModelKey(EnterViewModel::class)
-    fun bindFormViewModel(viewModel: EnterViewModel): ViewModel
+    fun bindEnterViewModel(viewModel: EnterViewModel): ViewModel
 }

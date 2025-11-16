@@ -13,6 +13,7 @@ interface AppComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(enterFragment: EnterFragment)
 
+
     @Component.Builder
     interface Builder {
         @BindsInstance
