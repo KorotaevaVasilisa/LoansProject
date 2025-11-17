@@ -12,7 +12,7 @@ private val LightColorScheme = lightColorScheme(
     primary = PermanentPrimary,
     onPrimary = FontDayPrimary,
 
-    secondary = FontDaySecondary,
+    secondary = BGDaySecondary,
     onSecondary = FontDayPrimary,
 
     background = BGDayPrimary,
@@ -31,7 +31,7 @@ private val DarkColorScheme = darkColorScheme(
     surface = BGNightPrimary,
     surfaceVariant = BGNightTertiary,
 
-    secondary = FontNightSecondary,
+    secondary = BGNightSecondary,
 
     primary = PermanentPrimary,
     primaryContainer = FontNightPrimary,

@@ -13,4 +13,7 @@
     <string name="error_password">Пароли не совпадают</string>
     <string name="show_password">Показать пароль</string>
     <string name="hide_password">Скрыть пароль</string>
+    <string name="main_title">Главная</string>
+    <string name="title_loan_card">Получите займ в 2 клика</string>
+    <string name="label_loan_card">Деньги наличными на любые цели</string>
 </resources>
