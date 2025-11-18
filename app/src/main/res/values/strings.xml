@@ -16,4 +16,12 @@
     <string name="main_title">Главная</string>
     <string name="title_loan_card">Получите займ в 2 клика</string>
     <string name="label_loan_card">Деньги наличными на любые цели</string>
+    <string name="title_loan_panel">Сумма займа</string>
+    <string name="min_loan">0 ₽</string>
+    <string name="max_loan">10 000 ₽</string>
+    <string name="edit_loan">Редактировать размер займа</string>
+    <string name="thumb">Ползунок</string>
+    <string name="conditions">Условия</string>
+    <string name="week_condition">Под 30% на 12 дней</string>
+    <string name="continue_click">Продолжить</string>
 </resources>

@@ -16,10 +16,12 @@ private val LightColorScheme = lightColorScheme(
     onSecondary = FontDayPrimary,
 
     background = BGDayPrimary,
+    inverseOnSurface = BGDayInvert,
 
     primaryContainer = FontDayPrimary,
     surface = BGDayPrimary,
-    onSurface = FontDayPrimary,
+
+    onSurfaceVariant = FontDaySecondary,
 
     error = IndicatorError,
 
@@ -28,8 +30,10 @@ private val LightColorScheme = lightColorScheme(
 
 private val DarkColorScheme = darkColorScheme(
     background = BGNightPrimary,
+    inverseOnSurface = BGNightInvert,
     surface = BGNightPrimary,
     surfaceVariant = BGNightTertiary,
+    onSurfaceVariant = FontNightSecondary,
 
     secondary = BGNightSecondary,
 

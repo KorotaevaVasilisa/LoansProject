@@ -26,6 +26,7 @@ val IndicatorAttention = Color(0xFFFE9800)
 val BGNightPrimary = Color(0xFF151E2A)
 val BGNightSecondary = Color(0xFFF1F1F2)
 val BGNightTertiary = Color(0xFF363A42)
+val BGNightInvert = Color(0xFFF5F5F5)
 
 // Font Night
 val FontNightPrimary = Color(0xFFFFFFFF)
