@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.main
+package ru.vsls.korotaevahomework.main.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -11,10 +11,7 @@ import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.theme.ShiftTheme
-import ru.vsls.korotaevahomework.main.presentation.MainScreen
-import ru.vsls.korotaevahomework.main.presentation.MainViewModel
 import javax.inject.Inject
-
 
 class StartFragment : Fragment() {
 

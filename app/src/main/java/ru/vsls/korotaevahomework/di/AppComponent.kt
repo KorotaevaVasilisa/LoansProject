@@ -7,7 +7,7 @@ import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.common.di.NetworkModule
 import ru.vsls.korotaevahomework.enter.di.EnterModule
 import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
-import ru.vsls.korotaevahomework.main.StartFragment
+import ru.vsls.korotaevahomework.main.presentation.StartFragment
 
 @Component(modules = [NetworkModule::class, EnterModule::class])
 interface AppComponent {
