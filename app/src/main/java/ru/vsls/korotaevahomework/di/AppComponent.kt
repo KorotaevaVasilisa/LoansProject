@@ -7,14 +7,15 @@ import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.common.di.NetworkModule
 import ru.vsls.korotaevahomework.enter.di.EnterModule
 import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
-import ru.vsls.korotaevahomework.main.presentation.StartFragment
+import ru.vsls.korotaevahomework.main.di.MainModule
+import ru.vsls.korotaevahomework.main.presentation.MainFragment
 
-@Component(modules = [NetworkModule::class, EnterModule::class])
+@Component(modules = [NetworkModule::class, EnterModule::class, MainModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
     fun inject(enterFragment: EnterFragment)
 
-    fun inject(mainFragment: StartFragment)
+    fun inject(mainFragment: MainFragment)
 
 
     @Component.Builder

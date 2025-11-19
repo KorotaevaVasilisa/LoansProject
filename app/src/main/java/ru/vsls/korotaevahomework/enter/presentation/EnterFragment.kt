@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.theme.ShiftTheme
-import ru.vsls.korotaevahomework.main.presentation.StartFragment
+import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import javax.inject.Inject
 import kotlin.getValue
 
@@ -51,7 +51,7 @@ class EnterFragment : Fragment() {
 
     private fun navigateToMainScreen() {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.main_container, StartFragment())
+            .replace(R.id.main_container, MainFragment())
             .commit()
     }
 }

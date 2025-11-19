@@ -13,7 +13,7 @@ import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.theme.ShiftTheme
 import javax.inject.Inject
 
-class StartFragment : Fragment() {
+class MainFragment : Fragment() {
 
     @Inject
     lateinit var viewModel: MainViewModel
@@ -31,7 +31,7 @@ class StartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        return inflater.inflate(R.layout.fragment_start, container, false)
+        return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
