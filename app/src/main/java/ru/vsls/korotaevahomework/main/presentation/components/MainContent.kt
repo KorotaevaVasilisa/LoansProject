@@ -21,7 +21,6 @@ import ru.vsls.korotaevahomework.R
 @Composable
 internal fun MainContent(
     sliderValue: Float,
-    getLoan: () -> String,
     onContinueClick: () -> Unit,
     onSliderValueChange: (Float) -> Unit,
 ) {
@@ -43,7 +42,6 @@ internal fun MainContent(
 
             LoanPanel(
                 sliderValue = sliderValue,
-                getLoan = getLoan,
                 onContinueClick = onContinueClick,
                 onValueChange = onSliderValueChange
             )

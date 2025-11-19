@@ -10,13 +10,9 @@ class MainViewModel @Inject constructor() : ViewModel() {
     private var _state = MutableStateFlow<MainState>(MainState.Content())
     val state = _state.asStateFlow()
 
-    fun getLoanAmount(): String {
-        val state = _state.value as? MainState.Content ?: return ""
-        val loan = state.valueSlider.toInt().toString() + " ₽"
-        return loan
-    }
-
     fun onSliderValueChange(value: Float) {
-        println("Slider value changed to $value")
+        val state = _state.value as? MainState.Content ?: return
+
+        _state.value = state.copy(valueSlider = value)
     }
 }

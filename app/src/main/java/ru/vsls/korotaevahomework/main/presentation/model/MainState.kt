@@ -5,6 +5,6 @@ sealed interface MainState {
     data object Loading : MainState
 
     data class Content(
-        val valueSlider: Float = 0f
+        val valueSlider: Float = 7000f
     ) : MainState
 }

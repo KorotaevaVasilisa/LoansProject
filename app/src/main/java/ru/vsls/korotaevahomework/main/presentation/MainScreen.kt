@@ -17,7 +17,6 @@ fun MainScreen(viewModel: MainViewModel) {
     when (currentState) {
         is MainState.Content -> MainContent(
             sliderValue = currentState.valueSlider,
-            getLoan = viewModel::getLoanAmount,
             onContinueClick = {},
             onSliderValueChange = viewModel::onSliderValueChange
         )
