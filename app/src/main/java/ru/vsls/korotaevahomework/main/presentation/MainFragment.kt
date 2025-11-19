@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.theme.ShiftTheme
+import ru.vsls.korotaevahomework.form.FormFragment
 import javax.inject.Inject
 
 class MainFragment : Fragment() {
@@ -41,9 +42,20 @@ class MainFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    MainScreen(viewModel = viewModel)
+                    MainScreen(
+                        viewModel = viewModel,
+                        onNavigateToForm = ::navigateToForm
+                    )
                 }
             }
         }
+    }
+
+    private fun navigateToForm(amount: Int, percent: Double, period: Int) {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.main_container, FormFragment.newInstance(
+                amount, percent, period))
+            .addToBackStack(null)
+            .commit()
     }
 }

@@ -8,7 +8,8 @@ sealed interface MainState {
 
     data class Content(
         val condition: Condition? = null,
-        val valueSlider: Float = 7000f
+        val valueLoan: Int = 7000,
+        val valueSlider: Float = 7000f,
     ) : MainState
 }
 

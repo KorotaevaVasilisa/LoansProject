@@ -10,16 +10,20 @@ import ru.vsls.korotaevahomework.main.presentation.model.MainState
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen(viewModel: MainViewModel) {
+fun MainScreen(
+    viewModel: MainViewModel,
+    onNavigateToForm: (Int,Double, Int) -> Unit,
+) {
     val state by viewModel.state.collectAsState()
 
     val currentState = state
     when (currentState) {
         is MainState.Content -> MainContent(
+            loanValue = currentState.valueLoan,
             sliderValue = currentState.valueSlider,
             condition = currentState.condition,
-            onContinueClick = {},
-            onSliderValueChange = viewModel::onSliderValueChange
+            onSliderValueChange = viewModel::onSliderValueChange,
+            onNavigateToForm = onNavigateToForm
         )
 
         MainState.Initial,

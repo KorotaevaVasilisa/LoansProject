@@ -25,6 +25,7 @@ import ru.vsls.korotaevahomework.R
 
 @Composable
 fun LoanPanel(
+    loanValue: Int,
     sliderValue: Float,
     maxAmount: Int,
     period: Int,
@@ -49,7 +50,7 @@ fun LoanPanel(
                     .padding(16.dp)
             ) {
 
-                LoanSizeText(value = sliderValue)
+                LoanSizeText(value = loanValue)
 
                 LoanSlider(
                     maxAmount = maxAmount,
@@ -90,11 +91,11 @@ private fun ConditionsText(
 
 @Composable
 private fun LoanSizeText(
-    value: Float,
+    value: Int,
 ) {
     Row {
         Text(
-            text = value.toInt().toString() + " ₽",
+            text = stringResource(R.string.price_form, value),
             style = MaterialTheme.typography.titleLarge
         )
         Icon(
@@ -148,5 +149,5 @@ private fun RangeText(
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    LoanPanel(2000f, 15000, 20, 44, {}, {})
+    LoanPanel(2000, 2000f, 15000, 20, 44, {}, {})
 }

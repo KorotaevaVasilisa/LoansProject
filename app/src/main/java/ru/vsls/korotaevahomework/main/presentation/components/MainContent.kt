@@ -21,10 +21,11 @@ import ru.vsls.korotaevahomework.main.domain.model.Condition
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainContent(
+    loanValue: Int,
     sliderValue: Float,
     condition: Condition?,
-    onContinueClick: () -> Unit,
     onSliderValueChange: (Float) -> Unit,
+    onNavigateToForm: (Int, Double, Int) -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -44,11 +45,18 @@ internal fun MainContent(
 
             if (condition != null)
                 LoanPanel(
+                    loanValue = loanValue,
                     sliderValue = sliderValue,
                     maxAmount = condition.maxAmount,
                     period = condition.period,
                     percent = condition.percent.toInt(),
-                    onContinueClick = onContinueClick,
+                    onContinueClick = {
+                        onNavigateToForm(
+                            loanValue,
+                            condition.percent,
+                            condition.period
+                        )
+                    },
                     onValueChange = onSliderValueChange
                 )
         }
