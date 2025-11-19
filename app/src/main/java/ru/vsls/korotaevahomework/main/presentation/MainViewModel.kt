@@ -22,8 +22,13 @@ class MainViewModel @Inject constructor(
 
     fun loadData() {
         viewModelScope.launch {
-            val condition = getConditionsUseCase()
-            _state.update { MainState.Content(condition = condition, valueSlider = 0f) }
+            try {
+                _state.update { MainState.Content(condition = null, valueSlider = 0f) }
+                val condition = getConditionsUseCase()
+                _state.update { MainState.Content(condition = condition, valueSlider = 0f) }
+            } catch (ex: Exception) {
+
+            }
         }
     }
 

@@ -26,6 +26,9 @@ import ru.vsls.korotaevahomework.R
 @Composable
 fun LoanPanel(
     sliderValue: Float,
+    maxAmount: Int,
+    period: Int,
+    percent: Int,
     onContinueClick: () -> Unit,
     onValueChange: (Float) -> Unit,
 ) {
@@ -49,14 +52,18 @@ fun LoanPanel(
                 LoanSizeText(value = sliderValue)
 
                 LoanSlider(
+                    maxAmount = maxAmount,
                     sliderValue = sliderValue,
                     onValueChange = onValueChange
                 )
 
-                RangeText()
+                RangeText(maxAmount = maxAmount)
                 HorizontalDivider(color = MaterialTheme.colorScheme.secondary)
 
-                ConditionsText()
+                ConditionsText(
+                    percent = percent,
+                    period = period
+                )
 
                 ContinueButton(onClick = onContinueClick)
             }
@@ -65,7 +72,10 @@ fun LoanPanel(
 }
 
 @Composable
-private fun ConditionsText() {
+private fun ConditionsText(
+    percent: Int,
+    period: Int,
+) {
     Column(modifier = Modifier.padding(vertical = 16.dp)) {
         Text(
             text = stringResource(R.string.conditions),
@@ -73,7 +83,7 @@ private fun ConditionsText() {
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
-            text = stringResource(R.string.week_condition)
+            text = stringResource(R.string.condition, percent, period),
         )
     }
 }
@@ -114,18 +124,21 @@ private fun ContinueButton(onClick: () -> Unit) {
 }
 
 @Composable
-private fun RangeText() {
+private fun RangeText(
+    maxAmount: Int,
+    minAmount: Int = 0,
+) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(
-            stringResource(R.string.min_loan),
+            text = stringResource(R.string.price_form, minAmount),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         Text(
-            stringResource(R.string.max_loan),
+            text = stringResource(R.string.price_form, maxAmount),
             style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -135,5 +148,5 @@ private fun RangeText() {
 @Preview(showBackground = true)
 @Composable
 private fun Preview() {
-    LoanPanel(2000f, {}, {})
+    LoanPanel(2000f, 15000, 20, 44, {}, {})
 }

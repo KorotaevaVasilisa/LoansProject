@@ -25,6 +25,7 @@ import ru.vsls.korotaevahomework.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun LoanSlider(
+    maxAmount:Int,
     sliderValue: Float,
     onValueChange: (Float) -> Unit,
 ) {
@@ -35,7 +36,7 @@ internal fun LoanSlider(
     Slider(
         modifier = Modifier.fillMaxWidth(),
         value = sliderValue,
-        valueRange = 0f..10000f,
+        valueRange = 0f..maxAmount.toFloat(),
         onValueChange = onValueChange,
         colors = colors,
         thumb = {

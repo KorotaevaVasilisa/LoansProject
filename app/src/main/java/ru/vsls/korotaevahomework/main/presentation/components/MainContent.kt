@@ -16,11 +16,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.main.domain.model.Condition
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainContent(
     sliderValue: Float,
+    condition: Condition?,
     onContinueClick: () -> Unit,
     onSliderValueChange: (Float) -> Unit,
 ) {
@@ -40,11 +42,15 @@ internal fun MainContent(
         ) {
             LoanCard()
 
-            LoanPanel(
-                sliderValue = sliderValue,
-                onContinueClick = onContinueClick,
-                onValueChange = onSliderValueChange
-            )
+            if (condition != null)
+                LoanPanel(
+                    sliderValue = sliderValue,
+                    maxAmount = condition.maxAmount,
+                    period = condition.period,
+                    percent = condition.percent.toInt(),
+                    onContinueClick = onContinueClick,
+                    onValueChange = onSliderValueChange
+                )
         }
     }
 }
