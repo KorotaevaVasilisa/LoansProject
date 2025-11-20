@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
 
 class FormViewModel @AssistedInject constructor(
     @Assisted("amount") val amount: Int?,
     @Assisted("percent") val percent: Double?,
     @Assisted("period") val period: Int?,
+    private val sendRequestUseCase: SendRequestUseCase
 ) : ViewModel() {
 
     @AssistedFactory

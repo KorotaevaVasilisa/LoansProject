@@ -1,20 +1,23 @@
 package ru.vsls.korotaevahomework.form.di
 
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import ru.vsls.korotaevahomework.form.FormFragment
+import retrofit2.Retrofit
+import ru.vsls.korotaevahomework.form.data.FormApiService
+import ru.vsls.korotaevahomework.form.data.FormRepositoryImpl
+import ru.vsls.korotaevahomework.form.domain.FormRepository
 
 @Module
 interface FormModule {
 
     companion object {
-//            @Provides
-//            fun provideEnterApiService(retrofit: Retrofit): EnterApiService =
-//                retrofit.create(EnterApiService::class.java)
-
         @Provides
-        fun providePercent(fragment: FormFragment): Double =
-            fragment.requireArguments().getDouble(FormFragment.ARG_PERCENT)
+        fun provideEnterApiService(retrofit: Retrofit): FormApiService =
+            retrofit.create(FormApiService::class.java)
     }
+
+    @Binds
+    fun bindFormRepository(impl: FormRepositoryImpl): FormRepository
 
 }

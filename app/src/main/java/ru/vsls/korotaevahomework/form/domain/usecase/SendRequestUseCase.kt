@@ -3,8 +3,9 @@ package ru.vsls.korotaevahomework.form.domain.usecase
 import ru.vsls.korotaevahomework.form.domain.FormRepository
 import ru.vsls.korotaevahomework.form.domain.model.LoanRequest
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import javax.inject.Inject
 
-class SendRequestUseCase(private val repository: FormRepository) {
+class SendRequestUseCase @Inject constructor(private val repository: FormRepository) {
     suspend operator fun invoke(
         name: String,
         surname: String,

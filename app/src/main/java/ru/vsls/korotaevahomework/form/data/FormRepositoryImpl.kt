@@ -5,8 +5,10 @@ import ru.vsls.korotaevahomework.form.data.mapper.toDomain
 import ru.vsls.korotaevahomework.form.domain.FormRepository
 import ru.vsls.korotaevahomework.form.domain.model.LoanRequest
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import javax.inject.Inject
 
-class FormRepositoryImpl(private val apiService: FormApiService): FormRepository {
+class FormRepositoryImpl @Inject constructor(private val apiService: FormApiService) :
+    FormRepository {
     override suspend fun sendRequestLoan(request: LoanRequest): LoanResponse {
         return apiService.postLoanRequest(request.toData()).toDomain()
     }
