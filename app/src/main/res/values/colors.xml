@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="border_day">#FF959698</color>
+    <color name="border_night">#FFB4B4B4</color>
     <color name="font_day_disable">#FFA1A5AA</color>
     <color name="font_night_disable">#FF73787F</color>
     <color name="bg_day_secondary">#FFF1F1F2</color>
