@@ -82,12 +82,15 @@ class FormFragment : Fragment() {
 
         val button = view.findViewById<Button>(R.id.confirm_button)
         button.setOnClickListener {
-            val isNameValid = validateRussianText(nameText?.text?.toString(), layoutName)
-            val isSurnameValid = validateRussianText(surnameText?.text?.toString(), layoutSurname)
-            val isNumberValid = validateNumberText(numberText?.text?.toString(), layoutNumber)
+            val name = nameText?.text?.toString()
+            val surname = surnameText?.text?.toString()
+            val number = numberText?.text?.toString()
+            val isNameValid = validateRussianText(name, layoutName)
+            val isSurnameValid = validateRussianText(surname, layoutSurname)
+            val isNumberValid = validateNumberText(number, layoutNumber)
 
             if (isNameValid && isSurnameValid && isNumberValid) {
-                Toast.makeText(requireContext(), "OK!", Toast.LENGTH_SHORT).show()
+               viewModel.registerLoan(name!!, surname!!, number!!)
             }
         }
     }

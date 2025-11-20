@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import ru.vsls.korotaevahomework.R
 
 @Composable
-internal fun UserLoans(loans: List<String>){
+internal fun UserLoans(loans: List<String> = emptyList()){
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             stringResource(R.string.title_user_loans_panel),

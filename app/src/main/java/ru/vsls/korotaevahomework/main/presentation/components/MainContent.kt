@@ -59,6 +59,7 @@ internal fun MainContent(
                     },
                     onValueChange = onSliderValueChange
                 )
+            UserLoans()
         }
     }
 }

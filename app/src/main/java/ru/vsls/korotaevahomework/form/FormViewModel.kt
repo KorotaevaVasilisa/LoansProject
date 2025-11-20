@@ -14,9 +14,13 @@ class FormViewModel @AssistedInject constructor(
     @AssistedFactory
     interface Factory {
         fun create(
-            @Assisted("amount")  amount: Int?,
+            @Assisted("amount") amount: Int?,
             @Assisted("percent") percent: Double?,
-            @Assisted("period")  period: Int?,
+            @Assisted("period") period: Int?,
         ): FormViewModel
+    }
+
+    fun registerLoan(name: String, surname: String, number: String): Boolean {
+        return amount != null && percent != null && period != null
     }
 }
