@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -93,7 +94,7 @@ private fun ConditionsText(
 private fun LoanSizeText(
     value: Int,
 ) {
-    Row {
+    Row(modifier = Modifier.wrapContentHeight()) {
         Text(
             text = stringResource(R.string.price_form, value),
             style = MaterialTheme.typography.titleLarge
@@ -102,8 +103,8 @@ private fun LoanSizeText(
             painter = painterResource(R.drawable.edit_icon),
             contentDescription = stringResource(R.string.edit_loan),
             modifier = Modifier
-                .size(24.dp)
-                .padding(horizontal = 16.dp),
+                .padding(start = 8.dp)
+                .size(24.dp),
             tint = MaterialTheme.colorScheme.onSurfaceVariant
         )
     }

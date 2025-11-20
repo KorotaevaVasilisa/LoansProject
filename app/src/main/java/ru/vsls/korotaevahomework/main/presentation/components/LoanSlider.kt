@@ -25,7 +25,7 @@ import ru.vsls.korotaevahomework.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun LoanSlider(
-    maxAmount:Int,
+    maxAmount: Int,
     sliderValue: Float,
     onValueChange: (Float) -> Unit,
 ) {
@@ -49,8 +49,10 @@ internal fun LoanSlider(
                 color = MaterialTheme.colorScheme.secondary,
                 fraction = 1f
             )
-            CustomTrack(color = MaterialTheme.colorScheme.inverseOnSurface,
-                fraction = width)
+            CustomTrack(
+                color = MaterialTheme.colorScheme.inverseOnSurface,
+                fraction = width
+            )
 
         }
     )

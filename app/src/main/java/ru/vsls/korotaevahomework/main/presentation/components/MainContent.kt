@@ -37,7 +37,7 @@ internal fun MainContent(
                 .background(MaterialTheme.colorScheme.secondary)
                 .padding(paddingValues)
                 .fillMaxSize()
-                .padding(horizontal = 24.dp, vertical = 16.dp),
+                .padding(horizontal = 16.dp, vertical = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {

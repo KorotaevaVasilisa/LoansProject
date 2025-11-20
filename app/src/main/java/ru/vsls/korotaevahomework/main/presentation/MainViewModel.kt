@@ -25,7 +25,7 @@ class MainViewModel @Inject constructor(
             try {
                 _state.update { MainState.Content(condition = null, valueSlider = 0f) }
                 val condition = getConditionsUseCase()
-                _state.update { MainState.Content(condition = condition, valueSlider = 0f) }
+                _state.update { MainState.Content(condition = condition) }
             } catch (ex: Exception) {
 
             }
@@ -35,6 +35,6 @@ class MainViewModel @Inject constructor(
     fun onSliderValueChange(value: Float) {
         val state = _state.value as? MainState.Content ?: return
 
-        _state.value = state.copy(valueSlider = value)
+        _state.value = state.copy(valueSlider = value, valueLoan = value.toInt())
     }
 }
