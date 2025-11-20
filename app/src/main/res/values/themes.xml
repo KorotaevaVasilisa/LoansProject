@@ -1,9 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.KorotaevaHomework" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="myInputBackground">@color/bg_day_secondary</item>
+        <item name="colorOnSecondary">@color/font_day_disable</item>
+        <item name="colorOnBackground">@color/font_day_secondary</item>
     </style>
 
-    <style name="Theme.KorotaevaHomework" parent="Base.Theme.KorotaevaHomework" />
+    <style name="Theme.KorotaevaHomework" parent="Base.Theme.KorotaevaHomework"/>
+    <attr name="myInputBackground" format="color" />
 </resources>

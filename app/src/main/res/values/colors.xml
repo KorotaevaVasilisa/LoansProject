@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="font_day_disable">#FFA1A5AA</color>
+    <color name="font_night_disable">#FF73787F</color>
+    <color name="bg_day_secondary">#FFF1F1F2</color>
+    <color name="bg_night_secondary">#FF313944</color>
+    <color name="font_day_secondary">#FF73787F</color>
+    <color name="font_night_secondary">#FFA1A5AA</color>
 </resources>

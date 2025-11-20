@@ -50,14 +50,11 @@ class FormFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val text = view.findViewById<TextView>(R.id.text)
-        text.text = viewModel.percent.toString()
     }
 
     companion object {
         const val ARG_PERIOD = "period"
         const val ARG_PERCENT = "percent"
-
         const val ARG_AMOUNT = "amount"
 
         @JvmStatic
