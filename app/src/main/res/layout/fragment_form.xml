@@ -16,27 +16,22 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fir_surname"
+        style="@style/CustomTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="16.dp"
-        android:textColorHint="?attr/colorOnSecondary"
-        app:boxBackgroundColor="@color/edit_text_bg_selector"
-        app:boxBackgroundMode="outline"
-        app:boxStrokeColor="@color/edit_text_stroke_selector"
-        app:cursorColor="?attr/colorOnSurface"
-        app:hintTextColor="?attr/colorOnBackground">
+        android:layout_marginVertical="16.dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/ed_surname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:hint="@string/name" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/CustomTextInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
