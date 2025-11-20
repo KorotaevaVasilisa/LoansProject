@@ -10,4 +10,7 @@
     <color name="bg_night_secondary">#FF313944</color>
     <color name="font_day_secondary">#FF73787F</color>
     <color name="font_night_secondary">#FFA1A5AA</color>
+    <color name="bg_day_primary">#FFFFFFFF</color>
+    <color name="bg_night_primary">#FF151E2A</color>
+    <color name="primary">#FFFED200</color>
 </resources>
