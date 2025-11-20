@@ -85,12 +85,15 @@ class FormFragment : Fragment() {
             val name = nameText?.text?.toString()
             val surname = surnameText?.text?.toString()
             val number = numberText?.text?.toString()
+
+            if (name == null || surname == null || number == null) return@setOnClickListener
+
             val isNameValid = validateRussianText(name, layoutName)
             val isSurnameValid = validateRussianText(surname, layoutSurname)
             val isNumberValid = validateNumberText(number, layoutNumber)
 
             if (isNameValid && isSurnameValid && isNumberValid) {
-               viewModel.registerLoan(name!!, surname!!, number!!)
+                viewModel.registerLoan(name, surname, number)
             }
         }
     }
