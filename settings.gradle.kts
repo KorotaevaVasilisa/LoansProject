@@ -22,3 +22,5 @@ dependencyResolutionManagement {
 rootProject.name = "KorotaevaHomework"
 include(":app")
 include(":shared:network")
+include(":feature:enter")
+include(":shared:navigation")
