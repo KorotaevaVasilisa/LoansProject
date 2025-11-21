@@ -1,6 +1,7 @@
 package ru.vsls.shared.network.data.local
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import javax.inject.Inject
@@ -19,8 +20,17 @@ class TokenStorage @Inject constructor(private val context: Context) {
             .build()
     }
 
-    private val tokenStorage by lazy {
-        EncryptedSharedPreferences.create(
+    private val tokenStorage: SharedPreferences by lazy {
+        try {
+            createEncryptedPrefs()
+        } catch (e: Exception) {
+            context.deleteSharedPreferences(NAME_PREFERENCES)
+            createEncryptedPrefs()
+        }
+    }
+
+    private fun createEncryptedPrefs(): SharedPreferences {
+        return EncryptedSharedPreferences.create(
             context,
             NAME_PREFERENCES,
             masterKey,
