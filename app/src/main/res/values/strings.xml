@@ -1,17 +1,5 @@
 <resources>
     <string name="app_name">KorotaevaHomework</string>
-    <string name="logo">Шифт займы</string>
-    <string name="password">Пароль</string>
-    <string name="replay_password">Повторите пароль</string>
-    <string name="log_in">Войти</string>
-    <string name="regist_in">Зарегистрироваться</string>
-    <string name="enter">Вход</string>
-    <string name="login">Логин</string>
-    <string name="registration">Регистрация</string>
-    <string name="error_login">Только цифры и латинские буквы</string>
-    <string name="error_password">Пароли не совпадают</string>
-    <string name="show_password">Показать пароль</string>
-    <string name="hide_password">Скрыть пароль</string>
     <string name="main_title">Главная</string>
     <string name="title_loan_card">Получите займ в 2 клика</string>
     <string name="label_loan_card">Деньги наличными на любые цели</string>

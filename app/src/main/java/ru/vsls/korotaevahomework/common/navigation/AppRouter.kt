@@ -1,11 +1,10 @@
 package ru.vsls.korotaevahomework.common.navigation
 
-import android.app.Activity
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.korotaevahomework.result.ResultFragment

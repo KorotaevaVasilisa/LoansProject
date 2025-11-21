@@ -48,6 +48,8 @@ dependencies {
     implementation(project(":shared:network"))
     implementation(project(":shared:navigation"))
 
+    implementation(project(":feature:enter"))
+
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)

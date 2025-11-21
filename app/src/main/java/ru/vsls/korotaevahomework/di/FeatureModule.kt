@@ -2,8 +2,8 @@ package ru.vsls.korotaevahomework.di
 
 import dagger.Module
 import dagger.Provides
-import ru.vsls.korotaevahomework.enter.di.DaggerEnterComponent
-import ru.vsls.korotaevahomework.enter.di.EnterComponent
+import ru.vsls.enter.di.DaggerEnterComponent
+import ru.vsls.enter.di.EnterComponent
 import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
 import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.main.di.DaggerMainComponent

@@ -1,0 +1,46 @@
+package ru.vsls.enter.presentation
+
+import android.content.Context
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.fragment.app.Fragment
+import ru.vsls.enter.R
+import ru.vsls.navigation.di.getComponentProvider
+import ru.vsls.shared.network.theme.ShiftTheme
+import javax.inject.Inject
+
+class EnterFragment : Fragment() {
+
+    @Inject
+    lateinit var viewModel: EnterViewModel
+
+    override fun onAttach(context: Context) {
+        context.getComponentProvider().getEnterComponent().inject(this)
+        super.onAttach(context)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        return inflater.inflate(R.layout.fragment_enter, container, false)
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val composeView = view.findViewById<ComposeView>(R.id.compose_view)
+        composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                ShiftTheme {
+                    EnterScreen(viewModel = viewModel)
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.di.ViewModelKey
+import ru.vsls.navigation.di.ViewModelKey
 import ru.vsls.korotaevahomework.main.data.LoanApiService
 import ru.vsls.korotaevahomework.main.data.LoanRepositoryImpl
 import ru.vsls.korotaevahomework.main.domain.LoanRepository
