@@ -15,19 +15,11 @@ import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
 @Composable
 fun EnterScreen(
     viewModel: EnterViewModel,
-    navigateToMain:()->Unit
 ) {
     val state by viewModel.state.collectAsState()
 
     LaunchedEffect(Unit) { viewModel.initForm() }
 
-    LaunchedEffect(Unit) {
-        viewModel.navigation.collect { destination ->
-            when (destination) {
-                EnterNavigationRoute.Main -> navigateToMain()
-            }
-        }
-    }
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {

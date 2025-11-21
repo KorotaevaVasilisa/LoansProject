@@ -5,7 +5,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import ru.vsls.korotaevahomework.common.navigation.ActivityHolder
 import ru.vsls.korotaevahomework.common.navigation.AppRouter
+import ru.vsls.korotaevahomework.common.navigation.Router
 import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.databinding.ActivityMainBinding
 import javax.inject.Inject
@@ -13,7 +15,10 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var router: AppRouter
+    lateinit var router: Router
+
+    @Inject
+    lateinit var holder: ActivityHolder
     private val component by lazy {
         (application as App).component
     }
@@ -31,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        router.attachActivity(this)
+        holder.attachActivity(this)
         if (savedInstanceState == null) {
             router.navigateTo(Screen.EnterScreen)
         }
@@ -40,6 +45,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        router.detachActivity()
+        holder.detachActivity()
     }
 }

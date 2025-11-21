@@ -10,7 +10,9 @@ import ru.vsls.korotaevahomework.form.di.FormModule
 import ru.vsls.korotaevahomework.main.di.MainModule
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.shared.network.di.NetworkModule
+import javax.inject.Singleton
 
+@Singleton
 @Component(modules = [AppModule::class, NetworkModule::class, MainModule::class, FormModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)

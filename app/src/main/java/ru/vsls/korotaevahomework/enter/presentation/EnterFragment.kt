@@ -42,15 +42,9 @@ class EnterFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    EnterScreen(viewModel = viewModel, navigateToMain = ::navigateToMainScreen)
+                    EnterScreen(viewModel = viewModel)
                 }
             }
         }
-    }
-
-    private fun navigateToMainScreen() {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.main_container, MainFragment())
-            .commit()
     }
 }

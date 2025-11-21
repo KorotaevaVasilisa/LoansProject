@@ -8,15 +8,15 @@ import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import javax.inject.Inject
 
-class AppRouter @Inject constructor() : Router {
+class AppRouter @Inject constructor() : Router, ActivityHolder {
 
     private var activity: MainActivity? = null
 
-    fun attachActivity(activity: MainActivity) {
+    override fun attachActivity(activity: MainActivity) {
         this.activity = activity
     }
 
-    fun detachActivity() {
+    override fun detachActivity() {
         this.activity = null
     }
 
