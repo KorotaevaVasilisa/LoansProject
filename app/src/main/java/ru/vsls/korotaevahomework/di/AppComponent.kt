@@ -7,19 +7,18 @@ import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.enter.di.EnterComponent
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.form.di.FormModule
-import ru.vsls.korotaevahomework.main.di.MainModule
-import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.shared.network.di.NetworkModule
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = [AppModule::class, NetworkModule::class, MainModule::class, FormModule::class])
+@Component(modules = [AppModule::class, NetworkModule::class, FormModule::class])
 interface AppComponent {
     fun inject(mainActivity: MainActivity)
-    fun inject(mainFragment: MainFragment)
     fun inject(formFragment: FormFragment)
 
     fun enterComponent(): EnterComponent
+    fun mainComponent(): MainComponent
 
     @Component.Builder
     interface Builder {

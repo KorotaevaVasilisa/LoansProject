@@ -20,7 +20,7 @@ class MainFragment : Fragment() {
     lateinit var viewModel: MainViewModel
 
     private val component by lazy {
-        (requireActivity().application as App).component
+        (requireActivity().application as App).component.mainComponent()
     }
 
     override fun onAttach(context: Context) {
