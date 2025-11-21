@@ -43,19 +43,10 @@ class MainFragment : Fragment() {
             setContent {
                 ShiftTheme {
                     MainScreen(
-                        viewModel = viewModel,
-                        onNavigateToForm = ::navigateToForm
+                        viewModel = viewModel
                     )
                 }
             }
         }
-    }
-
-    private fun navigateToForm(amount: Int, percent: Double, period: Int) {
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.main_container, FormFragment.newInstance(
-                amount, percent, period))
-            .addToBackStack(null)
-            .commit()
     }
 }

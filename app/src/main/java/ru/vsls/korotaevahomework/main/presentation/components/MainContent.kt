@@ -25,7 +25,7 @@ internal fun MainContent(
     sliderValue: Float,
     condition: Condition?,
     onSliderValueChange: (Float) -> Unit,
-    onNavigateToForm: (Int, Double, Int) -> Unit,
+    onNavigateToForm: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -50,13 +50,7 @@ internal fun MainContent(
                     maxAmount = condition.maxAmount,
                     period = condition.period,
                     percent = condition.percent.toInt(),
-                    onContinueClick = {
-                        onNavigateToForm(
-                            loanValue,
-                            condition.percent,
-                            condition.period
-                        )
-                    },
+                    onContinueClick = onNavigateToForm,
                     onValueChange = onSliderValueChange
                 )
             UserLoans()

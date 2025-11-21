@@ -6,12 +6,15 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import ru.vsls.korotaevahomework.common.navigation.Router
+import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.main.domain.usecases.GetConditionsUseCase
 import ru.vsls.korotaevahomework.main.presentation.model.MainState
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
     private val getConditionsUseCase: GetConditionsUseCase,
+    private val router: Router,
 ) : ViewModel() {
     private var _state = MutableStateFlow<MainState>(MainState.Loading)
     val state = _state.asStateFlow()
@@ -36,5 +39,18 @@ class MainViewModel @Inject constructor(
         val state = _state.value as? MainState.Content ?: return
 
         _state.value = state.copy(valueSlider = value, valueLoan = value.toInt())
+    }
+
+    fun navigateToForm() {
+        val state = _state.value as? MainState.Content ?: return
+        if (state.condition == null) return
+
+        router.navigateTo(
+            Screen.FormScreen(
+                amount = state.valueLoan,
+                period = state.condition.period,
+                percent = state.condition.percent
+            )
+        )
     }
 }

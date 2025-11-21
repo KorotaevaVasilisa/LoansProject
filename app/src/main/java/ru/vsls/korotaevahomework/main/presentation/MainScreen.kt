@@ -12,7 +12,6 @@ import ru.vsls.korotaevahomework.main.presentation.model.MainState
 @Composable
 fun MainScreen(
     viewModel: MainViewModel,
-    onNavigateToForm: (Int,Double, Int) -> Unit,
 ) {
     val state by viewModel.state.collectAsState()
 
@@ -23,7 +22,7 @@ fun MainScreen(
             sliderValue = currentState.valueSlider,
             condition = currentState.condition,
             onSliderValueChange = viewModel::onSliderValueChange,
-            onNavigateToForm = onNavigateToForm
+            onNavigateToForm = viewModel::navigateToForm
         )
 
         MainState.Initial,
