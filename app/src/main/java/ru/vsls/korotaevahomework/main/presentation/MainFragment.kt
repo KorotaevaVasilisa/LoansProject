@@ -10,8 +10,8 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.theme.ShiftTheme
 import ru.vsls.korotaevahomework.form.FormFragment
+import ru.vsls.shared.network.theme.ShiftTheme
 import javax.inject.Inject
 
 class MainFragment : Fragment() {

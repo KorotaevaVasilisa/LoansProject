@@ -1,7 +1,7 @@
-package ru.vsls.korotaevahomework.common.data
+package ru.vsls.shared.network.data
 
-import ru.vsls.korotaevahomework.common.data.local.TokenStorage
-import ru.vsls.korotaevahomework.common.domain.TokenRepository
+import ru.vsls.shared.network.data.local.TokenStorage
+import ru.vsls.shared.network.domain.TokenRepository
 import javax.inject.Inject
 
 class TokenRepositoryImpl @Inject constructor(private val tokenStorage: TokenStorage) :

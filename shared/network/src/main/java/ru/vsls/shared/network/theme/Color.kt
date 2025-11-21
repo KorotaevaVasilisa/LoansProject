@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.theme
+package ru.vsls.shared.network.theme
 
 import androidx.compose.ui.graphics.Color
 

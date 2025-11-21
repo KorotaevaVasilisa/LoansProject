@@ -1,9 +1,9 @@
-package ru.vsls.korotaevahomework.common.data.interceptors
+package ru.vsls.shared.network.data.interceptors
 
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
-import ru.vsls.korotaevahomework.common.domain.TokenRepository
+import ru.vsls.shared.network.domain.TokenRepository
 import javax.inject.Inject
 
 class TokenInterceptor @Inject constructor(

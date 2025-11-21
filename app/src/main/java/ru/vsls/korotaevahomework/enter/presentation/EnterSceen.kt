@@ -7,7 +7,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import ru.vsls.korotaevahomework.common.presentation.LoadingScreen
+import ru.vsls.korotaevahomework.common.LoadingScreen
 import ru.vsls.korotaevahomework.enter.presentation.components.EnterContent
 import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
 

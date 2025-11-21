@@ -4,13 +4,13 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.vsls.korotaevahomework.MainActivity
-import ru.vsls.korotaevahomework.common.di.NetworkModule
 import ru.vsls.korotaevahomework.enter.di.EnterModule
 import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.form.di.FormModule
 import ru.vsls.korotaevahomework.main.di.MainModule
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.shared.network.di.NetworkModule
 
 @Component(modules = [NetworkModule::class, EnterModule::class, MainModule::class, FormModule::class])
 interface AppComponent {

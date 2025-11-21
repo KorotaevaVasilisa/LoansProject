@@ -1,10 +1,9 @@
-package ru.vsls.korotaevahomework.common
+package ru.vsls.shared.network
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
 import javax.inject.Provider
-import kotlin.collections.asIterable
 
 class ViewModelFactory @Inject constructor(
     private val creators: Map<Class<out ViewModel>, @JvmSuppressWildcards Provider<ViewModel>>

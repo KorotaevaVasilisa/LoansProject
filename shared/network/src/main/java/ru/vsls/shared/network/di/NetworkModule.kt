@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.di
+package ru.vsls.shared.network.di
 
 import dagger.Binds
 import dagger.Module
@@ -11,9 +11,9 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
-import ru.vsls.korotaevahomework.common.data.TokenRepositoryImpl
-import ru.vsls.korotaevahomework.common.data.interceptors.TokenInterceptor
-import ru.vsls.korotaevahomework.common.domain.TokenRepository
+import ru.vsls.shared.network.data.interceptors.TokenInterceptor
+import ru.vsls.shared.network.data.TokenRepositoryImpl
+import ru.vsls.shared.network.domain.TokenRepository
 
 @Module
 interface NetworkModule {

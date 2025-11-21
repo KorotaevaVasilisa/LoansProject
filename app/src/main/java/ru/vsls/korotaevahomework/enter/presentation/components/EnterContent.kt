@@ -1,25 +1,16 @@
 package ru.vsls.korotaevahomework.enter.presentation.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
-import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
 import ru.vsls.korotaevahomework.enter.presentation.model.FieldEvent
+import ru.vsls.korotaevahomework.common.LogoBlock
 
 @Composable
 internal fun EnterContent(
@@ -53,25 +44,3 @@ internal fun EnterContent(
     }
 }
 
-@Composable
-internal fun LogoBlock(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier
-    ) {
-        Image(
-            painter = getCurrentLogo(),
-            contentDescription = stringResource(R.string.logo),
-            modifier = Modifier
-                .align(Alignment.Center)
-                .height(100.dp)
-                .width(270.dp)
-        )
-    }
-}
-
-@Composable
-private fun getCurrentLogo(): Painter {
-    return if (!isSystemInDarkTheme())
-        painterResource(id = R.drawable.logo_light) else
-        painterResource(id = R.drawable.logo_night)
-}

@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.data.local
+package ru.vsls.shared.network.data.local
 
 import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences

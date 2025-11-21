@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.domain
+package ru.vsls.shared.network.domain
 
 interface TokenRepository {
 

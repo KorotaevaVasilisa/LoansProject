@@ -10,10 +10,9 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.theme.ShiftTheme
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.shared.network.theme.ShiftTheme
 import javax.inject.Inject
-import kotlin.getValue
 
 class EnterFragment : Fragment() {
 
