@@ -28,4 +28,5 @@
     <string name="registered_state">На рассмотрении</string>
     <string name="rejected_state">Отклонен</string>
     <string name="show_all_loans">Посмотреть все</string>
+    <string name="open_onbording">Открыть инструкцию</string>
 </resources>
