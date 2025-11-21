@@ -7,6 +7,8 @@ import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.staticCompositionLocalOf
 
 private val LightColorScheme = lightColorScheme(
     primary = PermanentPrimary,
@@ -44,16 +46,22 @@ private val DarkColorScheme = darkColorScheme(
     error = IndicatorNightError,
 )
 
+val LocalStatusColors = staticCompositionLocalOf { LightStatusColors }
+
 @Composable
 fun ShiftTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit,
 ) {
     val colors = if (!darkTheme) LightColorScheme else DarkColorScheme
-    MaterialTheme(
-        colorScheme = colors,
-        typography = Typography(),
-        shapes = Shapes(),
-        content = content
-    )
+    val statusColors = if (darkTheme) DarkStatusColors else LightStatusColors
+
+    CompositionLocalProvider(LocalStatusColors provides statusColors) {
+        MaterialTheme(
+            colorScheme = colors,
+            typography = Typography(),
+            shapes = Shapes(),
+            content = content
+        )
+    }
 }

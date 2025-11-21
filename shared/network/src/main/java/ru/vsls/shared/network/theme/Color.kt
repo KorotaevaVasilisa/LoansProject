@@ -36,4 +36,6 @@ val FontNightDisable = Color(0xFFA1A5AA)
 // Permanent
 val PermanentPrimaryDark = Color(0xFFDEB800)
 
-val IndicatorNightError = Color(0xFFE53E3E)
+val IndicatorNightError = Color(0xFFD34545)
+val IndicatorNightPositive = Color(0xFF26A169)
+val IndicatorNightAttention = Color(0xFFF19916)
