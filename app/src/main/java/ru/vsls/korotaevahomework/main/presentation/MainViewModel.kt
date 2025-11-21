@@ -6,10 +6,10 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.common.navigation.Router
-import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.main.domain.usecases.GetConditionsUseCase
 import ru.vsls.korotaevahomework.main.presentation.model.MainState
+import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(

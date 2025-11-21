@@ -3,22 +3,20 @@ package ru.vsls.korotaevahomework.enter.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.common.navigation.Router
-import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.enter.domain.usecase.GetTokenUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.LoginUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.RegistrationUserUseCase
 import ru.vsls.korotaevahomework.enter.domain.usecase.SaveTokenUseCase
 import ru.vsls.korotaevahomework.enter.presentation.model.EnterState
 import ru.vsls.korotaevahomework.enter.presentation.model.FieldEvent
+import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class EnterViewModel @Inject constructor(

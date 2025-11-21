@@ -1,5 +1,7 @@
 package ru.vsls.korotaevahomework.common.navigation
 
+import android.app.Activity
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
@@ -7,14 +9,17 @@ import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.korotaevahomework.result.ResultFragment
+import ru.vsls.navigation.ActivityHolder
+import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class AppRouter @Inject constructor() : Router, ActivityHolder {
 
     private var activity: MainActivity? = null
 
-    override fun attachActivity(activity: MainActivity) {
-        this.activity = activity
+    override fun attachActivity(activity:FragmentActivity) {
+        this.activity = activity as MainActivity?
     }
 
     override fun detachActivity() {

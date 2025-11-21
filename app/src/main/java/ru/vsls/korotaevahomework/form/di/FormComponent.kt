@@ -3,8 +3,8 @@ package ru.vsls.korotaevahomework.form.di
 import android.content.Context
 import dagger.Component
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.common.navigation.Router
 import ru.vsls.korotaevahomework.form.FormFragment
+import ru.vsls.navigation.Router
 import javax.inject.Inject
 
 @Component(

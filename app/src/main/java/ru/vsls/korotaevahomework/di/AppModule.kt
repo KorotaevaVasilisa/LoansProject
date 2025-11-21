@@ -3,9 +3,9 @@ package ru.vsls.korotaevahomework.di
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import ru.vsls.korotaevahomework.common.navigation.ActivityHolder
 import ru.vsls.korotaevahomework.common.navigation.AppRouter
-import ru.vsls.korotaevahomework.common.navigation.Router
+import ru.vsls.navigation.ActivityHolder
+import ru.vsls.navigation.Router
 import javax.inject.Singleton
 
 @Module(includes = [FeatureModule::class])

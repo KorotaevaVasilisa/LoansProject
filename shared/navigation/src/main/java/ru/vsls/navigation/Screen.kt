@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.navigation
+package ru.vsls.navigation
 
 sealed interface Screen {
     data object EnterScreen : Screen

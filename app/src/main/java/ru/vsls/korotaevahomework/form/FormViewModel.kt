@@ -6,9 +6,9 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.common.navigation.Router
-import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
+import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 
 class FormViewModel @AssistedInject constructor(
     @Assisted("amount") val amount: Int?,

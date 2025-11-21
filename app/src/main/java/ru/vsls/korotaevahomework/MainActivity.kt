@@ -5,11 +5,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import ru.vsls.korotaevahomework.common.navigation.ActivityHolder
-import ru.vsls.korotaevahomework.common.navigation.AppRouter
-import ru.vsls.korotaevahomework.common.navigation.Router
-import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.databinding.ActivityMainBinding
+import ru.vsls.navigation.ActivityHolder
+import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {

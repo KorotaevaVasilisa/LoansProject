@@ -1,6 +1,7 @@
-package ru.vsls.korotaevahomework.common.navigation
+package ru.vsls.navigation
 
-import ru.vsls.korotaevahomework.MainActivity
+import android.app.Activity
+import androidx.fragment.app.FragmentActivity
 
 interface Router {
     fun navigateTo(screen: Screen)
@@ -10,6 +11,6 @@ interface Router {
 }
 
 interface ActivityHolder {
-    fun attachActivity(activity: MainActivity)
+    fun attachActivity(activity: FragmentActivity)
     fun detachActivity()
 }
