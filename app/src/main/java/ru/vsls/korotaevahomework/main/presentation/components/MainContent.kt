@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -16,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.main.domain.model.Condition
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -24,6 +27,7 @@ internal fun MainContent(
     loanValue: Int,
     sliderValue: Float,
     condition: Condition?,
+    loans: List<LoanResponse>,
     onSliderValueChange: (Float) -> Unit,
     onNavigateToForm: () -> Unit,
 ) {
@@ -34,6 +38,7 @@ internal fun MainContent(
         }) { paddingValues ->
         Column(
             modifier = Modifier
+                .verticalScroll(rememberScrollState())
                 .background(MaterialTheme.colorScheme.secondary)
                 .padding(paddingValues)
                 .fillMaxSize()
@@ -53,7 +58,8 @@ internal fun MainContent(
                     onContinueClick = onNavigateToForm,
                     onValueChange = onSliderValueChange
                 )
-            UserLoans()
+
+            UserLoans(loans = loans)
         }
     }
 }

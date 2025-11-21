@@ -3,7 +3,9 @@ package ru.vsls.korotaevahomework.main.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -22,11 +24,12 @@ class MainViewModel @Inject constructor(
     private var _state = MutableStateFlow<MainState>(MainState.Loading)
     val state = _state.asStateFlow()
 
-    init {
-        loadData()
-    }
+    private val _errors = MutableSharedFlow<String>()
+    val errors = _errors.asSharedFlow()
 
     fun loadData() {
+        //if (_state.value is MainState.Content) return
+
         viewModelScope.launch {
             try {
                 _state.update { MainState.Content(condition = null, valueSlider = 0f) }
@@ -40,12 +43,12 @@ class MainViewModel @Inject constructor(
                 _state.update {
                     MainState.Content(
                         condition = condition,
-//                        loans = loans
+                        userLoans = loans
                     )
                 }
 
             } catch (ex: Exception) {
-
+                _errors.emit("Error: ${ex.message}")
             }
         }
     }

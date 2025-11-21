@@ -9,10 +9,10 @@ data class LoanResponse(
     val percent: Double,
     val period: Int,
     val phoneNumber: String,
-    val state: EnumState
+    val state: LoanState
 )
 
-enum class EnumState {
+enum class LoanState {
     APPROVED,
     REGISTERED,
     REJECTED

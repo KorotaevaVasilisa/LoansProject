@@ -24,7 +24,7 @@ class EnterViewModel @Inject constructor(
     private val registrationUserUseCase: RegistrationUserUseCase,
     private val saveTokenUseCase: SaveTokenUseCase,
     private val getTokenUseCase: GetTokenUseCase,
-    private val route: Router
+    private val route: Router,
 ) : ViewModel() {
     private var _state = MutableStateFlow<EnterState>(EnterState.Initial)
     val state = _state.asStateFlow()
@@ -34,6 +34,8 @@ class EnterViewModel @Inject constructor(
     val errors = _errors.asSharedFlow()
 
     fun initForm() {
+        if (_state.value is EnterState.Login || _state.value is EnterState.Registration) return
+
         _state.update { EnterState.Loading }
         val token = getTokenUseCase()
         if (token.isNullOrEmpty()) {

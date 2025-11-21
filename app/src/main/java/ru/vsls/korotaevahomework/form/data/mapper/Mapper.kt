@@ -1,8 +1,9 @@
 package ru.vsls.korotaevahomework.form.data.mapper
 
+import ru.vsls.korotaevahomework.common.utils.formatDate
 import ru.vsls.korotaevahomework.form.data.model.LoanRequestDto
 import ru.vsls.korotaevahomework.form.data.model.LoanResponseDto
-import ru.vsls.korotaevahomework.form.domain.model.EnumState
+import ru.vsls.korotaevahomework.form.domain.model.LoanState
 import ru.vsls.korotaevahomework.form.domain.model.LoanRequest
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 
@@ -16,22 +17,22 @@ internal fun LoanRequest.toData() = LoanRequestDto(
 )
 
 internal fun LoanResponseDto.toDomain() = LoanResponse(
-    amount = amount,
+    amount = amount.toInt(),
     firstName = firstName,
     id = id,
     lastName = lastName,
     percent = percent,
     period = period,
     phoneNumber = phoneNumber,
-    date = date,
+    date = formatDate(date),
     state = getState(state)
 )
 
-private fun getState(state: String): EnumState {
+private fun getState(state: String): LoanState {
     return when (state) {
-        "APPROVED" -> EnumState.APPROVED
-        "REGISTERED" -> EnumState.REGISTERED
-        "REJECTED" -> EnumState.REJECTED
+        "APPROVED" -> LoanState.APPROVED
+        "REGISTERED" -> LoanState.REGISTERED
+        "REJECTED" -> LoanState.REJECTED
         else -> throw IllegalArgumentException("Unknown state")
     }
 }

@@ -1,5 +1,6 @@
 package ru.vsls.korotaevahomework.main.presentation.model
 
+import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.main.domain.model.Condition
 
 sealed interface MainState {
@@ -10,6 +11,7 @@ sealed interface MainState {
         val condition: Condition? = null,
         val valueLoan: Int = 7000,
         val valueSlider: Float = 7000f,
+        val userLoans: List<LoanResponse> = emptyList(),
     ) : MainState
 }
 

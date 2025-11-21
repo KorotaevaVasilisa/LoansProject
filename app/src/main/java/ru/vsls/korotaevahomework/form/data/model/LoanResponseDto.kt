@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LoanResponseDto(
-    val amount: Int,
+    val amount: Double,
     val date: String,
     val firstName: String,
     val id: Int,

@@ -23,4 +23,9 @@
     <string name="empty_field">Поле не может быть пустым</string>
     <string name="non_valid_text">Только русские буквы</string>
     <string name="non_valid_number">Номера не существует. Проверьте правильность ввода</string>
+    <string name="number_loan">№ %1$d</string>
+    <string name="approved_state">Одобрен</string>
+    <string name="registered_state">На рассмотрении</string>
+    <string name="rejected_state">Отклонен</string>
+    <string name="show_all_loans">Посмотреть все</string>
 </resources>
