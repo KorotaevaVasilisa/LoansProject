@@ -22,7 +22,6 @@ class FormFragment : Fragment() {
     private var nameText: TextView? = null
     private var surnameText: TextView? = null
     private var numberText: TextView? = null
-    private var button: Button? = null
 
     @Inject
     lateinit var viewModelFactory: FormViewModel.Factory
@@ -30,7 +29,7 @@ class FormFragment : Fragment() {
     private lateinit var viewModel: FormViewModel
 
     private val component by lazy {
-        (requireActivity().application as App).component
+        (requireActivity().application as App).component.formComponent()
     }
 
     override fun onAttach(context: Context) {
@@ -140,7 +139,7 @@ class FormFragment : Fragment() {
             view.findViewById<MaterialToolbar>(R.id.toolbar)
 
         toolbar.setNavigationOnClickListener {
-            parentFragmentManager.popBackStack()
+            viewModel.popBackStack()
         }
     }
 

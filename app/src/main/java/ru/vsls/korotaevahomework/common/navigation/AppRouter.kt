@@ -6,6 +6,7 @@ import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.korotaevahomework.result.ResultFragment
 import javax.inject.Inject
 
 class AppRouter @Inject constructor() : Router, ActivityHolder {
@@ -47,6 +48,14 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
                         .addToBackStack(null)
                         .commit()
                 }
+
+                Screen.ResultScreen -> {
+                    val fragment = ResultFragment()
+                    safeActivity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_container, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         }
     }
@@ -54,7 +63,6 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
     override fun replaceFragment(screen: Screen) {
         activity?.let { safeActivity ->
             when (screen) {
-
                 Screen.EnterScreen -> {
                     val fragment = EnterFragment()
                     safeActivity.supportFragmentManager.beginTransaction()
@@ -72,6 +80,13 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
 
                 Screen.MainScreen -> {
                     val fragment = MainFragment()
+                    safeActivity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_container, fragment)
+                        .commit()
+                }
+
+                Screen.ResultScreen -> {
+                    val fragment = ResultFragment()
                     safeActivity.supportFragmentManager.beginTransaction()
                         .replace(R.id.main_container, fragment)
                         .commit()

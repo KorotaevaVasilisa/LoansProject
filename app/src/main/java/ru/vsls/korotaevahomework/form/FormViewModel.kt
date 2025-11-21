@@ -6,6 +6,8 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.launch
+import ru.vsls.korotaevahomework.common.navigation.Router
+import ru.vsls.korotaevahomework.common.navigation.Screen
 import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
 
 class FormViewModel @AssistedInject constructor(
@@ -13,6 +15,7 @@ class FormViewModel @AssistedInject constructor(
     @Assisted("percent") val percent: Double?,
     @Assisted("period") val period: Int?,
     private val sendRequestUseCase: SendRequestUseCase,
+    private val router: Router
 ) : ViewModel() {
 
     @AssistedFactory
@@ -39,7 +42,12 @@ class FormViewModel @AssistedInject constructor(
                 period = period
             )
             val state = request.state
+            router.clearBackStackAndNavigate(Screen.ResultScreen)
         }
         return true
+    }
+
+    fun popBackStack() {
+        router.navigateBack()
     }
 }
