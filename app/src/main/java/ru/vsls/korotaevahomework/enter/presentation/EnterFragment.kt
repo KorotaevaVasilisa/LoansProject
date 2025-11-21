@@ -19,7 +19,7 @@ class EnterFragment : Fragment() {
     @Inject
     lateinit var viewModel: EnterViewModel
     private val component by lazy {
-        (requireActivity().application as App).component
+        (requireActivity().application as App).component.enterComponent()
     }
 
     override fun onAttach(context: Context) {
