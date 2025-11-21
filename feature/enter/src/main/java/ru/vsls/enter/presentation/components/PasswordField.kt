@@ -41,11 +41,7 @@ internal fun PasswordField(
             PasswordVisualTransformation(),
         trailingIcon = {
             IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                Icon(
-                    painter = getVisibilityIcon(passwordVisible),
-                    contentDescription = getIconVisibilityDescription(passwordVisible),
-                    tint = MaterialTheme.colorScheme.secondary
-                )
+                TrailingIcon(passwordVisible)
             }
         }
     )
@@ -74,13 +70,18 @@ internal fun RepeatPasswordField(
             PasswordVisualTransformation(),
         trailingIcon = {
             IconButton(onClick = { passwordVisible = !passwordVisible }) {
-                Icon(
-                    painter = getVisibilityIcon(passwordVisible),
-                    contentDescription = getIconVisibilityDescription(passwordVisible),
-                    tint = MaterialTheme.colorScheme.secondary
-                )
+                TrailingIcon(passwordVisible)
             }
         }
+    )
+}
+
+@Composable
+private fun TrailingIcon(passwordVisible: Boolean) {
+    Icon(
+        painter = getVisibilityIcon(passwordVisible),
+        contentDescription = getIconVisibilityDescription(passwordVisible),
+        tint = MaterialTheme.colorScheme.secondary
     )
 }
 

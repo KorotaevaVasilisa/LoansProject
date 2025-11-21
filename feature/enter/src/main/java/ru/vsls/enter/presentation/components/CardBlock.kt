@@ -99,15 +99,12 @@ private fun LoginTextButton(
     switchToLogin: () -> Unit,
     enabled: Boolean,
 ) {
-    TextButton(
+    SwitchTextButton(
         modifier = modifier,
-        onClick = { switchToLogin() },
+        switchTo = switchToLogin,
         enabled = enabled,
-    ) {
-        Text(
-            text = stringResource(R.string.enter)
-        )
-    }
+        text = stringResource(R.string.enter)
+    )
 }
 
 @Composable
@@ -116,14 +113,27 @@ private fun RegistrationTextButton(
     switchToRegistration: () -> Unit,
     enabled: Boolean,
 ) {
+    SwitchTextButton(
+        modifier = modifier,
+        switchTo = switchToRegistration,
+        enabled = enabled,
+        text = stringResource(R.string.registration)
+    )
+}
+
+@Composable
+private fun SwitchTextButton(
+    modifier: Modifier,
+    switchTo: () -> Unit,
+    enabled: Boolean,
+    text: String,
+) {
     TextButton(
         modifier = modifier,
-        onClick = { switchToRegistration() },
+        onClick = { switchTo() },
         enabled = enabled,
     ) {
-        Text(
-            text = stringResource(R.string.registration)
-        )
+        Text(text = text)
     }
 }
 
