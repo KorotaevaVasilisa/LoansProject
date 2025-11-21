@@ -46,11 +46,7 @@ private fun LoanDescriptionText(state: LoanState, date: String) {
             style = MaterialTheme.typography.labelMedium,
             color = getStateColor(state)
         )
-        Text(
-            text = date,
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        DescriptionText(text = date)
     }
 }
 

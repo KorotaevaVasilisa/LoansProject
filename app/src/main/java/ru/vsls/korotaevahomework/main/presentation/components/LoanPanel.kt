@@ -4,12 +4,9 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
@@ -23,6 +20,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.common.ui.BaseButton
+import ru.vsls.korotaevahomework.common.ui.DescriptionText
 
 @Composable
 fun LoanPanel(
@@ -59,7 +58,7 @@ fun LoanPanel(
                     onValueChange = onValueChange
                 )
 
-                RangeText(maxAmount = maxAmount)
+                RangeTextRow(maxAmount = maxAmount)
                 HorizontalDivider(color = MaterialTheme.colorScheme.secondary)
 
                 ConditionsText(
@@ -79,11 +78,9 @@ private fun ConditionsText(
     period: Int,
 ) {
     Column(modifier = Modifier.padding(vertical = 16.dp)) {
-        Text(
-            text = stringResource(R.string.conditions),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+
+        DescriptionText(text = stringResource(R.string.conditions))
+
         Text(
             text = stringResource(R.string.condition, percent, period),
         )
@@ -112,21 +109,11 @@ private fun LoanSizeText(
 
 @Composable
 private fun ContinueButton(onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(48.dp),
-        shape = RoundedCornerShape(10.dp)
-    ) {
-        Text(
-            text = stringResource(R.string.continue_click),
-        )
-    }
+    BaseButton(onClick = onClick, text = stringResource(R.string.continue_click))
 }
 
 @Composable
-private fun RangeText(
+private fun RangeTextRow(
     maxAmount: Int,
     minAmount: Int = 0,
 ) {
@@ -134,16 +121,8 @@ private fun RangeText(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(
-            text = stringResource(R.string.price_form, minAmount),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
-        Text(
-            text = stringResource(R.string.price_form, maxAmount),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant
-        )
+        DescriptionText(text = stringResource(R.string.price_form, minAmount))
+        DescriptionText(text = stringResource(R.string.price_form, maxAmount))
     }
 }
 
