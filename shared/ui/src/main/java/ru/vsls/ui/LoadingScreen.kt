@@ -21,13 +21,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun LoadingScreen() {
     Box(
-        modifier = Modifier.Companion
+        modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.primaryContainer)
     ) {
         Column(
-            modifier = Modifier.Companion.align(Alignment.Companion.Center),
-            horizontalAlignment = Alignment.Companion.CenterHorizontally
+            modifier = Modifier.align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LogoBlock()
             CircularProgressIndicator()

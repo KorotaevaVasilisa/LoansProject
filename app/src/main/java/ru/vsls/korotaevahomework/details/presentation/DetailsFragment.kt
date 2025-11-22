@@ -53,7 +53,7 @@ class DetailsFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    DetailsScreen()
+                    DetailsScreen(viewModel = viewModel)
                 }
             }
         }

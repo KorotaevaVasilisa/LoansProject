@@ -11,7 +11,7 @@ import ru.vsls.korotaevahomework.details.presentation.model.DetailsState
 import ru.vsls.navigation.Router
 
 class DetailsViewModel @AssistedInject constructor(
-    @Assisted private val loanId: Int?,
+    @Assisted val loanId: Int?,
     private val getLoanUseCase: GetLoanUseCase,
     private val router: Router
 ) : ViewModel() {
@@ -28,4 +28,7 @@ class DetailsViewModel @AssistedInject constructor(
 
     }
 
+    fun onBackPressed() {
+        router.navigateBack()
+    }
 }
