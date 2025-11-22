@@ -19,16 +19,16 @@ import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.ui.DescriptionText
 import ru.vsls.korotaevahomework.common.ui.LoanItem
-import ru.vsls.korotaevahomework.form.domain.model.LoanState
+import ru.vsls.korotaevahomework.common.ui.TitleText
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.korotaevahomework.form.domain.model.LoanState
 
 @Composable
 internal fun UserLoans(loans: List<LoanResponse>) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            stringResource(R.string.title_user_loans_panel),
-            style = MaterialTheme.typography.titleLarge,
-        )
+
+        TitleText(text = stringResource(R.string.title_user_loans_panel))
+
         if (loans.isEmpty())
             EmptyDescriptionText()
         else
@@ -41,7 +41,7 @@ private fun LoansCard(loans: List<LoanResponse>) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(),
+            .padding(top = 8.dp),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         loans.forEach { it ->

@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.common.ui.BaseButton
 import ru.vsls.korotaevahomework.common.ui.DescriptionText
+import ru.vsls.korotaevahomework.common.ui.TitleText
 
 @Composable
 fun LoanPanel(
@@ -34,14 +35,13 @@ fun LoanPanel(
     onValueChange: (Float) -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Text(
-            stringResource(R.string.title_loan_panel),
-            style = MaterialTheme.typography.titleLarge,
-        )
+
+        TitleText(text = stringResource(R.string.title_loan_panel))
 
         Card(
             modifier = Modifier
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .padding(top = 8.dp),
             colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
         ) {
             Column(
