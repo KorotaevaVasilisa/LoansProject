@@ -1,5 +1,6 @@
-package ru.vsls.korotaevahomework.details
+package ru.vsls.korotaevahomework.details.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,19 +8,34 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.details.presentation.DetailsScreen
 import ru.vsls.ui.theme.ShiftTheme
+import javax.inject.Inject
 
 class DetailsFragment : Fragment() {
 
+    @Inject
+    lateinit var viewModelFactory: DetailsViewModel.Factory
+
+    private lateinit var viewModel: DetailsViewModel
     private var loanId: Int? = null
+    private val component by lazy {
+        (requireActivity().application as App).component
+    }
+
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             loanId = it.getInt(ARG_ID)
         }
+        viewModel = viewModelFactory.create(loanId)
     }
 
     override fun onCreateView(

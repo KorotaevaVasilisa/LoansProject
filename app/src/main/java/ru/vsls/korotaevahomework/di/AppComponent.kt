@@ -5,6 +5,7 @@ import dagger.BindsInstance
 import dagger.Component
 import ru.vsls.enter.di.EnterComponent
 import ru.vsls.korotaevahomework.MainActivity
+import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.main.di.MainComponent
@@ -20,6 +21,7 @@ interface AppComponent {
     fun enterComponent(): EnterComponent
     fun mainComponent(): MainComponent
     fun inject(historyFragment: HistoryFragment)
+    fun inject (detailsFragment: DetailsFragment)
 
     @Component.Builder
     interface Builder {
