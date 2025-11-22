@@ -71,4 +71,8 @@ class MainViewModel @Inject constructor(
             )
         )
     }
+
+    fun navigateToHistory(){
+        router.navigateTo(Screen.HistoryScreen)
+    }
 }

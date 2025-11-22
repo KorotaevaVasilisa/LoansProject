@@ -24,7 +24,10 @@ import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
 
 @Composable
-internal fun UserLoans(loans: List<LoanResponse>) {
+internal fun UserLoans(
+    loans: List<LoanResponse>,
+    onNavigateToHistory: () -> Unit,
+) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
         TitleText(text = stringResource(R.string.title_user_loans_panel))
@@ -32,12 +35,18 @@ internal fun UserLoans(loans: List<LoanResponse>) {
         if (loans.isEmpty())
             EmptyDescriptionText()
         else
-            LoansCard(loans = loans)
+            LoansCard(
+                loans = loans,
+                onNavigateToHistory = onNavigateToHistory
+            )
     }
 }
 
 @Composable
-private fun LoansCard(loans: List<LoanResponse>) {
+private fun LoansCard(
+    loans: List<LoanResponse>,
+    onNavigateToHistory: () -> Unit,
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -47,14 +56,14 @@ private fun LoansCard(loans: List<LoanResponse>) {
         loans.forEach { it ->
             LoanItem(loan = it)
         }
-        ShowLoansButton()
+        ShowLoansButton(onClick = onNavigateToHistory)
     }
 }
 
 @Composable
-private fun ShowLoansButton() {
+private fun ShowLoansButton(onClick: () -> Unit) {
     Button(
-        {},
+        onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
@@ -87,6 +96,6 @@ private fun UserLoansPreview() {
                 "8888888888888",
                 LoanState.APPROVED
             )
-        )
+        ), {}
     )
 }

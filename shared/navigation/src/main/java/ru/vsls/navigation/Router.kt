@@ -1,6 +1,5 @@
 package ru.vsls.navigation
 
-import android.app.Activity
 import androidx.fragment.app.FragmentActivity
 
 interface Router {

@@ -6,6 +6,7 @@ import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.form.FormFragment
+import ru.vsls.korotaevahomework.history.HistoryFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.korotaevahomework.result.ResultFragment
 import ru.vsls.navigation.ActivityHolder
@@ -60,6 +61,14 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
                         .addToBackStack(null)
                         .commit()
                 }
+
+                Screen.HistoryScreen -> {
+                    val fragment = HistoryFragment()
+                    safeActivity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_container, fragment)
+                        .addToBackStack(null)
+                        .commit()
+                }
             }
         }
     }
@@ -91,6 +100,13 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
 
                 Screen.ResultScreen -> {
                     val fragment = ResultFragment()
+                    safeActivity.supportFragmentManager.beginTransaction()
+                        .replace(R.id.main_container, fragment)
+                        .commit()
+                }
+
+                Screen.HistoryScreen -> {
+                    val fragment = HistoryFragment()
                     safeActivity.supportFragmentManager.beginTransaction()
                         .replace(R.id.main_container, fragment)
                         .commit()

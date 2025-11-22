@@ -35,7 +35,8 @@ fun MainScreen(
             condition = currentState.condition,
             loans = currentState.userLoans,
             onSliderValueChange = viewModel::onSliderValueChange,
-            onNavigateToForm = viewModel::navigateToForm
+            onNavigateToForm = viewModel::navigateToForm,
+            onNavigateToHistory = viewModel::navigateToHistory
         )
 
         MainState.Initial,

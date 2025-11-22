@@ -36,6 +36,7 @@ internal fun MainContent(
     loans: List<LoanResponse>,
     onSliderValueChange: (Float) -> Unit,
     onNavigateToForm: () -> Unit,
+    onNavigateToHistory: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
@@ -76,7 +77,10 @@ internal fun MainContent(
                     onValueChange = onSliderValueChange
                 )
 
-            UserLoans(loans = loans)
+            UserLoans(
+                loans = loans,
+                onNavigateToHistory = onNavigateToHistory
+            )
         }
     }
 }
