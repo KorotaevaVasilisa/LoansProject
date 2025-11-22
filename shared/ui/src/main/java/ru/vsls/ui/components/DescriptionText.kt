@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.ui
+package ru.vsls.ui.components
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

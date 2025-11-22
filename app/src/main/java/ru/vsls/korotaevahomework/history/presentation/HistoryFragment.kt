@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
-import ru.vsls.shared.network.theme.ShiftTheme
+import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
 class HistoryFragment : Fragment() {

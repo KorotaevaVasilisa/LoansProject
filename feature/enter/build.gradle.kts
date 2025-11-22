@@ -41,6 +41,7 @@ android {
 dependencies {
     implementation(project(":shared:network"))
     implementation(project(":shared:navigation"))
+    implementation(project(":shared:ui"))
 
     implementation(libs.retrofit)
     implementation(libs.okhttp)

@@ -12,12 +12,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import ru.vsls.enter.common.LoadingScreen
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.ui.LoanItem
-import ru.vsls.korotaevahomework.common.ui.topbars.BackTopAppBar
+import ru.vsls.korotaevahomework.common.LoanItem
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
+import ru.vsls.ui.LoadingScreen
+import ru.vsls.ui.components.topbars.BackTopAppBar
 
 @Composable
 internal fun HistoryScreen(viewModel: HistoryViewModel) {

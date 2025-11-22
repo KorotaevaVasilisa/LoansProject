@@ -1,4 +1,4 @@
-package ru.vsls.shared.network.theme
+package ru.vsls.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

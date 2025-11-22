@@ -10,7 +10,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.enter.R
 import ru.vsls.navigation.di.getComponentProvider
-import ru.vsls.shared.network.theme.ShiftTheme
+import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
 class EnterFragment : Fragment() {

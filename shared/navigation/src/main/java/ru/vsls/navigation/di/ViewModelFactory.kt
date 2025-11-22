@@ -1,4 +1,4 @@
-package ru.vsls.shared.network
+package ru.vsls.navigation.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

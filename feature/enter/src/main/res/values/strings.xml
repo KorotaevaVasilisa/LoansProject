@@ -1,5 +1,4 @@
 <resources>
-    <string name="logo">Шифт займы</string>
     <string name="password">Пароль</string>
     <string name="replay_password">Повторите пароль</string>
     <string name="log_in">Войти</string>

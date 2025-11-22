@@ -8,9 +8,9 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import ru.vsls.enter.common.LogoBlock
 import ru.vsls.enter.presentation.model.EnterState
 import ru.vsls.enter.presentation.model.FieldEvent
+import ru.vsls.ui.LogoBlock
 
 @Composable
 internal fun EnterContent(

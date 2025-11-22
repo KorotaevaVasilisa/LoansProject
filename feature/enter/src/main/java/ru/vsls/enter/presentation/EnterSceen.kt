@@ -7,9 +7,9 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
-import ru.vsls.enter.common.LoadingScreen
 import ru.vsls.enter.presentation.components.EnterContent
 import ru.vsls.enter.presentation.model.EnterState
+import ru.vsls.ui.LoadingScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

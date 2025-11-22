@@ -15,9 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.ui.topbars.MainTopAppBar
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.main.domain.model.Condition
+import ru.vsls.ui.components.topbars.MainTopAppBar
 
 @Composable
 internal fun MainContent(

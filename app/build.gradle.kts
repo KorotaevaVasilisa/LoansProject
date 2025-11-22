@@ -47,6 +47,7 @@ android {
 dependencies {
     implementation(project(":shared:network"))
     implementation(project(":shared:navigation"))
+    implementation(project(":shared:ui"))
 
     implementation(project(":feature:enter"))
 

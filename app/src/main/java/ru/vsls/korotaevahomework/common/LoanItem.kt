@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.common.ui
+package ru.vsls.korotaevahomework.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,9 +13,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.form.domain.model.LoanState
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
-import ru.vsls.shared.network.theme.LocalStatusColors
+import ru.vsls.korotaevahomework.form.domain.model.LoanState
+import ru.vsls.ui.components.DescriptionText
+import ru.vsls.ui.theme.LocalStatusColors
 
 @Composable
 fun LoanItem(loan: LoanResponse, modifier: Modifier = Modifier) {

@@ -17,11 +17,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.ui.DescriptionText
-import ru.vsls.korotaevahomework.common.ui.LoanItem
-import ru.vsls.korotaevahomework.common.ui.TitleText
+import ru.vsls.korotaevahomework.common.LoanItem
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
+import ru.vsls.ui.components.DescriptionText
+import ru.vsls.ui.components.TitleText
 
 @Composable
 internal fun UserLoans(
