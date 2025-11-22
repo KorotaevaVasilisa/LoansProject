@@ -31,13 +31,13 @@ internal fun MainContent(
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        containerColor = MaterialTheme.colorScheme.secondary,
         topBar = {
             MainTopAppBar(title = stringResource(R.string.main_title), navigateTo = {})
         }) { paddingValues ->
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
-                .background(MaterialTheme.colorScheme.secondary)
                 .padding(paddingValues)
                 .fillMaxSize()
                 .padding(horizontal = 16.dp, vertical = 16.dp),

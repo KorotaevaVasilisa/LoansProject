@@ -19,6 +19,7 @@ import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
 import ru.vsls.ui.LoadingScreen
+import ru.vsls.ui.components.LoadingBlock
 import ru.vsls.ui.components.topbars.BackTopAppBar
 import ru.vsls.ui.theme.LocalStatusColors
 
@@ -29,18 +30,27 @@ internal fun HistoryScreen(viewModel: HistoryViewModel) {
     LaunchedEffect(Unit) {
         viewModel.loadHistory()
     }
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = {
+            BackTopAppBar(
+                title = stringResource(R.string.title_history),
+                navigateTo = viewModel::navigateToBack
+            )
+        }
+    ) { paddingValues ->
+        val currentState = state
+        when (currentState) {
+            is HistoryState.Content -> HistoryContent(
+                loans = currentState.loans,
+                navigateToDetail = viewModel::navigateToDetails,
+                modifier = Modifier.padding(paddingValues)
+            )
 
-    val currentState = state
-    when (currentState) {
-        is HistoryState.Content -> HistoryContent(
-            loans = currentState.loans,
-            navigateToDetail = viewModel::navigateToDetails,
-            navigateToBack = viewModel::navigateToBack
-        )
-
-        HistoryState.Initial,
-        HistoryState.Loading,
-            -> LoadingScreen()
+            HistoryState.Initial,
+            HistoryState.Loading,
+                -> LoadingBlock(modifier = Modifier.padding(paddingValues))
+        }
     }
 }
 
@@ -48,33 +58,23 @@ internal fun HistoryScreen(viewModel: HistoryViewModel) {
 fun HistoryContent(
     loans: List<LoanResponse>,
     navigateToDetail: (id: Int) -> Unit,
-    navigateToBack: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    Scaffold(
-        modifier = Modifier.fillMaxSize(),
-        topBar = {
-            BackTopAppBar(
-                title = stringResource(R.string.title_history),
-                navigateTo = navigateToBack
-            )
-        }
-    ) { paddingValues ->
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        ) {
-            items(items = loans, key = { it.id }) { item ->
-                LoanItem(
-                    id = item.id,
-                    amount = item.amount,
-                    date = item.date,
-                    stateText = getStateText(item.state),
-                    stateColor = getStateColor(item.state),
-                    modifier = Modifier.clickable { navigateToDetail(item.id) })
-            }
+    LazyColumn(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        items(items = loans, key = { it.id }) { item ->
+            LoanItem(
+                id = item.id,
+                amount = item.amount,
+                date = item.date,
+                stateText = getStateText(item.state),
+                stateColor = getStateColor(item.state),
+                modifier = Modifier.clickable { navigateToDetail(item.id) })
         }
     }
+
 }
 
 @Composable
