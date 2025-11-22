@@ -13,15 +13,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.LoanItem
+import ru.vsls.ui.components.LoanItem
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
 import ru.vsls.ui.components.DescriptionText
 import ru.vsls.ui.components.TitleText
+import ru.vsls.ui.theme.LocalStatusColors
 
 @Composable
 internal fun UserLoans(
@@ -54,7 +55,13 @@ private fun LoansCard(
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         loans.forEach { it ->
-            LoanItem(loan = it)
+            LoanItem(
+                id = it.id,
+                amount = it.amount,
+                date = it.date,
+                stateText = getStateText(it.state),
+                stateColor = getStateColor(it.state)
+            )
         }
         ShowLoansButton(onClick = onNavigateToHistory)
     }
@@ -80,22 +87,20 @@ private fun EmptyDescriptionText() {
     DescriptionText(stringResource(R.string.description_empty_loans))
 }
 
-@Preview(showBackground = true)
 @Composable
-private fun UserLoansPreview() {
-    UserLoans(
-        listOf(
-            LoanResponse(
-                10000,
-                "21.11.2025",
-                "Егор",
-                9885769,
-                "Егоров",
-                12.4,
-                15,
-                "8888888888888",
-                LoanState.APPROVED
-            )
-        ), {}
-    )
+private fun getStateText(state: LoanState): String {
+    return when (state) {
+        LoanState.APPROVED -> stringResource(R.string.approved_state)
+        LoanState.REGISTERED -> stringResource(R.string.registered_state)
+        LoanState.REJECTED -> stringResource(R.string.rejected_state)
+    }
+}
+
+@Composable
+private fun getStateColor(state: LoanState): Color {
+    return when (state) {
+        LoanState.APPROVED -> LocalStatusColors.current.positive
+        LoanState.REGISTERED -> LocalStatusColors.current.attention
+        LoanState.REJECTED -> LocalStatusColors.current.error
+    }
 }
