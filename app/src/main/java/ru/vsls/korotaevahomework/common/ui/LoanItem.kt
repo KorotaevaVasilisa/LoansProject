@@ -18,9 +18,9 @@ import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.shared.network.theme.LocalStatusColors
 
 @Composable
-fun LoanItem(loan: LoanResponse) {
+fun LoanItem(loan: LoanResponse, modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .padding(16.dp)
     ) {

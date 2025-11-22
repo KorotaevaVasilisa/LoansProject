@@ -16,8 +16,12 @@ class HistoryViewModel @Inject constructor(private val getHistoryUseCase: GetHis
 
     fun loadHistory() {
         _state.value = HistoryState.Loading
-
-        _state.value = HistoryState.Content(emptyList())
+        viewModelScope.launch {
+            val loans = getHistoryUseCase()
+            _state.value = HistoryState.Content(loans)
+        }
 
     }
+
+    fun navigateToDetails(id: Int) {}
 }

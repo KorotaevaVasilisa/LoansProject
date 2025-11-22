@@ -6,7 +6,7 @@ import dagger.Component
 import ru.vsls.enter.di.EnterComponent
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.form.di.FormComponent
-import ru.vsls.korotaevahomework.history.HistoryFragment
+import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.shared.network.di.NetworkModule
 import javax.inject.Singleton
