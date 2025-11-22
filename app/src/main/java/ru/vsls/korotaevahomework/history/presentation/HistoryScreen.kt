@@ -14,12 +14,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import ru.vsls.korotaevahomework.R
-import ru.vsls.ui.components.LoanItem
+import ru.vsls.korotaevahomework.common.utils.formatDateShort
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
-import ru.vsls.ui.LoadingScreen
 import ru.vsls.ui.components.LoadingBlock
+import ru.vsls.ui.components.LoanItem
 import ru.vsls.ui.components.topbars.BackTopAppBar
 import ru.vsls.ui.theme.LocalStatusColors
 
@@ -68,7 +68,7 @@ fun HistoryContent(
             LoanItem(
                 id = item.id,
                 amount = item.amount,
-                date = item.date,
+                date = formatDateShort(item.date),
                 stateText = getStateText(item.state),
                 stateColor = getStateColor(item.state),
                 modifier = Modifier.clickable { navigateToDetail(item.id) })

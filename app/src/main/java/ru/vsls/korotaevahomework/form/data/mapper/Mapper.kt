@@ -1,6 +1,5 @@
 package ru.vsls.korotaevahomework.form.data.mapper
 
-import ru.vsls.korotaevahomework.common.utils.formatDate
 import ru.vsls.korotaevahomework.form.data.model.LoanRequestDto
 import ru.vsls.korotaevahomework.form.data.model.LoanResponseDto
 import ru.vsls.korotaevahomework.form.domain.model.LoanState
@@ -24,7 +23,7 @@ internal fun LoanResponseDto.toDomain() = LoanResponse(
     percent = percent,
     period = period,
     phoneNumber = phoneNumber,
-    date = formatDate(date),
+    date = date,
     state = getState(state)
 )
 

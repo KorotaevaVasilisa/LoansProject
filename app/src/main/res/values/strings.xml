@@ -29,4 +29,11 @@
     <string name="rejected_state">Отклонен</string>
     <string name="show_all_loans">Посмотреть все</string>
     <string name="title_history">Мои займы</string>
+    <string name="id_loan">Номер займа</string>
+    <string name="date_loan">Дата оформления</string>
+    <string name="period_loan">Период (дней)</string>
+    <string name="percent">Процент</string>
+    <string name="sum_loan">Сумма</string>
+    <string name="status">Статус</string>
+    <string name="description_details">Когда займ примет статус «Одобрен», Вам нужно будет подойти с паспортом в отделение банка для подписания договора и получить деньги</string>
 </resources>
