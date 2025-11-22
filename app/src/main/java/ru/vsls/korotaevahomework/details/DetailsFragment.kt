@@ -1,11 +1,15 @@
 package ru.vsls.korotaevahomework.details
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.details.presentation.DetailsScreen
+import ru.vsls.ui.theme.ShiftTheme
 
 class DetailsFragment : Fragment() {
 
@@ -23,6 +27,20 @@ class DetailsFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         return inflater.inflate(R.layout.fragment_details, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val composeView = view.findViewById<ComposeView>(R.id.compose_view)
+        composeView.apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent {
+                ShiftTheme {
+                    DetailsScreen()
+                }
+            }
+        }
     }
 
     companion object {
