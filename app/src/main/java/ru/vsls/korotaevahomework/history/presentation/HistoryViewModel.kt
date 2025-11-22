@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
 
-class HistoryViewModel {
+class HistoryViewModel: ViewModel() {
     private var _state = MutableStateFlow<HistoryState>(HistoryState.Initial)
     val state = _state.asStateFlow()
 

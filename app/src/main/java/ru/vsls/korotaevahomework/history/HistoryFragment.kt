@@ -28,7 +28,7 @@ class HistoryFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    HistoryScreen(viewModel = HistoryViewModel())
+//                    HistoryScreen(viewModel = HistoryViewModel())
                 }
             }
         }
