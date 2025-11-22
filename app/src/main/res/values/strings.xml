@@ -29,4 +29,6 @@
     <string name="rejected_state">Отклонен</string>
     <string name="show_all_loans">Посмотреть все</string>
     <string name="open_onbording">Открыть инструкцию</string>
+    <string name="click_back">Вернуться назад</string>
+    <string name="title_history">Мои займы</string>
 </resources>

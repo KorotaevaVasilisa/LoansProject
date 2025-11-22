@@ -3,31 +3,22 @@ package ru.vsls.korotaevahomework.main.presentation.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.common.ui.topbars.MainTopAppBar
 import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.main.domain.model.Condition
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun MainContent(
     loanValue: Int,
@@ -41,18 +32,7 @@ internal fun MainContent(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            TopAppBar(
-                windowInsets = WindowInsets(0),
-                title = { Text(text = stringResource(R.string.main_title)) },
-                actions = {
-                    IconButton(onClick = {}) {
-                        Icon(
-                            modifier = Modifier.size(ButtonDefaults.IconSize),
-                            painter = painterResource(R.drawable.answer),
-                            contentDescription = stringResource(R.string.open_onbording)
-                        )
-                    }
-                })
+            MainTopAppBar(title = stringResource(R.string.main_title), navigateTo = {})
         }) { paddingValues ->
         Column(
             modifier = Modifier
