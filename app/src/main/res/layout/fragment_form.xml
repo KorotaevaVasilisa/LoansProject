@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
     android:orientation="vertical"
+    android:paddingBottom="?attr/actionBarSize"
     tools:context=".form.FormFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -21,7 +22,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingVertical="12.dp"
+        android:paddingHorizontal="16dp">
 
         <TextView
             style="@style/TextAppearance.Material3.BodyLarge"
@@ -89,9 +91,8 @@
             android:id="@+id/confirm_button"
             android:layout_width="match_parent"
             android:layout_height="48.dp"
-            android:padding="8.dp"
             android:text="@string/take_loan"
             android:textColor="@color/black"
-            app:cornerRadius="12.dp" />
+            app:cornerRadius="10.dp" />
     </LinearLayout>
 </LinearLayout>

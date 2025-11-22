@@ -37,8 +37,8 @@ internal fun MainContent(
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())
-                .padding(paddingValues)
                 .fillMaxSize()
+                .padding(paddingValues)
                 .padding(horizontal = 16.dp, vertical = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(24.dp)

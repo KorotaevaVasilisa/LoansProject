@@ -36,4 +36,5 @@
     <string name="sum_loan">Сумма</string>
     <string name="status">Статус</string>
     <string name="description_details">Когда займ примет статус «Одобрен», Вам нужно будет подойти с паспортом в отделение банка для подписания договора и получить деньги</string>
+    <string name="menu_title">Меню</string>
 </resources>
