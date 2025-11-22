@@ -5,9 +5,12 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import ru.vsls.korotaevahomework.history.domain.usecase.GetHistoryUseCase
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
+import javax.inject.Inject
 
-class HistoryViewModel: ViewModel() {
+class HistoryViewModel @Inject constructor(private val getHistoryUseCase: GetHistoryUseCase) :
+    ViewModel() {
     private var _state = MutableStateFlow<HistoryState>(HistoryState.Initial)
     val state = _state.asStateFlow()
 
