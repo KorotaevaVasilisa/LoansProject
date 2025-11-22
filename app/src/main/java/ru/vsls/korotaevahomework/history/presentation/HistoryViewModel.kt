@@ -8,6 +8,7 @@ import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.history.domain.usecase.GetHistoryUseCase
 import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
 import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class HistoryViewModel @Inject constructor(
@@ -19,6 +20,8 @@ class HistoryViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     fun loadHistory() {
+        if (_state.value is HistoryState.Content) return
+
         _state.value = HistoryState.Loading
         viewModelScope.launch {
             val loans = getHistoryUseCase()
@@ -28,8 +31,9 @@ class HistoryViewModel @Inject constructor(
     }
 
     fun navigateToDetails(id: Int) {
-
+        router.navigateTo(Screen.DetailsScreen(id))
     }
+
     fun navigateToBack() {
         router.navigateBack()
     }

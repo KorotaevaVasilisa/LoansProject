@@ -11,13 +11,6 @@ import javax.inject.Singleton
 
 @Module(includes = [FeatureModule::class, HistoryModule::class])
 interface AppModule {
-    companion object {
-        @Provides
-        @Singleton
-        fun provideAppRouter(): AppRouter {
-            return AppRouter()
-        }
-    }
 
     @Binds
     fun bindRouter(appRouter: AppRouter): Router

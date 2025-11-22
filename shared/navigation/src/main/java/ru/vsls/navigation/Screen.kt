@@ -7,4 +7,6 @@ sealed interface Screen {
     data object ResultScreen: Screen
 
     data object HistoryScreen: Screen
+
+    data class DetailsScreen(val id: Int): Screen
 }

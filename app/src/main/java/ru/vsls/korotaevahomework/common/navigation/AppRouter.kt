@@ -2,23 +2,20 @@ package ru.vsls.korotaevahomework.common.navigation
 
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.form.FormFragment
-import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
-import ru.vsls.korotaevahomework.main.presentation.MainFragment
-import ru.vsls.korotaevahomework.result.ResultFragment
 import ru.vsls.navigation.ActivityHolder
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class AppRouter @Inject constructor() : Router, ActivityHolder {
+@Singleton
+class AppRouter @Inject constructor(private val factory: ScreenFactory) : Router, ActivityHolder {
 
     private var activity: MainActivity? = null
 
-    override fun attachActivity(activity:FragmentActivity) {
+    override fun attachActivity(activity: FragmentActivity) {
         this.activity = activity as MainActivity?
     }
 
@@ -27,93 +24,27 @@ class AppRouter @Inject constructor() : Router, ActivityHolder {
     }
 
     override fun navigateTo(screen: Screen) {
+        val fragment = factory.createFragment(screen)
+
         activity?.let { safeActivity ->
-            when (screen) {
-                is Screen.EnterScreen -> {
-                    val fragment = EnterFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-
-                is Screen.FormScreen -> {
-                    val fragment =
-                        FormFragment.newInstance(screen.amount, screen.percent, screen.period)
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-
-                Screen.MainScreen -> {
-                    val fragment = MainFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-
-                Screen.ResultScreen -> {
-                    val fragment = ResultFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-
-                Screen.HistoryScreen -> {
-                    val fragment = HistoryFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .addToBackStack(null)
-                        .commit()
-                }
-            }
+            safeActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.main_container, fragment)
+                .addToBackStack(null)
+                .commit()
         }
     }
+
 
     override fun replaceFragment(screen: Screen) {
+        val fragment = factory.createFragment(screen)
+
         activity?.let { safeActivity ->
-            when (screen) {
-                Screen.EnterScreen -> {
-                    val fragment = EnterFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .commit()
-                }
-
-                is Screen.FormScreen -> {
-                    val fragment =
-                        FormFragment.newInstance(screen.amount, screen.percent, screen.period)
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .commit()
-                }
-
-                Screen.MainScreen -> {
-                    val fragment = MainFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .commit()
-                }
-
-                Screen.ResultScreen -> {
-                    val fragment = ResultFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .commit()
-                }
-
-                Screen.HistoryScreen -> {
-                    val fragment = HistoryFragment()
-                    safeActivity.supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_container, fragment)
-                        .commit()
-                }
-            }
+            safeActivity.supportFragmentManager.beginTransaction()
+                .replace(R.id.main_container, fragment)
+                .commit()
         }
     }
+
 
     override fun navigateBack() {
         activity?.supportFragmentManager?.popBackStack()
