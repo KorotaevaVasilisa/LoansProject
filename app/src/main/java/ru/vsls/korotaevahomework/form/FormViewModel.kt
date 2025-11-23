@@ -9,13 +9,14 @@ import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
+import ru.vsls.shared.network.domain.LoanState
 
 class FormViewModel @AssistedInject constructor(
     @Assisted("amount") val amount: Int?,
     @Assisted("percent") val percent: Double?,
     @Assisted("period") val period: Int?,
     private val sendRequestUseCase: SendRequestUseCase,
-    private val router: Router
+    private val router: Router,
 ) : ViewModel() {
 
     @AssistedFactory
@@ -42,7 +43,8 @@ class FormViewModel @AssistedInject constructor(
                 period = period
             )
             val state = request.state
-            router.clearBackStackAndNavigate(Screen.ResultScreen)
+            val success = (state != LoanState.REJECTED)
+            router.clearBackStackAndNavigate(Screen.ResultScreen(success, request.amount))
         }
         return true
     }

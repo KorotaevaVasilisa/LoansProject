@@ -25,7 +25,11 @@ class ScreenFactory @Inject constructor() {
 
             Screen.HistoryScreen -> HistoryFragment()
             Screen.MainScreen -> MainFragment()
-            Screen.ResultScreen -> ResultFragment()
+            is Screen.ResultScreen -> ResultFragment.newInstance(
+                success = screen.success,
+                amount = screen.amount
+            )
+
             Screen.MenuScreen -> MenuFragment()
         }
     }
