@@ -7,7 +7,7 @@ import ru.vsls.enter.di.EnterComponent
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.form.di.FormComponent
-import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
+import ru.vsls.korotaevahomework.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
 import ru.vsls.korotaevahomework.screens.di.ScreensComponent
@@ -22,11 +22,10 @@ interface AppComponent {
     fun formComponent(): FormComponent
     fun enterComponent(): EnterComponent
     fun mainComponent(): MainComponent
-
+    fun historyComponent(): HistoryComponent
     fun screensComponent(): ScreensComponent
-    fun inject(historyFragment: HistoryFragment)
-    fun inject (detailsFragment: DetailsFragment)
-    fun inject (menuFragment: MenuFragment)
+    fun inject(detailsFragment: DetailsFragment)
+    fun inject(menuFragment: MenuFragment)
 
     @Component.Builder
     interface Builder {

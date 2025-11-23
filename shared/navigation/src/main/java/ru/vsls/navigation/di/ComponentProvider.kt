@@ -5,10 +5,13 @@ import androidx.fragment.app.Fragment
 
 interface ComponentProvider {
     fun getEnterComponent(): EnterComponentProvider
-
+    fun getHistoryComponent(): HistoryComponentProvider
 }
 
 interface EnterComponentProvider {
+    fun inject(fragment: Fragment)
+}
+interface HistoryComponentProvider {
     fun inject(fragment: Fragment)
 }
 
