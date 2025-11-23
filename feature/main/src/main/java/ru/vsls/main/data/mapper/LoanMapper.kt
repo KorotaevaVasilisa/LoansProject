@@ -1,12 +1,9 @@
-package ru.vsls.history.data.mapper
+package ru.vsls.main.data.mapper
 
-import ru.vsls.history.utils.formatDateShort
-import ru.vsls.shared.network.data.model.LoanRequestDto
+import ru.vsls.main.utils.formatDateShort
 import ru.vsls.shared.network.data.model.LoanResponseDto
-import ru.vsls.shared.network.domain.model.LoanRequest
 import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.shared.network.domain.model.LoanState
-
 
 internal fun LoanResponseDto.toDomain() = LoanResponse(
     amount = amount.toInt(),

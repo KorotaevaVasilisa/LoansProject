@@ -1,18 +1,7 @@
 <resources>
     <string name="app_name">Шифт</string>
-    <string name="main_title">Главная</string>
-    <string name="title_loan_card">Получите займ в 2 клика</string>
-    <string name="label_loan_card">Деньги наличными на любые цели</string>
-    <string name="title_loan_panel">Сумма займа</string>
-    <string name="title_user_loans_panel">Мои займы</string>
-    <string name="edit_loan">Редактировать размер займа</string>
-    <string name="thumb">Ползунок</string>
-    <string name="conditions">Условия</string>
-    <string name="continue_click">Продолжить</string>
-    <string name="description_empty_loans">Здесь будут отображаться Ваши активные займы</string>
     <string name="condition">Под %1$d%% на %2$d дней</string>
     <string name="price_form">%1$d ₽</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="your_data">Ваши данные</string>
     <string name="name">Имя</string>
     <string name="surname">Фамилия</string>

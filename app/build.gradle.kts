@@ -51,6 +51,7 @@ dependencies {
 
     implementation(project(":feature:enter"))
     implementation(project(":feature:history"))
+    implementation(project(":feature:main"))
 
     implementation(libs.retrofit)
     implementation(libs.okhttp)

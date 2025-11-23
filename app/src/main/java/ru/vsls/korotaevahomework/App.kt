@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment
 import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.di.DaggerAppComponent
-import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.di.ComponentProvider
 import ru.vsls.navigation.di.EnterComponentProvider
 import ru.vsls.navigation.di.HistoryComponentProvider
