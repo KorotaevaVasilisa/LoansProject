@@ -1,6 +1,8 @@
 package ru.vsls.korotaevahomework
 
+import android.R.attr.bottom
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,6 +15,8 @@ import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var bottomBar: BottomNavigationView
 
     @Inject
     lateinit var router: Router
@@ -45,10 +49,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListenerBottomBar(){
-        val bottom = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+    fun changeVisibleBottomBar(isVisible: Boolean) {
+        bottomBar.visibility = if (isVisible) View.VISIBLE else View.GONE
+    }
 
-        bottom.setOnItemSelectedListener { item ->
+    private fun setListenerBottomBar() {
+        bottomBar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+
+        bottomBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.nav_home -> {

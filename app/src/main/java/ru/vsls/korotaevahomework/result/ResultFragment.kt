@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
+import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.result.presentation.ResultScreen
 import ru.vsls.navigation.Router
@@ -73,6 +74,16 @@ class ResultFragment : Fragment() {
     private fun navigateToMain() {
         TODO()
         router.clearBackStackAndNavigate(Screen.MainScreen)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.changeVisibleBottomBar(false)
+    }
+
+    override fun onPause() {
+        (activity as? MainActivity)?.changeVisibleBottomBar(true)
+        super.onPause()
     }
 
     companion object {
