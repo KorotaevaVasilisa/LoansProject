@@ -5,6 +5,7 @@ import ru.vsls.korotaevahomework.screens.banks.BanksFragment
 import ru.vsls.korotaevahomework.screens.help.HelpFragment
 import ru.vsls.korotaevahomework.screens.languages.LanguagesFragment
 import ru.vsls.korotaevahomework.screens.offers.OffersFragment
+import ru.vsls.korotaevahomework.screens.onboarding.OnboardingFragment
 import ru.vsls.korotaevahomework.screens.result.ResultFragment
 import ru.vsls.navigation.Router
 import ru.vsls.shared.network.domain.TokenRepository
@@ -17,6 +18,7 @@ interface ScreensComponent {
     fun inject(languagesFragment: LanguagesFragment)
     fun inject(helpFragment: HelpFragment)
     fun inject(banksFragment: BanksFragment)
+    fun inject(onboardingFragment: OnboardingFragment)
 
     @Component.Builder
     interface Builder {
