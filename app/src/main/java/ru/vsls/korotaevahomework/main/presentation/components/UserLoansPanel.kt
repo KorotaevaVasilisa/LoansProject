@@ -50,8 +50,7 @@ private fun LoansCard(
 ) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 8.dp),
+            .fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         loans.forEach { it ->

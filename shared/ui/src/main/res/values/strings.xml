@@ -2,6 +2,7 @@
     <string name="logo">Шифт займы</string>
     <string name="open_onbording">Открыть инструкцию</string>
     <string name="click_back">Вернуться назад</string>
+    <string name="close">Закрыть</string>
     <string name="price_form">%1$d ₽</string>
     <string name="number_loan">№ %1$d</string>
 </resources>

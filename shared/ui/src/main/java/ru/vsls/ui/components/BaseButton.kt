@@ -13,10 +13,11 @@ import androidx.compose.ui.unit.dp
 fun BaseButton(
     onClick: () -> Unit,
     text: String,
+    modifier: Modifier = Modifier
 ) {
     Button(
         onClick = onClick,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .height(48.dp),
         shape = RoundedCornerShape(10.dp)
