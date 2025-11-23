@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="12dp"
-        app:itemBackground="@color/bg_day_primary"
+        android:background="@drawable/bottom_bar"
         app:itemTextAppearanceActiveBoldEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
