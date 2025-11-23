@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.screens.offers
+package ru.vsls.korotaevahomework.screens.help
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,13 +11,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.screens.result.ResultContent
+import ru.vsls.korotaevahomework.screens.components.InfoContent
 import ru.vsls.ui.components.topbars.CloseTopAppBar
 
 @Composable
-fun OffersScreen(
-    onBack: () -> Unit,
-    navigateTo: () -> Unit,
+fun HelpScreen(
+    onBack: () -> Unit
 ) {
 
     Scaffold(
@@ -34,13 +33,10 @@ fun OffersScreen(
             contentAlignment = Alignment.Center
         ) {
 
-            ResultContent(
-                title = stringResource(R.string.offers_title),
-                description = stringResource(R.string.offers_description),
-                titleButton = stringResource(R.string.show_address),
-                painter = painterResource(R.drawable.s_approve_money),
-                navigateTo = navigateTo,
-                modifier = Modifier.align(Alignment.BottomCenter)
+            InfoContent(
+                title = stringResource(R.string.help_title),
+                description = stringResource(R.string.help_description),
+                painter = painterResource(R.drawable.s_question),
             )
 
         }

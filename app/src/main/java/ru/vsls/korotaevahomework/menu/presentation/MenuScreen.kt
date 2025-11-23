@@ -62,11 +62,17 @@ fun MenuScreen(
                 onNavigate(Screen.OffersScreen)
             }
 
-            MenuItem(stringResource(R.string.banks)) { /* TODO */ }
+            MenuItem(stringResource(R.string.banks)) {
+                onNavigate(Screen.BanksScreen)
+            }
 
-            MenuItem(stringResource(R.string.help)) { /* TODO */ }
+            MenuItem(stringResource(R.string.help)) {
+                onNavigate(Screen.HelpScreen)
+            }
 
-            MenuItem(stringResource(R.string.language)) { /* TODO */ }
+            MenuItem(stringResource(R.string.language)) {
+                onNavigate(Screen.LanguageScreen)
+            }
 
             MenuItem(stringResource(R.string.exit)) {
                 showLogoutDialog = true

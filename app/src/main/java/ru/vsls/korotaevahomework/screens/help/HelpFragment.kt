@@ -45,7 +45,7 @@ class HelpFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-
+                    HelpScreen(onBack = { router.navigateBack() })
                 }
             }
         }
