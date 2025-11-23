@@ -1,9 +1,7 @@
 package ru.vsls.history.data.mapper
 
 import ru.vsls.history.utils.formatDateShort
-import ru.vsls.shared.network.data.model.LoanRequestDto
 import ru.vsls.shared.network.data.model.LoanResponseDto
-import ru.vsls.shared.network.domain.model.LoanRequest
 import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.shared.network.domain.model.LoanState
 

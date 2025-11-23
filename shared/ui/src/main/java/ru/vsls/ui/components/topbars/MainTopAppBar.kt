@@ -25,7 +25,7 @@ fun MainTopAppBar(title: String, navigateTo: () -> Unit) {
                 Icon(
                     modifier = Modifier.size(ButtonDefaults.IconSize),
                     painter = painterResource(R.drawable.answer),
-                    contentDescription = stringResource(R.string.open_onbording)
+                    contentDescription = stringResource(R.string.open_onboarding)
                 )
             }
         }
