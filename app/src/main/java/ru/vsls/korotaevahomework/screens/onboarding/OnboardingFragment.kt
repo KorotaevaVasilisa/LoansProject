@@ -48,7 +48,7 @@ class OnboardingFragment : Fragment() {
                 ShiftTheme {
                     OnboardingScreen(
                         boards = data,
-                        navigateTo = { router.clearBackStackAndNavigate(Screen.MainScreen) })
+                        navigateTo = { router.replaceFragment(Screen.MainScreen) })
                 }
             }
         }
