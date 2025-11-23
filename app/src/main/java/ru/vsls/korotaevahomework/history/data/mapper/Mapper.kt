@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.data.mapper
+package ru.vsls.korotaevahomework.history.data.mapper
 
 import ru.vsls.korotaevahomework.common.utils.formatDateShort
 import ru.vsls.korotaevahomework.form.data.model.LoanRequestDto

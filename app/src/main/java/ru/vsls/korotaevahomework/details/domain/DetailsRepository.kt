@@ -1,6 +1,6 @@
 package ru.vsls.korotaevahomework.details.domain
 
-import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.LoanResponse
 
 interface DetailsRepository {
 

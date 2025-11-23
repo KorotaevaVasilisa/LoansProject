@@ -1,6 +1,6 @@
 package ru.vsls.korotaevahomework.history.presentation.model
 
-import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.LoanResponse
 
 sealed interface HistoryState {
     data object Initial : HistoryState

@@ -1,7 +1,7 @@
 package ru.vsls.korotaevahomework.history.data
 
 import ru.vsls.korotaevahomework.form.data.mapper.toDomain
-import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.LoanResponse
 import ru.vsls.korotaevahomework.history.domain.HistoryRepository
 import javax.inject.Inject
 

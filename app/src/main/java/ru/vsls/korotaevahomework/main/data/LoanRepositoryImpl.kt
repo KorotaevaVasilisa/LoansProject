@@ -1,7 +1,7 @@
 package ru.vsls.korotaevahomework.main.data
 
 import ru.vsls.korotaevahomework.form.data.mapper.toDomain
-import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.LoanResponse
 import ru.vsls.korotaevahomework.main.data.mapper.toDomain
 import ru.vsls.korotaevahomework.main.domain.LoanRepository
 import ru.vsls.korotaevahomework.main.domain.model.Condition

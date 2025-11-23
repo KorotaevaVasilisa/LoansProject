@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.domain.model
+package ru.vsls.shared.network.domain
 
 data class LoanResponse(
     val amount: Int,

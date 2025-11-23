@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.data.model
+package ru.vsls.shared.network.data.model
 
 import kotlinx.serialization.Serializable
 

@@ -2,7 +2,7 @@ package ru.vsls.korotaevahomework.form.domain.usecase
 
 import ru.vsls.korotaevahomework.form.domain.FormRepository
 import ru.vsls.korotaevahomework.form.domain.model.LoanRequest
-import ru.vsls.korotaevahomework.form.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.LoanResponse
 import javax.inject.Inject
 
 class SendRequestUseCase @Inject constructor(private val repository: FormRepository) {
