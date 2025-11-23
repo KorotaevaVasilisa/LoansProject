@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.di.DaggerAppComponent
+import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.navigation.di.ComponentProvider
 import ru.vsls.navigation.di.EnterComponentProvider
 import ru.vsls.navigation.di.HistoryComponentProvider
+import ru.vsls.navigation.di.MainComponentProvider
 
 class App: Application(), ComponentProvider {
     val component by lazy {
@@ -29,6 +31,15 @@ class App: Application(), ComponentProvider {
             override fun inject(fragment: Fragment) {
                 component.historyComponent().inject(fragment as HistoryFragment)
             }
+        }
+    }
+
+    override fun getMainComponent(): MainComponentProvider {
+        return object : MainComponentProvider{
+            override fun inject(fragment: Fragment) {
+                component.mainComponent().inject(fragment as MainFragment)
+            }
+
         }
     }
 
