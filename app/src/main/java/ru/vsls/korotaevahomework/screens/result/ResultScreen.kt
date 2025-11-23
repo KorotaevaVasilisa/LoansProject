@@ -45,7 +45,7 @@ fun ResultScreen(
         ) {
             when (success) {
                 true -> {
-                    ResultContent(
+                    InfoContent(
                         title = stringResource(
                             R.string.success_title,
                             amount ?: stringResource(R.string.money)
@@ -59,7 +59,7 @@ fun ResultScreen(
                 }
 
                 false -> {
-                    ResultContent(
+                    InfoContent(
                         title = stringResource(R.string.failed_title),
                         description = stringResource(R.string.failed_description),
                         titleButton = stringResource(R.string.back_to_main),
@@ -76,7 +76,7 @@ fun ResultScreen(
 }
 
 @Composable
-internal fun ResultContent(
+internal fun InfoContent(
     title: String,
     description: String,
     titleButton: String,

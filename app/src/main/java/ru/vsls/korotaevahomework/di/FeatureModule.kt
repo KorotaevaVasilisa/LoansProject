@@ -8,6 +8,8 @@ import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
 import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.main.di.DaggerMainComponent
 import ru.vsls.korotaevahomework.main.di.MainComponent
+import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent
+import ru.vsls.korotaevahomework.screens.di.ScreensComponent
 
 @Module
 class FeatureModule {
@@ -22,4 +24,8 @@ class FeatureModule {
     @Provides
     fun provideFormComponent(deps: FormComponent.Deps): FormComponent =
         DaggerFormComponent.builder().deps(deps).build()
+
+    @Provides
+    fun provideScreensComponent(deps: ScreensComponent.Deps): ScreensComponent =
+        DaggerScreensComponent.builder().deps(deps).build()
 }

@@ -24,7 +24,7 @@ class ResultFragment : Fragment() {
     lateinit var router: Router
 
     private val component by lazy {
-        (requireActivity().application as App).component
+        (requireActivity().application as App).component.screensComponent()
     }
 
     override fun onAttach(context: Context) {
