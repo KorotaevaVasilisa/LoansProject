@@ -4,10 +4,10 @@ import dagger.Module
 import dagger.Provides
 import ru.vsls.enter.di.DaggerEnterComponent
 import ru.vsls.enter.di.EnterComponent
+import ru.vsls.history.di.DaggerHistoryComponent
+import ru.vsls.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
 import ru.vsls.korotaevahomework.form.di.FormComponent
-import ru.vsls.korotaevahomework.history.di.DaggerHistoryComponent
-import ru.vsls.korotaevahomework.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.main.di.DaggerMainComponent
 import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent

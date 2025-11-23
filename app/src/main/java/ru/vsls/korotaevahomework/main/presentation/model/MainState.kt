@@ -1,6 +1,6 @@
 package ru.vsls.korotaevahomework.main.presentation.model
 
-import ru.vsls.shared.network.domain.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.korotaevahomework.main.domain.model.Condition
 
 sealed interface MainState {

@@ -1,4 +1,4 @@
-package ru.vsls.shared.network.domain
+package ru.vsls.shared.network.domain.model
 
 data class LoanResponse(
     val amount: Int,

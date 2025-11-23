@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.history.presentation
+package ru.vsls.history.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import ru.vsls.korotaevahomework.R
+import ru.vsls.history.R
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject

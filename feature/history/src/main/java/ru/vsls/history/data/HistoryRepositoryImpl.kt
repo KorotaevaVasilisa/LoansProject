@@ -1,8 +1,8 @@
-package ru.vsls.korotaevahomework.history.data
+package ru.vsls.history.data
 
-import ru.vsls.korotaevahomework.form.data.mapper.toDomain
-import ru.vsls.shared.network.domain.LoanResponse
-import ru.vsls.korotaevahomework.history.domain.HistoryRepository
+import ru.vsls.history.data.mapper.toDomain
+import ru.vsls.history.domain.HistoryRepository
+import ru.vsls.shared.network.domain.model.LoanResponse
 import javax.inject.Inject
 
 class HistoryRepositoryImpl @Inject constructor(private val apiService: HistoryApiService) :

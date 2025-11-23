@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.history.presentation
+package ru.vsls.history.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,10 +13,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
-import ru.vsls.shared.network.domain.LoanResponse
-import ru.vsls.shared.network.domain.LoanState
+import ru.vsls.history.R
+import ru.vsls.history.presentation.model.HistoryState
+import ru.vsls.shared.network.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanState
 import ru.vsls.ui.components.LoadingBlock
 import ru.vsls.ui.components.LoanItem
 import ru.vsls.ui.components.topbars.BackTopAppBar

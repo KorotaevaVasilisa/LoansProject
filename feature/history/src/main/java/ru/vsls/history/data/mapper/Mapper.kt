@@ -1,11 +1,11 @@
-package ru.vsls.korotaevahomework.history.data.mapper
+package ru.vsls.history.data.mapper
 
-import ru.vsls.korotaevahomework.common.utils.formatDateShort
-import ru.vsls.korotaevahomework.form.data.model.LoanRequestDto
+import ru.vsls.history.utils.formatDateShort
+import ru.vsls.shared.network.data.model.LoanRequestDto
 import ru.vsls.shared.network.data.model.LoanResponseDto
-import ru.vsls.shared.network.domain.LoanState
-import ru.vsls.korotaevahomework.form.domain.model.LoanRequest
-import ru.vsls.shared.network.domain.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanRequest
+import ru.vsls.shared.network.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanState
 
 internal fun LoanRequest.toData() = LoanRequestDto(
     amount = amount,

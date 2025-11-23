@@ -1,9 +1,9 @@
-package ru.vsls.korotaevahomework.history.di
+package ru.vsls.history.di
 
 import android.content.Context
 import dagger.Component
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
+import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.navigation.Router
 import javax.inject.Inject
 

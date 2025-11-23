@@ -1,6 +1,9 @@
-package ru.vsls.korotaevahomework.form.domain.model
+package ru.vsls.shared.network.data.model
 
-data class LoanRequest(
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class LoanRequestDto(
     val amount: Int,
     val firstName: String,
     val lastName: String,
@@ -8,4 +11,3 @@ data class LoanRequest(
     val period: Int,
     val phoneNumber: String,
 )
-

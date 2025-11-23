@@ -1,6 +1,6 @@
 package ru.vsls.korotaevahomework.details.presentation.model
 
-import ru.vsls.shared.network.domain.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanResponse
 
 sealed interface DetailsState {
     data object Initial : DetailsState

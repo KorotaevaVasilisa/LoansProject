@@ -4,10 +4,10 @@ import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
 import ru.vsls.enter.di.EnterComponent
+import ru.vsls.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.form.di.FormComponent
-import ru.vsls.korotaevahomework.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
 import ru.vsls.korotaevahomework.screens.di.ScreensComponent

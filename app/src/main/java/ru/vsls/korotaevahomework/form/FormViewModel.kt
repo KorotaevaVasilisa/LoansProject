@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
-import ru.vsls.shared.network.domain.LoanState
+import ru.vsls.shared.network.domain.model.LoanState
 
 class FormViewModel @AssistedInject constructor(
     @Assisted("amount") val amount: Int?,

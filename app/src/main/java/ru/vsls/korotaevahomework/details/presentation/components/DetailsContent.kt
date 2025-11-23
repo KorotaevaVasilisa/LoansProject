@@ -21,8 +21,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.shared.network.domain.LoanResponse
-import ru.vsls.shared.network.domain.LoanState
+import ru.vsls.shared.network.domain.model.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanState
 import ru.vsls.ui.components.DescriptionText
 import ru.vsls.ui.theme.LocalStatusColors
 

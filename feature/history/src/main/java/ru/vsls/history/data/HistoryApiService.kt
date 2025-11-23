@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.history.data
+package ru.vsls.history.data
 
 import retrofit2.http.GET
 import ru.vsls.shared.network.data.model.LoanResponseDto

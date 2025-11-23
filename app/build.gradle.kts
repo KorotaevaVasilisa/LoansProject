@@ -50,6 +50,7 @@ dependencies {
     implementation(project(":shared:ui"))
 
     implementation(project(":feature:enter"))
+    implementation(project(":feature:history"))
 
     implementation(libs.retrofit)
     implementation(libs.okhttp)

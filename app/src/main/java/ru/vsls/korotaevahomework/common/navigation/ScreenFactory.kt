@@ -2,9 +2,9 @@ package ru.vsls.korotaevahomework.common.navigation
 
 import androidx.fragment.app.Fragment
 import ru.vsls.enter.presentation.EnterFragment
+import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.form.FormFragment
-import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
 import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
 import ru.vsls.korotaevahomework.screens.banks.BanksFragment

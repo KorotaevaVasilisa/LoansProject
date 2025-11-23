@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.history.di
+package ru.vsls.history.di
 
 import androidx.lifecycle.ViewModel
 import dagger.Binds
@@ -6,10 +6,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.history.data.HistoryApiService
-import ru.vsls.korotaevahomework.history.data.HistoryRepositoryImpl
-import ru.vsls.korotaevahomework.history.domain.HistoryRepository
-import ru.vsls.korotaevahomework.history.presentation.HistoryViewModel
+import ru.vsls.history.data.HistoryApiService
+import ru.vsls.history.data.HistoryRepositoryImpl
+import ru.vsls.history.domain.HistoryRepository
+import ru.vsls.history.presentation.HistoryViewModel
 import ru.vsls.navigation.di.ViewModelKey
 
 @Module

@@ -1,12 +1,12 @@
-package ru.vsls.korotaevahomework.history.presentation
+package ru.vsls.history.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.history.domain.usecase.GetHistoryUseCase
-import ru.vsls.korotaevahomework.history.presentation.model.HistoryState
+import ru.vsls.history.domain.usecase.GetHistoryUseCase
+import ru.vsls.history.presentation.model.HistoryState
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import javax.inject.Inject

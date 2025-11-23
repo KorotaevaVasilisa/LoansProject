@@ -2,7 +2,7 @@ package ru.vsls.korotaevahomework.details.data
 
 import ru.vsls.korotaevahomework.details.domain.DetailsRepository
 import ru.vsls.korotaevahomework.form.data.mapper.toDomain
-import ru.vsls.shared.network.domain.LoanResponse
+import ru.vsls.shared.network.domain.model.LoanResponse
 import javax.inject.Inject
 
 class DetailsRepositoryImpl @Inject constructor(private val apiService: DetailsApiService) :
