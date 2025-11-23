@@ -2,17 +2,18 @@ package ru.vsls.korotaevahomework.screens.onboarding
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.screens.offers.OffersScreen
+import ru.vsls.korotaevahomework.screens.onboarding.model.OnBoardModel
 import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
@@ -45,12 +46,31 @@ class OnboardingFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-                    OnboardingScreen({}) { }
+                    OnboardingScreen(
+                        boards = data,
+                        navigateTo = { router.clearBackStackAndNavigate(Screen.MainScreen) })
                 }
             }
         }
     }
 
+    val data = listOf<OnBoardModel>(
+        OnBoardModel(
+            imageRes = R.drawable.illuctration_1,
+            title = "Оформить займ",
+            description = "Выберите сумму и нажмите «продолжить». Затем укажите свои данные.\nПосле нажатия «Оформить займ» заявка поступит в банк"
+        ),
+        OnBoardModel(
+            imageRes = R.drawable.illuctration_2,
+            title = "Получить займ",
+            description = "Отслеживайте изменение статуса заявки.\nКогда займ будет одобрен, подойдите с паспортом в отделение банка для подписания договора"
+        ),
+        OnBoardModel(
+            imageRes = R.drawable.illuctration_3,
+            title = "Оформленные займы",
+            description = "На главном экране приложения отображается список оформленных займов."
+        )
+    )
 
     override fun onResume() {
         super.onResume()
