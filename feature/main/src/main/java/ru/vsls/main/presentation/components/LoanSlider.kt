@@ -83,7 +83,7 @@ private fun Thumb() {
         contentAlignment = Alignment.Center
     ) {
         Icon(
-            painter = painterResource(R.drawable.approval_delegation),
+            painter = painterResource(R.drawable.arrows),
             contentDescription = stringResource(R.string.thumb),
             modifier = Modifier.size(ButtonDefaults.IconSize),
             tint = MaterialTheme.colorScheme.background
