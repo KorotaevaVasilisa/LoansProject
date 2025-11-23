@@ -1,6 +1,5 @@
 package ru.vsls.korotaevahomework
 
-import android.R.attr.bottom
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge

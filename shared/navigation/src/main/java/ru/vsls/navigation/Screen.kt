@@ -10,4 +10,8 @@ sealed interface Screen {
 
     data class DetailsScreen(val id: Int) : Screen
     data object MenuScreen : Screen
+    data object HelpScreen : Screen
+    data object LanguageScreen : Screen
+    data object OffersScreen : Screen
+    data object BanksScreen : Screen
 }

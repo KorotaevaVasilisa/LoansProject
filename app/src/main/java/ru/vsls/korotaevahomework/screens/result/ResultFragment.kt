@@ -59,7 +59,7 @@ class ResultFragment : Fragment() {
                         success = paramSuccess,
                         amount = paramAmount,
                         onBack = ::navigateToBack,
-                        navigateTo = ::navigateToMain
+                        navigateTo = ::navigateToBanks
                     )
                 }
             }
@@ -70,9 +70,8 @@ class ResultFragment : Fragment() {
         router.navigateBack()
     }
 
-    private fun navigateToMain() {
-        TODO()
-        router.clearBackStackAndNavigate(Screen.MainScreen)
+    private fun navigateToBanks() {
+        router.clearBackStackAndNavigate(Screen.BanksScreen)
     }
 
     override fun onResume() {
