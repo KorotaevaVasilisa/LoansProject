@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.result
+package ru.vsls.korotaevahomework.screens.result
 
 import android.content.Context
 import android.os.Bundle
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.result.presentation.ResultScreen
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import ru.vsls.ui.theme.ShiftTheme

@@ -10,7 +10,7 @@ import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.main.di.MainComponent
 import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
-import ru.vsls.korotaevahomework.result.ResultFragment
+import ru.vsls.korotaevahomework.screens.result.ResultFragment
 import ru.vsls.shared.network.di.NetworkModule
 import javax.inject.Singleton
 

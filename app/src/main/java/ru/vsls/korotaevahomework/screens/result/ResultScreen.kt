@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.result.presentation
+package ru.vsls.korotaevahomework.screens.result
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -76,7 +76,7 @@ fun ResultScreen(
 }
 
 @Composable
-private fun ResultContent(
+internal fun ResultContent(
     title: String,
     description: String,
     titleButton: String,
