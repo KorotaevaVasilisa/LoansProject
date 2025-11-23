@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.utils.formatDate
 
 @Composable
 internal fun UserLoanPanel(
@@ -36,7 +35,7 @@ internal fun UserLoanPanel(
             )
 
             ContentText(
-                value = formatDate(date),
+                value = date,
                 label = stringResource(R.string.date_loan)
             )
 

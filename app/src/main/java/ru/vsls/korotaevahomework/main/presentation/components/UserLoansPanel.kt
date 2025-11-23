@@ -17,11 +17,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.common.utils.formatDateShort
-import ru.vsls.ui.components.LoanItem
 import ru.vsls.shared.network.domain.LoanResponse
 import ru.vsls.shared.network.domain.LoanState
 import ru.vsls.ui.components.DescriptionText
+import ru.vsls.ui.components.LoanItem
 import ru.vsls.ui.components.TitleText
 import ru.vsls.ui.theme.LocalStatusColors
 
@@ -59,7 +58,7 @@ private fun LoansCard(
             LoanItem(
                 id = it.id,
                 amount = it.amount,
-                date = formatDateShort(it.date),
+                date = it.date,
                 stateText = getStateText(it.state),
                 stateColor = getStateColor(it.state)
             )

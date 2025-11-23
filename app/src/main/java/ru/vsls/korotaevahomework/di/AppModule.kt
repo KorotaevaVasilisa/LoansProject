@@ -5,10 +5,11 @@ import dagger.Module
 import ru.vsls.korotaevahomework.common.navigation.AppRouter
 import ru.vsls.korotaevahomework.details.di.DetailsModule
 import ru.vsls.korotaevahomework.history.di.HistoryModule
+import ru.vsls.korotaevahomework.menu.di.MenuModule
 import ru.vsls.navigation.ActivityHolder
 import ru.vsls.navigation.Router
 
-@Module(includes = [FeatureModule::class, HistoryModule::class, DetailsModule::class])
+@Module(includes = [FeatureModule::class, HistoryModule::class, DetailsModule::class, MenuModule::class])
 interface AppModule {
 
     @Binds
