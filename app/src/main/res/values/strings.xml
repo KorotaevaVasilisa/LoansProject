@@ -53,4 +53,6 @@
     <string name="failed_description">Сейчас мы не можем одобрить вашу заявку</string>
     <string name="back_to_main">Вернуться на главную</string>
     <string name="money">деньги</string>
+    <string name="title_offers">Специальное предложение</string>
+    <string name="offers_description">Погасите займ досрочно и мы увеличим лимит для следующего займа</string>
 </resources>

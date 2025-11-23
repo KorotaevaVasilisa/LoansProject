@@ -12,6 +12,7 @@ import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
 import ru.vsls.navigation.Router
+import ru.vsls.navigation.Screen
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
@@ -45,6 +46,7 @@ class OffersFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
+                    OffersScreen(onBack = ::onBack, navigateTo = ::navigateTo)
                 }
             }
         }
@@ -59,5 +61,13 @@ class OffersFragment : Fragment() {
     override fun onPause() {
         (activity as? MainActivity)?.changeVisibleBottomBar(true)
         super.onPause()
+    }
+
+    private fun navigateTo() {
+        router.navigateTo(Screen.BanksScreen)
+    }
+
+    private fun onBack() {
+        router.navigateBack()
     }
 }

@@ -58,7 +58,9 @@ fun MenuScreen(
                 onNavigate(Screen.HistoryScreen)
             }
 
-            MenuItem(stringResource(R.string.offers)) { /* TODO */ }
+            MenuItem(stringResource(R.string.offers)) {
+                onNavigate(Screen.OffersScreen)
+            }
 
             MenuItem(stringResource(R.string.banks)) { /* TODO */ }
 
