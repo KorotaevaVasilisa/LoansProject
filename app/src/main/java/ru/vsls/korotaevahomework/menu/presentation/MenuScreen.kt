@@ -92,7 +92,7 @@ fun MenuScreen(
 }
 
 @Composable
-fun MenuItem(title: String, onItemClick: () -> Unit) {
+private fun MenuItem(title: String, onItemClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()

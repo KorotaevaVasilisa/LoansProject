@@ -58,4 +58,8 @@
     <string name="help_title">Мы поможем</string>
     <string name="help_description">Остались вопросы по использованию приложения? Обратитесь к нам на горячую линию 8-800-300-10-10</string>
     <string name="banks_title">Сервис временно недоступен</string>
+    <string name="language_title">Языки</string>
+    <string name="russian">Русский</string>
+    <string name="english">English</string>
+    <string name="apply">Применить</string>
 </resources>

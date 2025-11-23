@@ -1,5 +1,6 @@
 package ru.vsls.korotaevahomework.screens.languages
 
+import LanguagesScreen
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +30,6 @@ class LanguagesFragment : Fragment() {
         super.onAttach(context)
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -45,12 +45,24 @@ class LanguagesFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-
+                    LanguagesScreen(
+                        currentLang = getAppLanguage(),
+                        onBack = { router.navigateBack() },
+                        onApplyLanguage = ::setAppLanguage
+                    )
                 }
             }
         }
     }
 
+
+    fun getAppLanguage(): AppLanguage {
+        return AppLanguage.Russian
+    }
+
+    fun setAppLanguage(language: AppLanguage) {
+        //TODO
+    }
 
     override fun onResume() {
         super.onResume()
