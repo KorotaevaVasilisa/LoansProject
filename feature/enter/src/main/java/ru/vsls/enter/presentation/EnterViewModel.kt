@@ -80,7 +80,7 @@ class EnterViewModel @Inject constructor(
             val response = loginUserUseCase(current.login, current.password)
             val token = response.string()
             saveTokenUseCase(token)
-            route.replaceFragment(Screen.MainScreen)
+            route.replaceFragment(Screen.OnboardingScreen)
         }
     }
 

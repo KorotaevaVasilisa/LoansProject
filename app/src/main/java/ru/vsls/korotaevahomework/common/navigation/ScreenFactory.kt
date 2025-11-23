@@ -10,6 +10,7 @@ import ru.vsls.korotaevahomework.screens.banks.BanksFragment
 import ru.vsls.korotaevahomework.screens.help.HelpFragment
 import ru.vsls.korotaevahomework.screens.languages.LanguagesFragment
 import ru.vsls.korotaevahomework.screens.offers.OffersFragment
+import ru.vsls.korotaevahomework.screens.onboarding.OnboardingFragment
 import ru.vsls.korotaevahomework.screens.result.ResultFragment
 import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.Screen
@@ -39,6 +40,7 @@ class ScreenFactory @Inject constructor() {
             Screen.HelpScreen -> HelpFragment()
             Screen.LanguageScreen -> LanguagesFragment()
             Screen.OffersScreen -> OffersFragment()
+            Screen.OnboardingScreen -> OnboardingFragment()
         }
     }
 }

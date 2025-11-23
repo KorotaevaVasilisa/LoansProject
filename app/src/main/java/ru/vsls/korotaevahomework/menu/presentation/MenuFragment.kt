@@ -44,7 +44,8 @@ class MenuFragment : Fragment() {
                     MenuScreen(
                         onExit = viewModel::onExit,
                         onNavigate = viewModel::navigateTo,
-                        onNavigateToOnbording = {})
+                        onNavigateToOnboarding = viewModel::navigateToOnboarding
+                    )
                 }
             }
         }

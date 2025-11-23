@@ -27,12 +27,16 @@ internal fun MainContent(
     onSliderValueChange: (Float) -> Unit,
     onNavigateToForm: () -> Unit,
     onNavigateToHistory: () -> Unit,
+    onNavigateToOnboarding: () -> Unit,
 ) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.secondary,
         topBar = {
-            MainTopAppBar(title = stringResource(R.string.main_title), navigateTo = {})
+            MainTopAppBar(
+                title = stringResource(R.string.main_title),
+                navigateTo = onNavigateToOnboarding
+            )
         }) { paddingValues ->
         Column(
             modifier = Modifier

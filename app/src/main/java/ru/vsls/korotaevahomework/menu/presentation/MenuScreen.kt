@@ -32,7 +32,7 @@ import ru.vsls.ui.components.topbars.MainTopAppBar
 fun MenuScreen(
     onExit: () -> Unit,
     onNavigate: (Screen) -> Unit,
-    onNavigateToOnbording: () -> Unit,
+    onNavigateToOnboarding: () -> Unit,
 ) {
 
     var showLogoutDialog by remember { mutableStateOf(false) }
@@ -42,7 +42,7 @@ fun MenuScreen(
         topBar = {
             MainTopAppBar(
                 title = stringResource(R.string.menu_title),
-                navigateTo = onNavigateToOnbording
+                navigateTo = onNavigateToOnboarding
             )
         }
     ) { paddingValues ->

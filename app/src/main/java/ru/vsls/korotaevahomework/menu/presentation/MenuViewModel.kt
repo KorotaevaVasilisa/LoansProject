@@ -19,4 +19,8 @@ class MenuViewModel @Inject constructor(
     fun navigateTo(screen: Screen) {
         router.navigateTo(screen)
     }
+
+    fun navigateToOnboarding(){
+        router.navigateTo(Screen.OnboardingScreen)
+    }
 }

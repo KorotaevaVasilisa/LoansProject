@@ -14,4 +14,5 @@ sealed interface Screen {
     data object LanguageScreen : Screen
     data object OffersScreen : Screen
     data object BanksScreen : Screen
+    data object OnboardingScreen : Screen
 }
