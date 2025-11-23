@@ -6,6 +6,7 @@ import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.form.FormFragment
 import ru.vsls.korotaevahomework.history.presentation.HistoryFragment
 import ru.vsls.korotaevahomework.main.presentation.MainFragment
+import ru.vsls.korotaevahomework.menu.MenuFragment
 import ru.vsls.korotaevahomework.result.ResultFragment
 import ru.vsls.navigation.Screen
 import javax.inject.Inject
@@ -25,6 +26,7 @@ class ScreenFactory @Inject constructor() {
             Screen.HistoryScreen -> HistoryFragment()
             Screen.MainScreen -> MainFragment()
             Screen.ResultScreen -> ResultFragment()
+            Screen.MenuScreen -> MenuFragment()
         }
     }
 }

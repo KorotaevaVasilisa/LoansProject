@@ -9,4 +9,5 @@ sealed interface Screen {
     data object HistoryScreen: Screen
 
     data class DetailsScreen(val id: Int): Screen
+    data object MenuScreen: Screen
 }

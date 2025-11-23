@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.R
+import ru.vsls.korotaevahomework.menu.presentation.MenuScreen
 import ru.vsls.ui.theme.ShiftTheme
 
 class MenuFragment : Fragment() {
@@ -28,7 +29,7 @@ class MenuFragment : Fragment() {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 ShiftTheme {
-
+                    MenuScreen ()
                 }
             }
         }

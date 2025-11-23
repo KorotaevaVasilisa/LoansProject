@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KorotaevaHomework</string>
+    <string name="app_name">Шифт</string>
     <string name="main_title">Главная</string>
     <string name="title_loan_card">Получите займ в 2 клика</string>
     <string name="label_loan_card">Деньги наличными на любые цели</string>
@@ -37,4 +37,5 @@
     <string name="status">Статус</string>
     <string name="description_details">Когда займ примет статус «Одобрен», Вам нужно будет подойти с паспортом в отделение банка для подписания договора и получить деньги</string>
     <string name="menu_title">Меню</string>
+    <string name="menu_next">Далее</string>
 </resources>

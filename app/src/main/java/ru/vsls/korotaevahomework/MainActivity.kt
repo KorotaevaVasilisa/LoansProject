@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_menu -> {
-//                    router.replaceFragment(Screen.EnterScreen)
+                    router.replaceFragment(Screen.MenuScreen)
                     true
                 }
 
