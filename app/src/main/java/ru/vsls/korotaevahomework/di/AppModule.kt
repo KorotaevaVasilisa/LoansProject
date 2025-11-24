@@ -3,12 +3,11 @@ package ru.vsls.korotaevahomework.di
 import dagger.Binds
 import dagger.Module
 import ru.vsls.korotaevahomework.common.navigation.AppRouter
-import ru.vsls.korotaevahomework.details.di.DetailsModule
 import ru.vsls.korotaevahomework.menu.di.MenuModule
 import ru.vsls.navigation.ActivityHolder
 import ru.vsls.navigation.Router
 
-@Module(includes = [FeatureModule::class, DetailsModule::class, MenuModule::class])
+@Module(includes = [FeatureModule::class, MenuModule::class])
 interface AppModule {
 
     @Binds

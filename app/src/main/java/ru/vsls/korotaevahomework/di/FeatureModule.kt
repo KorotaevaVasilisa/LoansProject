@@ -6,6 +6,8 @@ import ru.vsls.enter.di.DaggerEnterComponent
 import ru.vsls.enter.di.EnterComponent
 import ru.vsls.history.di.DaggerHistoryComponent
 import ru.vsls.history.di.HistoryComponent
+import ru.vsls.korotaevahomework.details.di.DaggerDetailsComponent
+import ru.vsls.korotaevahomework.details.di.DetailsComponent
 import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
 import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent
@@ -34,4 +36,9 @@ class FeatureModule {
     @Provides
     fun provideScreensComponent(deps: ScreensComponent.Deps): ScreensComponent =
         DaggerScreensComponent.builder().deps(deps).build()
+
+    @Provides
+    fun provideDetailsComponent(deps: DetailsComponent.Deps): DetailsComponent =
+        DaggerDetailsComponent.builder().deps(deps).build()
+
 }
