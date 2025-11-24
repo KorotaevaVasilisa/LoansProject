@@ -1,5 +1,4 @@
 <resources>
-
     <style name="Base.Theme.KorotaevaHomework" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="myBorderBackground">@color/border_night</item>
         <item name="myInputBackground">@color/bg_night_secondary</item>
