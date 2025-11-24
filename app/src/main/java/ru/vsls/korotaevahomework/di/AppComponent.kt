@@ -8,7 +8,7 @@ import ru.vsls.enter.di.EnterComponent
 import ru.vsls.form.di.FormComponent
 import ru.vsls.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.MainActivity
-import ru.vsls.korotaevahomework.screens.di.ScreensComponent
+import ru.vsls.screens.di.ScreensComponent
 import ru.vsls.main.di.MainComponent
 import ru.vsls.shared.network.di.NetworkModule
 import javax.inject.Singleton

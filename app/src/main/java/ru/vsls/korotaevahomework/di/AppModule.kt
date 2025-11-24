@@ -2,7 +2,7 @@ package ru.vsls.korotaevahomework.di
 
 import dagger.Binds
 import dagger.Module
-import ru.vsls.korotaevahomework.common.navigation.AppRouter
+import ru.vsls.korotaevahomework.common.AppRouter
 import ru.vsls.navigation.ActivityHolder
 import ru.vsls.navigation.Router
 

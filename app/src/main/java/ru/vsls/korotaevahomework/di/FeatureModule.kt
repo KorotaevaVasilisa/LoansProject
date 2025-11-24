@@ -10,10 +10,10 @@ import ru.vsls.form.di.DaggerFormComponent
 import ru.vsls.form.di.FormComponent
 import ru.vsls.history.di.DaggerHistoryComponent
 import ru.vsls.history.di.HistoryComponent
-import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent
-import ru.vsls.korotaevahomework.screens.di.ScreensComponent
 import ru.vsls.main.di.DaggerMainComponent
 import ru.vsls.main.di.MainComponent
+import ru.vsls.screens.di.DaggerScreensComponent
+import ru.vsls.screens.di.ScreensComponent
 
 @Module
 class FeatureModule {
