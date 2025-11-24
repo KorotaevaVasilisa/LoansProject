@@ -10,4 +10,7 @@
     <string name="non_valid_fields">The input fields are not valid</string>
     <string name="failed_state">Incorrect application status</string>
     <string name="unknowing_loan">Unknowing loan</string>
+    <string name="non_russian_symbols">Только русские буквы</string>
+    <string name="empty_field">Поле не может быть пустым</string>
+    <string name="non_valid_phone">Номера не существует. Проверьте правильность ввода</string>
 </resources>

@@ -8,7 +8,7 @@
     android:background="?attr/colorSurface"
     android:orientation="vertical"
     android:paddingBottom="?attr/actionBarSize"
-    tools:context=".form.FormFragment">
+    tools:context=".form.presentation.FormFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
