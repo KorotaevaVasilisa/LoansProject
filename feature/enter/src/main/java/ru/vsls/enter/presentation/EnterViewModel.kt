@@ -17,6 +17,15 @@ import ru.vsls.enter.presentation.model.EnterState
 import ru.vsls.enter.presentation.model.FieldEvent
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
+import ru.vsls.utils.BadRequestException
+import ru.vsls.utils.ErrorType
+import ru.vsls.utils.FailedStateException
+import ru.vsls.utils.NoInternetException
+import ru.vsls.utils.NonValidFieldsException
+import ru.vsls.utils.NotFoundException
+import ru.vsls.utils.ServerException
+import ru.vsls.utils.UnauthorizedException
+import ru.vsls.utils.UnknownException
 import javax.inject.Inject
 
 class EnterViewModel @Inject constructor(
@@ -30,7 +39,7 @@ class EnterViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
     private var previousState: EnterState? = null
-    private val _errors = MutableSharedFlow<String>()
+    private val _errors = MutableSharedFlow<ErrorType>()
     val errors = _errors.asSharedFlow()
 
     fun initForm() {
@@ -58,7 +67,9 @@ class EnterViewModel @Inject constructor(
 
         previousState = state
         _state.update { EnterState.Loading }
+
         viewModelScope.launch(exceptionHandler) {
+            validateForm(current = state)
             val response = loginUserUseCase(state.login, state.password)
             val token = response.string()
             saveTokenUseCase(token)
@@ -73,6 +84,8 @@ class EnterViewModel @Inject constructor(
         _state.value = EnterState.Loading
 
         viewModelScope.launch(exceptionHandler) {
+            validateForm(current)
+
             registrationUserUseCase(
                 current.login,
                 current.password
@@ -89,6 +102,34 @@ class EnterViewModel @Inject constructor(
             is FieldEvent.LoginChanged -> onLoginChanged(event.login)
             is FieldEvent.PasswordChanged -> onPasswordChanged(event.password)
             is FieldEvent.RepeatPasswordChanged -> onRepeatPasswordChanged(event.repeatPassword)
+        }
+    }
+
+    private fun validateForm(current: EnterState) {
+        when (current) {
+            EnterState.Initial,
+            EnterState.Loading,
+                -> throw FailedStateException("Failed state")
+
+            is EnterState.Login -> {
+                val isLoginError = current.login.isBlank()
+                val isPasswordError = current.password.isBlank()
+
+                if ((isLoginError || isPasswordError))
+                    throw NonValidFieldsException("Non valid fields")
+            }
+
+            is EnterState.Registration -> {
+                val isNameError = current.login.isBlank()
+                val isSurnameError = current.password.isBlank()
+                val isDescriptionError = current.passwordRepeat.isBlank()
+
+                val isFormValid =
+                    !(isNameError || isSurnameError || isDescriptionError)
+
+                if (!isFormValid)
+                    throw NonValidFieldsException("Non valid fields")
+            }
         }
     }
 
@@ -152,8 +193,20 @@ class EnterViewModel @Inject constructor(
             _state.value = safePrev
         }
 
+        val errorType = when (throwable) {
+            is NotFoundException -> ErrorType.USER_NOT_FOUND
+            is UnknownException -> ErrorType.UNKNOWN
+            is NoInternetException -> ErrorType.NO_INTERNET
+            is UnauthorizedException -> ErrorType.UNAUTHORIZED
+            is BadRequestException -> ErrorType.BAD_REQUEST
+            is ServerException -> ErrorType.SERVER
+            is NonValidFieldsException -> ErrorType.NON_VALID
+            is FailedStateException -> ErrorType.FAILED_STATE
+            else -> ErrorType.UNKNOWN
+        }
+
         viewModelScope.launch {
-            _errors.emit(throwable.message ?: "Unknown error")
+            _errors.emit(errorType)
         }
     }
 }

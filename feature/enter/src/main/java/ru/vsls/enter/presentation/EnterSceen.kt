@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import ru.vsls.enter.presentation.components.EnterContent
 import ru.vsls.enter.presentation.model.EnterState
 import ru.vsls.ui.LoadingScreen
+import ru.vsls.utils.getErrorMessage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -20,10 +21,10 @@ fun EnterScreen(
 
     LaunchedEffect(Unit) { viewModel.initForm() }
 
-
     val context = LocalContext.current
     LaunchedEffect(Unit) {
-        viewModel.errors.collect { message ->
+        viewModel.errors.collect { type ->
+            val message = getErrorMessage(type, context)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }
