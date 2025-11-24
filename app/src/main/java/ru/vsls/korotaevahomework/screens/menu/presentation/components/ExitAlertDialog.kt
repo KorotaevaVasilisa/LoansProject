@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.menu.presentation.components
+package ru.vsls.korotaevahomework.screens.menu.presentation.components
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.AlertDialog

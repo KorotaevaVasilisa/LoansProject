@@ -5,7 +5,7 @@ import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.details.presentation.DetailsFragment
 import ru.vsls.form.presentation.FormFragment
-import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
+import ru.vsls.korotaevahomework.screens.menu.presentation.MenuFragment
 import ru.vsls.korotaevahomework.screens.banks.BanksFragment
 import ru.vsls.korotaevahomework.screens.help.HelpFragment
 import ru.vsls.korotaevahomework.screens.languages.LanguagesFragment

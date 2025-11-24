@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.menu.presentation
+package ru.vsls.korotaevahomework.screens.menu.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -18,7 +18,7 @@ class MenuFragment : Fragment() {
     lateinit var viewModel: MenuViewModel
 
     override fun onAttach(context: Context) {
-        context.getComponentProvider().getMenuComponent().inject(this)
+        context.getComponentProvider().getScreensComponent().inject(this)
         super.onAttach(context)
     }
 

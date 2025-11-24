@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.menu.domain
+package ru.vsls.korotaevahomework.screens.menu.domain
 
 import ru.vsls.shared.network.domain.TokenRepository
 import javax.inject.Inject

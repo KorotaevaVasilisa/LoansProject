@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.menu.presentation
+package ru.vsls.korotaevahomework.screens.menu.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.menu.presentation.components.LogoutDialog
+import ru.vsls.korotaevahomework.screens.menu.presentation.components.LogoutDialog
 import ru.vsls.navigation.Screen
 import ru.vsls.ui.components.topbars.MainTopAppBar
 

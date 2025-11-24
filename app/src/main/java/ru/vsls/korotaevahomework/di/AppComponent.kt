@@ -8,7 +8,6 @@ import ru.vsls.enter.di.EnterComponent
 import ru.vsls.form.di.FormComponent
 import ru.vsls.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.MainActivity
-import ru.vsls.korotaevahomework.menu.di.MenuComponent
 import ru.vsls.korotaevahomework.screens.di.ScreensComponent
 import ru.vsls.main.di.MainComponent
 import ru.vsls.shared.network.di.NetworkModule
@@ -25,7 +24,6 @@ interface AppComponent {
     fun historyComponent(): HistoryComponent
     fun screensComponent(): ScreensComponent
     fun detailsComponent(): DetailsComponent
-    fun menuComponent(): MenuComponent
 
     @Component.Builder
     interface Builder {

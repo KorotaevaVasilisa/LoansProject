@@ -1,7 +1,7 @@
-package ru.vsls.korotaevahomework.menu.presentation
+package ru.vsls.korotaevahomework.screens.menu.presentation
 
 import androidx.lifecycle.ViewModel
-import ru.vsls.korotaevahomework.menu.domain.DeleteTokenUseCase
+import ru.vsls.korotaevahomework.screens.menu.domain.DeleteTokenUseCase
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import javax.inject.Inject

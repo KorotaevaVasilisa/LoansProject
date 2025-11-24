@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
-import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.screens.onboarding.model.OnBoardModel
 import ru.vsls.navigation.BottomBarController
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
+import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
@@ -22,12 +22,8 @@ class OnboardingFragment : Fragment() {
     @Inject
     lateinit var router: Router
 
-    private val component by lazy {
-        (requireActivity().application as App).component.screensComponent()
-    }
-
     override fun onAttach(context: Context) {
-        component.inject(this)
+        context.getComponentProvider().getScreensComponent().inject(this)
         super.onAttach(context)
     }
 
