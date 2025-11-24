@@ -22,7 +22,7 @@ import ru.vsls.ui.components.topbars.MainTopAppBar
 internal fun MainContent(
     loanValue: Int,
     sliderValue: Float,
-    condition: Condition?,
+    condition: Condition,
     loans: List<LoanResponse>,
     onSliderValueChange: (Float) -> Unit,
     onNavigateToForm: () -> Unit,
@@ -49,16 +49,15 @@ internal fun MainContent(
         ) {
             LoanCard()
 
-            if (condition != null)
-                LoanPanel(
-                    loanValue = loanValue,
-                    sliderValue = sliderValue,
-                    maxAmount = condition.maxAmount,
-                    period = condition.period,
-                    percent = condition.percent.toInt(),
-                    onContinueClick = onNavigateToForm,
-                    onValueChange = onSliderValueChange
-                )
+            LoanPanel(
+                loanValue = loanValue,
+                sliderValue = sliderValue,
+                maxAmount = condition.maxAmount,
+                period = condition.period,
+                percent = condition.percent.toInt(),
+                onContinueClick = onNavigateToForm,
+                onValueChange = onSliderValueChange
+            )
 
             UserLoans(
                 loans = loans,

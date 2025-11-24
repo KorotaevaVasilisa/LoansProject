@@ -34,10 +34,14 @@ internal fun LoanSlider(
         activeTrackColor = MaterialTheme.colorScheme.inverseOnSurface,
     )
     Slider(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth(),
         value = sliderValue,
         valueRange = 0f..maxAmount.toFloat(),
-        onValueChange = onValueChange,
+        onValueChange = { newValue ->
+            val stepped = (newValue / 100).toInt() * 100f
+            onValueChange(stepped)
+        },
         colors = colors,
         thumb = {
             Thumb()

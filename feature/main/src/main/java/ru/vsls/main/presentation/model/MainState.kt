@@ -8,7 +8,7 @@ sealed interface MainState {
     data object Loading : MainState
 
     data class Content(
-        val condition: Condition? = null,
+        val condition: Condition,
         val valueLoan: Int = 7000,
         val valueSlider: Float = 7000f,
         val userLoans: List<LoanResponse> = emptyList(),

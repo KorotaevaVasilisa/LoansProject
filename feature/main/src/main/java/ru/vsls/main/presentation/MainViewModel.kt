@@ -32,7 +32,7 @@ class MainViewModel @Inject constructor(
 
         viewModelScope.launch {
             try {
-                _state.update { MainState.Content(condition = null, valueSlider = 0f) }
+                _state.update { MainState.Loading }
 
                 val conditionsDeferred = async { getConditionsUseCase() }
                 val loansDeferred = async { getSomeUserLoanUseCase() }
@@ -61,7 +61,6 @@ class MainViewModel @Inject constructor(
 
     fun navigateToForm() {
         val state = _state.value as? MainState.Content ?: return
-        if (state.condition == null) return
 
         router.navigateTo(
             Screen.FormScreen(

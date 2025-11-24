@@ -96,7 +96,8 @@ private fun LoanSizeText(
             style = MaterialTheme.typography.titleLarge
         )
         Icon(
-            painter = painterResource(R.drawable.edit_icon),
+
+            painter = painterResource(R.drawable.edit),
             contentDescription = stringResource(R.string.edit_loan),
             modifier = Modifier
                 .padding(start = 8.dp)
