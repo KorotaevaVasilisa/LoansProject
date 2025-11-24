@@ -9,4 +9,5 @@
     <string name="other_exception">An unknown error has occurred.</string>
     <string name="non_valid_fields">The input fields are not valid</string>
     <string name="failed_state">Incorrect application status</string>
+    <string name="unknowing_loan">Unknowing loan</string>
 </resources>

@@ -15,6 +15,7 @@ import ru.vsls.details.presentation.components.DetailsContent
 import ru.vsls.details.presentation.model.DetailsState
 import ru.vsls.ui.components.LoadingBlock
 import ru.vsls.ui.components.topbars.BackTopAppBar
+import ru.vsls.utils.getErrorMessage
 
 @Composable
 internal fun DetailsScreen(viewModel: DetailsViewModel) {
@@ -24,7 +25,8 @@ internal fun DetailsScreen(viewModel: DetailsViewModel) {
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {
-        viewModel.errors.collect { message ->
+        viewModel.errors.collect { type ->
+            val message = getErrorMessage(type, context)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }

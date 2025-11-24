@@ -10,7 +10,8 @@ enum class ErrorType {
     BAD_REQUEST,
     SERVER,
     NON_VALID,
-    FAILED_STATE
+    FAILED_STATE,
+    UNKNOWN_LOAN
 }
 
 fun getErrorMessage(errorType: ErrorType, context: Context): String =
@@ -23,4 +24,5 @@ fun getErrorMessage(errorType: ErrorType, context: Context): String =
         ErrorType.SERVER -> context.getString(R.string.server_exception)
         ErrorType.NON_VALID -> context.getString(R.string.non_valid_fields)
         ErrorType.FAILED_STATE -> context.getString(R.string.failed_state)
+        ErrorType.UNKNOWN_LOAN -> context.getString(R.string.unknowing_loan)
     }
