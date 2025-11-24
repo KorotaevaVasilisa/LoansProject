@@ -1,6 +1,6 @@
-package ru.vsls.korotaevahomework.details.domain.usecase
+package ru.vsls.details.domain.usecase
 
-import ru.vsls.korotaevahomework.details.domain.DetailsRepository
+import ru.vsls.details.domain.DetailsRepository
 import ru.vsls.shared.network.domain.model.LoanResponse
 import javax.inject.Inject
 

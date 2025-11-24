@@ -1,9 +1,9 @@
-package ru.vsls.korotaevahomework.details.di
+package ru.vsls.details.di
 
 import android.content.Context
 import dagger.Component
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.details.presentation.DetailsFragment
+import ru.vsls.details.presentation.DetailsFragment
 import ru.vsls.navigation.Router
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.presentation.components
+package ru.vsls.details.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

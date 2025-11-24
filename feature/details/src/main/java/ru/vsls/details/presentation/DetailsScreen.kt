@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.presentation
+package ru.vsls.details.presentation
 
 import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,8 +11,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import ru.vsls.korotaevahomework.details.presentation.components.DetailsContent
-import ru.vsls.korotaevahomework.details.presentation.model.DetailsState
+import ru.vsls.details.presentation.components.DetailsContent
+import ru.vsls.details.presentation.model.DetailsState
 import ru.vsls.ui.components.LoadingBlock
 import ru.vsls.ui.components.topbars.BackTopAppBar
 

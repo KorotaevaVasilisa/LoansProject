@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.presentation.components
+package ru.vsls.details.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import ru.vsls.korotaevahomework.R
+import ru.vsls.details.R
 import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.shared.network.domain.model.LoanState
 import ru.vsls.ui.components.DescriptionText

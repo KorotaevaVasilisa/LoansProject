@@ -1,19 +1,11 @@
-package ru.vsls.korotaevahomework.form.data.mapper
+package ru.vsls.details.data.mapper
 
-import ru.vsls.shared.network.data.model.LoanRequestDto
+import ru.vsls.details.utils.formatDate
 import ru.vsls.shared.network.data.model.LoanResponseDto
-import ru.vsls.shared.network.domain.model.LoanRequest
 import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.shared.network.domain.model.LoanState
+import ru.vsls.utils.FailedStateException
 
-internal fun LoanRequest.toData() = LoanRequestDto(
-    amount = amount,
-    firstName = firstName,
-    lastName = lastName,
-    phoneNumber = phoneNumber,
-    percent = percent,
-    period = period
-)
 
 internal fun LoanResponseDto.toDomain() = LoanResponse(
     amount = amount.toInt(),
@@ -23,7 +15,7 @@ internal fun LoanResponseDto.toDomain() = LoanResponse(
     percent = percent,
     period = period,
     phoneNumber = phoneNumber,
-    date = date,
+    date = formatDate(date),
     state = getState(state)
 )
 
@@ -32,6 +24,6 @@ private fun getState(state: String): LoanState {
         "APPROVED" -> LoanState.APPROVED
         "REGISTERED" -> LoanState.REGISTERED
         "REJECTED" -> LoanState.REJECTED
-        else -> throw IllegalArgumentException("Unknown state")
+        else -> throw FailedStateException("Unknown state")
     }
 }

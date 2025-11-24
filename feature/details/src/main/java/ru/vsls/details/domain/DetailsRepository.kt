@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.domain
+package ru.vsls.details.domain
 
 import ru.vsls.shared.network.domain.model.LoanResponse
 

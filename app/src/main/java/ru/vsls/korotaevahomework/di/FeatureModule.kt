@@ -2,12 +2,12 @@ package ru.vsls.korotaevahomework.di
 
 import dagger.Module
 import dagger.Provides
+import ru.vsls.details.di.DaggerDetailsComponent
+import ru.vsls.details.di.DetailsComponent
 import ru.vsls.enter.di.DaggerEnterComponent
 import ru.vsls.enter.di.EnterComponent
 import ru.vsls.history.di.DaggerHistoryComponent
 import ru.vsls.history.di.HistoryComponent
-import ru.vsls.korotaevahomework.details.di.DaggerDetailsComponent
-import ru.vsls.korotaevahomework.details.di.DetailsComponent
 import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
 import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent

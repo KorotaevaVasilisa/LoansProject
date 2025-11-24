@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.data
+package ru.vsls.details.data
 
 import retrofit2.http.GET
 import retrofit2.http.Path

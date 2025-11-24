@@ -4,6 +4,7 @@ import ru.vsls.main.utils.formatDateShort
 import ru.vsls.shared.network.data.model.LoanResponseDto
 import ru.vsls.shared.network.domain.model.LoanResponse
 import ru.vsls.shared.network.domain.model.LoanState
+import ru.vsls.utils.FailedStateException
 
 internal fun LoanResponseDto.toDomain() = LoanResponse(
     amount = amount.toInt(),
@@ -22,6 +23,6 @@ private fun getState(state: String): LoanState {
         "APPROVED" -> LoanState.APPROVED
         "REGISTERED" -> LoanState.REGISTERED
         "REJECTED" -> LoanState.REJECTED
-        else -> throw IllegalArgumentException("Unknown state")
+        else -> throw FailedStateException("Unknown state")
     }
 }

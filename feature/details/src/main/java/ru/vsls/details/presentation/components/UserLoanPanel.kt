@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.details.presentation.components
+package ru.vsls.details.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,12 +10,17 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.vsls.korotaevahomework.R
+import ru.vsls.details.R
 
 @Composable
-internal fun UserPanel(name: String, surname: String, number: String) {
+internal fun UserLoanPanel(
+    id: Int,
+    date: String,
+    period: Int,
+    percent: Int,
+    amount: Int,
+) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
@@ -25,29 +30,29 @@ internal fun UserPanel(name: String, surname: String, number: String) {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             ContentText(
-                value = name,
-                label = stringResource(R.string.name)
+                value = stringResource(R.string.number_loan, id),
+                label = stringResource(R.string.id_loan)
             )
 
             ContentText(
-                value = surname,
-                label = stringResource(R.string.surname)
+                value = date,
+                label = stringResource(R.string.date_loan)
             )
 
             ContentText(
-                value = number,
-                label = stringResource(R.string.number)
+                value = "$period",
+                label = stringResource(R.string.period_loan)
+            )
+
+            ContentText(
+                value = "$percent %",
+                label = stringResource(R.string.percent)
+            )
+
+            ContentText(
+                value = stringResource(R.string.price_form, amount),
+                label = stringResource(R.string.sum_loan)
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun DetailsContentPreview() {
-    UserPanel(
-        name = "John",
-        surname = "Doe",
-        number = "1234567890"
-    )
 }

@@ -1,12 +1,12 @@
-package ru.vsls.korotaevahomework.details.di
+package ru.vsls.details.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.details.data.DetailsApiService
-import ru.vsls.korotaevahomework.details.data.DetailsRepositoryImpl
-import ru.vsls.korotaevahomework.details.domain.DetailsRepository
+import ru.vsls.details.data.DetailsApiService
+import ru.vsls.details.data.DetailsRepositoryImpl
+import ru.vsls.details.domain.DetailsRepository
 
 @Module
 interface DetailsModule {
