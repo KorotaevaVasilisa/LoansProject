@@ -43,6 +43,8 @@ dependencies {
     implementation(project(":shared:navigation"))
     implementation(project(":shared:ui"))
 
+    implementation(project(":utils"))
+
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)

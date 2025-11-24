@@ -1,12 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.ksp)
 }
 
 android {
-    namespace = "ru.vsls.shared.network"
+    namespace = "ru.vsls.utils"
     compileSdk = 36
 
     defaultConfig {
@@ -35,23 +33,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":utils"))
-
-    implementation(libs.retrofit)
-    implementation(libs.okhttp)
-    implementation(libs.kotlinx.serialization.json)
-    implementation(libs.retrofit.converter.kotlinx.serialization)
-    implementation(libs.logging.interceptor)
-
-    implementation(libs.dagger)
-    ksp(libs.dagger.compiler)
-
-    implementation(libs.androidx.security.crypto)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 }

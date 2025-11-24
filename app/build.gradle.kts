@@ -53,6 +53,8 @@ dependencies {
     implementation(project(":feature:history"))
     implementation(project(":feature:main"))
 
+    implementation(project(":utils"))
+
     implementation(libs.retrofit)
     implementation(libs.okhttp)
     implementation(libs.kotlinx.serialization.json)
