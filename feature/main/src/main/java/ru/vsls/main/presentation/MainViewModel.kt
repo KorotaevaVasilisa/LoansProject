@@ -2,6 +2,7 @@ package ru.vsls.main.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,6 +15,15 @@ import ru.vsls.main.domain.usecases.GetSomeUserLoanUseCase
 import ru.vsls.main.presentation.model.MainState
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
+import ru.vsls.utils.BadRequestException
+import ru.vsls.utils.ErrorType
+import ru.vsls.utils.FailedStateException
+import ru.vsls.utils.NoInternetException
+import ru.vsls.utils.NonValidFieldsException
+import ru.vsls.utils.NotFoundException
+import ru.vsls.utils.ServerException
+import ru.vsls.utils.UnauthorizedException
+import ru.vsls.utils.UnknownException
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
@@ -24,31 +34,26 @@ class MainViewModel @Inject constructor(
     private var _state = MutableStateFlow<MainState>(MainState.Loading)
     val state = _state.asStateFlow()
 
-    private val _errors = MutableSharedFlow<String>()
+    private val _errors = MutableSharedFlow<ErrorType>()
     val errors = _errors.asSharedFlow()
 
     fun loadData() {
-        //if (_state.value is MainState.Content) return
 
-        viewModelScope.launch {
-            try {
-                _state.update { MainState.Loading }
+        viewModelScope.launch(exceptionHandler) {
 
-                val conditionsDeferred = async { getConditionsUseCase() }
-                val loansDeferred = async { getSomeUserLoanUseCase() }
+            _state.update { MainState.Loading }
 
-                val condition = conditionsDeferred.await()
-                val loans = loansDeferred.await()
+            val conditionsDeferred = async { getConditionsUseCase() }
+            val loansDeferred = async { getSomeUserLoanUseCase() }
 
-                _state.update {
-                    MainState.Content(
-                        condition = condition,
-                        userLoans = loans
-                    )
-                }
+            val condition = conditionsDeferred.await()
+            val loans = loansDeferred.await()
 
-            } catch (ex: Exception) {
-                _errors.emit("Error: ${ex.message}")
+            _state.update {
+                MainState.Content(
+                    condition = condition,
+                    userLoans = loans
+                )
             }
         }
     }
@@ -71,11 +76,30 @@ class MainViewModel @Inject constructor(
         )
     }
 
-    fun navigateToHistory(){
+    fun navigateToHistory() {
         router.navigateTo(Screen.HistoryScreen)
     }
 
-    fun navigateToOnboarding(){
+    fun navigateToOnboarding() {
         router.navigateTo(Screen.OnboardingScreen)
+    }
+
+    private val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
+
+        val errorType = when (throwable) {
+            is NotFoundException -> ErrorType.USER_NOT_FOUND
+            is UnknownException -> ErrorType.UNKNOWN
+            is NoInternetException -> ErrorType.NO_INTERNET
+            is UnauthorizedException -> ErrorType.UNAUTHORIZED
+            is BadRequestException -> ErrorType.BAD_REQUEST
+            is ServerException -> ErrorType.SERVER
+            is NonValidFieldsException -> ErrorType.NON_VALID
+            is FailedStateException -> ErrorType.FAILED_STATE
+            else -> ErrorType.UNKNOWN
+        }
+
+        viewModelScope.launch {
+            _errors.emit(errorType)
+        }
     }
 }

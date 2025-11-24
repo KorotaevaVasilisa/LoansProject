@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import ru.vsls.main.presentation.components.MainContent
 import ru.vsls.main.presentation.model.MainState
 import ru.vsls.ui.LoadingScreen
+import ru.vsls.utils.getErrorMessage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,7 +23,8 @@ fun MainScreen(
 
     val context = LocalContext.current
     LaunchedEffect(Unit) {
-        viewModel.errors.collect { message ->
+        viewModel.errors.collect { type ->
+            val message = getErrorMessage(type, context)
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
     }

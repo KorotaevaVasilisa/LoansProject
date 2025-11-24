@@ -1,5 +1,6 @@
 package ru.vsls.history.presentation
 
+import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -12,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import ru.vsls.history.R
 import ru.vsls.history.presentation.model.HistoryState
@@ -21,6 +23,7 @@ import ru.vsls.ui.components.LoadingBlock
 import ru.vsls.ui.components.LoanItem
 import ru.vsls.ui.components.topbars.BackTopAppBar
 import ru.vsls.ui.theme.LocalStatusColors
+import ru.vsls.utils.getErrorMessage
 
 @Composable
 internal fun HistoryScreen(viewModel: HistoryViewModel) {
@@ -29,6 +32,15 @@ internal fun HistoryScreen(viewModel: HistoryViewModel) {
     LaunchedEffect(Unit) {
         viewModel.loadHistory()
     }
+
+    val context = LocalContext.current
+    LaunchedEffect(Unit) {
+        viewModel.errors.collect { type ->
+            val message = getErrorMessage(type, context)
+            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        }
+    }
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
