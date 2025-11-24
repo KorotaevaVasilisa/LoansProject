@@ -7,6 +7,7 @@ import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.di.DaggerAppComponent
 import ru.vsls.form.presentation.FormFragment
+import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
 import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.di.ComponentProvider
 import ru.vsls.navigation.di.DetailsComponentProvider
@@ -14,6 +15,7 @@ import ru.vsls.navigation.di.EnterComponentProvider
 import ru.vsls.navigation.di.FormComponentProvider
 import ru.vsls.navigation.di.HistoryComponentProvider
 import ru.vsls.navigation.di.MainComponentProvider
+import ru.vsls.navigation.di.MenuComponentProvider
 
 class App : Application(), ComponentProvider {
     val component by lazy {
@@ -63,4 +65,11 @@ class App : Application(), ComponentProvider {
         }
     }
 
+    override fun getMenuComponent(): MenuComponentProvider {
+        return object : MenuComponentProvider {
+            override fun inject(fragment: Fragment) {
+                component.menuComponent().inject(fragment as MenuFragment)
+            }
+        }
+    }
 }

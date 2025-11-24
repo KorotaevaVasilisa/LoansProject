@@ -13,8 +13,12 @@ interface ComponentProvider {
     fun getMainComponent(): MainComponentProvider
     fun getDetailsComponent(): DetailsComponentProvider
     fun getFormComponent(): FormComponentProvider
+    fun getMenuComponent(): MenuComponentProvider
 }
 
+interface MenuComponentProvider {
+    fun inject(fragment: Fragment)
+}
 interface FormComponentProvider {
     fun inject(fragment: Fragment)
 }

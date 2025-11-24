@@ -3,12 +3,12 @@ package ru.vsls.korotaevahomework.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import ru.vsls.details.di.DetailsComponent
 import ru.vsls.enter.di.EnterComponent
+import ru.vsls.form.di.FormComponent
 import ru.vsls.history.di.HistoryComponent
 import ru.vsls.korotaevahomework.MainActivity
-import ru.vsls.details.di.DetailsComponent
-import ru.vsls.form.di.FormComponent
-import ru.vsls.korotaevahomework.menu.presentation.MenuFragment
+import ru.vsls.korotaevahomework.menu.di.MenuComponent
 import ru.vsls.korotaevahomework.screens.di.ScreensComponent
 import ru.vsls.main.di.MainComponent
 import ru.vsls.shared.network.di.NetworkModule
@@ -25,7 +25,7 @@ interface AppComponent {
     fun historyComponent(): HistoryComponent
     fun screensComponent(): ScreensComponent
     fun detailsComponent(): DetailsComponent
-    fun inject(menuFragment: MenuFragment)
+    fun menuComponent(): MenuComponent
 
     @Component.Builder
     interface Builder {
