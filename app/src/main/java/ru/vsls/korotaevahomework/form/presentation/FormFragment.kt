@@ -14,9 +14,9 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.App
 import ru.vsls.korotaevahomework.R
 import ru.vsls.korotaevahomework.form.presentation.model.FormState
+import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.utils.ErrorType
 import ru.vsls.utils.getErrorMessage
 import javax.inject.Inject
@@ -38,12 +38,8 @@ class FormFragment : Fragment() {
 
     private lateinit var viewModel: FormViewModel
 
-    private val component by lazy {
-        (requireActivity().application as App).component.formComponent()
-    }
-
     override fun onAttach(context: Context) {
-        component.inject(this)
+        context.getComponentProvider().getFormComponent().inject(this)
         super.onAttach(context)
     }
 
@@ -72,9 +68,9 @@ class FormFragment : Fragment() {
         surnameText = view.findViewById(R.id.ed_surname)
         numberText = view.findViewById(R.id.ed_number)
         button = view.findViewById(R.id.confirm_button)
-        layoutName = view.findViewById<TextInputLayout>(R.id.fir_name)
-        layoutSurname = view.findViewById<TextInputLayout>(R.id.fir_surname)
-        layoutNumber = view.findViewById<TextInputLayout>(R.id.fir_number)
+        layoutName = view.findViewById(R.id.fir_name)
+        layoutSurname = view.findViewById(R.id.fir_surname)
+        layoutNumber = view.findViewById(R.id.fir_number)
 
         nameText?.addTextChangedListener {
             viewModel.onNameChanged(nameText?.text?.toString() ?: "")

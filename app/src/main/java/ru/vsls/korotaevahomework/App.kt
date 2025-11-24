@@ -6,10 +6,12 @@ import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.di.DaggerAppComponent
+import ru.vsls.korotaevahomework.form.presentation.FormFragment
 import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.di.ComponentProvider
 import ru.vsls.navigation.di.DetailsComponentProvider
 import ru.vsls.navigation.di.EnterComponentProvider
+import ru.vsls.navigation.di.FormComponentProvider
 import ru.vsls.navigation.di.HistoryComponentProvider
 import ru.vsls.navigation.di.MainComponentProvider
 
@@ -49,6 +51,14 @@ class App : Application(), ComponentProvider {
         return object : DetailsComponentProvider {
             override fun inject(fragment: Fragment) {
                 component.detailsComponent().inject(fragment as DetailsFragment)
+            }
+        }
+    }
+
+    override fun getFormComponent(): FormComponentProvider {
+        return object : FormComponentProvider {
+            override fun inject(fragment: Fragment) {
+                component.formComponent().inject(fragment as FormFragment)
             }
         }
     }

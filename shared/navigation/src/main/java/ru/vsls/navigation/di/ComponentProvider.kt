@@ -12,8 +12,12 @@ interface ComponentProvider {
     fun getHistoryComponent(): HistoryComponentProvider
     fun getMainComponent(): MainComponentProvider
     fun getDetailsComponent(): DetailsComponentProvider
+    fun getFormComponent(): FormComponentProvider
 }
 
+interface FormComponentProvider {
+    fun inject(fragment: Fragment)
+}
 interface EnterComponentProvider {
     fun inject(fragment: Fragment)
 }
