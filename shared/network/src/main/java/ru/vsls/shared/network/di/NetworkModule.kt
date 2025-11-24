@@ -13,6 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import ru.vsls.shared.network.data.interceptors.TokenInterceptor
 import ru.vsls.shared.network.data.TokenRepositoryImpl
+import ru.vsls.shared.network.data.interceptors.ErrorInterceptor
 import ru.vsls.shared.network.domain.TokenRepository
 
 @Module
@@ -34,10 +35,12 @@ interface NetworkModule {
         @Provides
         fun provideOkHttpClient(
             loggingInterceptor: HttpLoggingInterceptor,
-            tokenInterceptor: Interceptor,
+            @TokenInterceptorNamed tokenInterceptor: Interceptor,
+            @ErrorInterceptorNamed errorInterceptor: Interceptor,
         ): OkHttpClient =
             OkHttpClient.Builder()
                 .addInterceptor(tokenInterceptor)
+                .addInterceptor(errorInterceptor)
                 .addInterceptor(loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY))
                 .build()
 
@@ -57,5 +60,10 @@ interface NetworkModule {
     fun bindTokenRepository(impl: TokenRepositoryImpl): TokenRepository
 
     @Binds
+    @TokenInterceptorNamed
     fun bindTokenInterceptor(impl: TokenInterceptor): Interceptor
+
+    @Binds
+    @ErrorInterceptorNamed
+    fun bindErrorInterceptor(impl: ErrorInterceptor): Interceptor
 }
