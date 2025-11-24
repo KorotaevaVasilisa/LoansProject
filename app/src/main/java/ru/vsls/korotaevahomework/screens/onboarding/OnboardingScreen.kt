@@ -73,7 +73,7 @@ fun OnBoardItem(page: OnBoardModel) {
         )
         Text(
             text = page.description,
-            color = MaterialTheme.colorScheme.onSecondary,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }
 }

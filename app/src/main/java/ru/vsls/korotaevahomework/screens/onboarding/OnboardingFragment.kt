@@ -47,30 +47,32 @@ class OnboardingFragment : Fragment() {
             setContent {
                 ShiftTheme {
                     OnboardingScreen(
-                        boards = data,
+                        boards = getBoards(),
                         navigateTo = { router.replaceFragment(Screen.MainScreen) })
                 }
             }
         }
     }
 
-    val data = listOf<OnBoardModel>(
-        OnBoardModel(
-            imageRes = R.drawable.illuctration_1,
-            title = "Оформить займ",
-            description = "Выберите сумму и нажмите «продолжить». Затем укажите свои данные.\nПосле нажатия «Оформить займ» заявка поступит в банк"
-        ),
-        OnBoardModel(
-            imageRes = R.drawable.illuctration_2,
-            title = "Получить займ",
-            description = "Отслеживайте изменение статуса заявки.\nКогда займ будет одобрен, подойдите с паспортом в отделение банка для подписания договора"
-        ),
-        OnBoardModel(
-            imageRes = R.drawable.illuctration_3,
-            title = "Оформленные займы",
-            description = "На главном экране приложения отображается список оформленных займов."
+    private fun getBoards(): List<OnBoardModel> {
+        return listOf<OnBoardModel>(
+            OnBoardModel(
+                imageRes = R.drawable.illuctration_1,
+                title = getString(R.string.board_title_1),
+                description = getString(R.string.board_description_1)
+            ),
+            OnBoardModel(
+                imageRes = R.drawable.illuctration_2,
+                title = getString(R.string.board_title_2),
+                description = getString(R.string.board_description_2)
+            ),
+            OnBoardModel(
+                imageRes = R.drawable.illuctration_3,
+                title = getString(R.string.board_title_3),
+                description = getString(R.string.board_description_3)
+            )
         )
-    )
+    }
 
     override fun onResume() {
         super.onResume()

@@ -51,4 +51,13 @@
     <string name="russian">Русский</string>
     <string name="english">English</string>
     <string name="apply">Применить</string>
+    <string name="next">Далее</string>
+    <string name="close">Закрыть</string>
+    <string name="back">Назад</string>
+    <string name="board_title_1">Оформить займ</string>
+    <string name="board_title_2">Получить займ</string>
+    <string name="board_title_3">Оформленные займы</string>
+    <string name="board_description_1">Выберите сумму и нажмите «продолжить». Затем укажите свои данные.\nПосле нажатия «Оформить займ» заявка поступит в банк</string>
+    <string name="board_description_2">Отслеживайте изменение статуса заявки.\nКогда займ будет одобрен, подойдите с паспортом в отделение банка для подписания договора</string>
+    <string name="board_description_3">На главном экране приложения отображается список оформленных займов.</string>
 </resources>

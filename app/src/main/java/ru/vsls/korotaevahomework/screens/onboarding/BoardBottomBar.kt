@@ -22,9 +22,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import ru.vsls.korotaevahomework.R
 
 @Composable
 internal fun BoardBottomBar(
@@ -45,7 +47,7 @@ internal fun BoardBottomBar(
         TextButton(
             onClick = {
                 coroutineScope.launch {
-                    val skipPage = pagerState.pageCount - 1
+                    val skipPage = pagerState.currentPage - 1
                     pagerState.animateScrollToPage(skipPage)
                 }
             },
@@ -64,7 +66,7 @@ internal fun BoardBottomBar(
         TextButton(
             onClick = {
                 if (pagerState.currentPage == pagerState.pageCount - 1)
-                    onClose
+                    onClose()
                 else
                     coroutineScope.launch {
                         val nextPage = pagerState.currentPage + 1
@@ -81,15 +83,24 @@ internal fun BoardBottomBar(
 @Composable
 private fun RightContent(pagerState: PagerState) {
     if (pagerState.currentPage < pagerState.pageCount - 1)
-        Text("Далее")
+        Text(
+            stringResource(R.string.next),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
     else
-        Text("Закрыть")
+        Text(
+            stringResource(R.string.close),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
 }
 
 @Composable
 private fun LeftContent(pagerState: PagerState) {
     if (pagerState.currentPage != 0)
-        Text("Назад")
+        Text(
+            text = stringResource(R.string.back),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
     else
         Spacer(Modifier.height(0.dp))
 }
