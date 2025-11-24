@@ -1,13 +1,11 @@
 package ru.vsls.korotaevahomework.screens.result
 
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -32,36 +30,40 @@ fun ResultScreen(
             CloseTopAppBar(navigateTo = onBack)
         }
     ) { paddingValues ->
-        Box(
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp),
-            contentAlignment = Alignment.Center
+                .padding(top = paddingValues.calculateTopPadding())
+                .padding(16.dp)
         ) {
             when (success) {
                 true -> {
-                    ResultContent(
+                    InfoContent(
                         title = stringResource(
                             R.string.success_title,
                             amount ?: stringResource(R.string.money)
                         ),
                         description = stringResource(R.string.success_description),
-                        titleButton = stringResource(R.string.show_address),
                         painter = painterResource(R.drawable.s_success),
-                        navigateTo = navigateTo,
-                        modifier = Modifier.align(Alignment.BottomCenter)
+                        modifier = Modifier.weight(1f, fill = true)
                     )
+                    BaseButton(
+                        onClick = navigateTo,
+                        text = stringResource(R.string.show_address)
+                    )
+
                 }
 
                 false -> {
-                    ResultContent(
+                    InfoContent(
                         title = stringResource(R.string.failed_title),
                         description = stringResource(R.string.failed_description),
-                        titleButton = stringResource(R.string.back_to_main),
                         painter = painterResource(R.drawable.s_some_error),
-                        navigateTo = onBack,
-                        modifier = Modifier.align(Alignment.BottomCenter)
+                        modifier = Modifier.weight(1f, fill = true)
+                    )
+                    BaseButton(
+                        onClick = onBack,
+                        text = stringResource(R.string.back_to_main)
                     )
                 }
 
@@ -69,24 +71,6 @@ fun ResultScreen(
             }
         }
     }
-}
-
-@Composable
-internal fun ResultContent(
-    title: String,
-    description: String,
-    titleButton: String,
-    painter: Painter,
-    navigateTo: () -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    InfoContent(
-        title = title,
-        description = description,
-        painter = painter
-    )
-
-    BaseButton(onClick = navigateTo, text = titleButton, modifier = modifier)
 }
 
 

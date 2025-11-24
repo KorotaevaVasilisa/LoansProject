@@ -81,16 +81,16 @@ private fun TrailingIcon(passwordVisible: Boolean) {
     Icon(
         painter = getVisibilityIcon(passwordVisible),
         contentDescription = getIconVisibilityDescription(passwordVisible),
-        tint = MaterialTheme.colorScheme.secondary
+        tint = MaterialTheme.colorScheme.onSurfaceVariant
     )
 }
 
 @Composable
 internal fun getVisibilityIcon(passwordVisible: Boolean): Painter {
     return if (passwordVisible)
-        painterResource(R.drawable.outline_visibility)
+        painterResource(R.drawable.state_on)
     else
-        painterResource(R.drawable.outline_visibility_off)
+        painterResource(R.drawable.state_off)
 }
 
 @Composable

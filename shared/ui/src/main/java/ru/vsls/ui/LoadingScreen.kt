@@ -54,6 +54,6 @@ fun LogoBlock(modifier: Modifier = Modifier) {
 @Composable
 private fun getCurrentLogo(): Painter {
     return if (!isSystemInDarkTheme())
-        painterResource(id = R.drawable.logo_light) else
-        painterResource(id = R.drawable.logo_night)
+        painterResource(id = R.drawable.logo_night) else
+        painterResource(id = R.drawable.logo_day)
 }

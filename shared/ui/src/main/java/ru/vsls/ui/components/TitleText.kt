@@ -13,6 +13,7 @@ fun TitleText(text: String) {
         text = text,
         style = MaterialTheme.typography.titleLarge,
         modifier = Modifier.padding(vertical = 8.dp),
+        color = MaterialTheme.colorScheme.onPrimary,
         maxLines = 1
     )
 }

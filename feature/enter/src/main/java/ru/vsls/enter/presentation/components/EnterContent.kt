@@ -2,8 +2,11 @@ package ru.vsls.enter.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,28 +22,32 @@ internal fun EnterContent(
     switchToRegistration: () -> Unit,
     loginUser: () -> Unit,
     registerUser: () -> Unit,
-    onFieldChange: (FieldEvent) -> Unit
+    onFieldChange: (FieldEvent) -> Unit,
 ) {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.primaryContainer),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        LogoBlock(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f, fill = true)
-        )
 
-        CardBlock(
-            state = state,
-            switchToLogin = switchToLogin,
-            switchToRegistration = switchToRegistration,
-            loginUser = loginUser,
-            registrationUser = registerUser,
-            onFieldChange = onFieldChange
-        )
-    }
+        Column(
+            modifier = Modifier
+                .verticalScroll(rememberScrollState())
+                .imePadding()
+                .fillMaxHeight()
+                .background(MaterialTheme.colorScheme.primaryContainer),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            LogoBlock(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f, fill = true)
+            )
+
+            CardBlock(
+                state = state,
+                switchToLogin = switchToLogin,
+                switchToRegistration = switchToRegistration,
+                loginUser = loginUser,
+                registrationUser = registerUser,
+                onFieldChange = onFieldChange
+            )
+        }
+
 }
 

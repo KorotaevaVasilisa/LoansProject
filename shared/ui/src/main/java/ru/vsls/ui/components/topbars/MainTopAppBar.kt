@@ -2,7 +2,6 @@ package ru.vsls.ui.components.topbars
 
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -12,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import ru.vsls.ui.R
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -23,8 +23,8 @@ fun MainTopAppBar(title: String, navigateTo: () -> Unit) {
         actions = {
             IconButton(onClick = navigateTo) {
                 Icon(
-                    modifier = Modifier.size(ButtonDefaults.IconSize),
-                    painter = painterResource(R.drawable.answer),
+                    modifier = Modifier.size(24.dp),
+                    painter = painterResource(R.drawable.question),
                     contentDescription = stringResource(R.string.open_onboarding)
                 )
             }

@@ -19,6 +19,7 @@ import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -49,31 +50,12 @@ internal fun CardBlock(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(IntrinsicSize.Min),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
+            NavigationButtons(
+                state = state,
+                switchToLogin = switchToLogin,
+                switchToRegistration = switchToRegistration
+            )
 
-                LoginTextButton(
-                    modifier = Modifier.weight(1f),
-                    switchToLogin = switchToLogin,
-                    enabled = state is EnterState.Registration
-                )
-
-                VerticalDivider(
-                    modifier = Modifier
-                        .fillMaxHeight(),
-                    thickness = 2.dp
-                )
-
-                RegistrationTextButton(
-                    modifier = Modifier.weight(1f),
-                    switchToRegistration = { switchToRegistration() },
-                    enabled = state is EnterState.Login,
-                )
-            }
             when (state) {
                 is EnterState.Login -> LoginForm(
                     state = state,
@@ -90,6 +72,39 @@ internal fun CardBlock(
                 else -> {}
             }
         }
+    }
+}
+
+@Composable
+private fun NavigationButtons(
+    state: EnterState,
+    switchToLogin: () -> Unit,
+    switchToRegistration: () -> Unit,
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(IntrinsicSize.Min),
+        horizontalArrangement = Arrangement.SpaceEvenly
+    ) {
+
+        LoginTextButton(
+            modifier = Modifier.weight(1f),
+            switchToLogin = switchToLogin,
+            enabled = state is EnterState.Login
+        )
+
+        VerticalDivider(
+            modifier = Modifier
+                .fillMaxHeight(),
+            thickness = 2.dp
+        )
+
+        RegistrationTextButton(
+            modifier = Modifier.weight(1f),
+            switchToRegistration = switchToRegistration,
+            enabled = state is EnterState.Registration,
+        )
     }
 }
 
@@ -130,13 +145,24 @@ private fun SwitchTextButton(
 ) {
     TextButton(
         modifier = modifier,
-        onClick = { switchTo() },
-        enabled = enabled,
+        onClick = { if (!enabled) switchTo() }
     ) {
-        Text(text = text)
+        Text(
+            text = text, color = getColor(
+                enabled = enabled
+            )
+        )
     }
 }
 
+@Composable
+private fun getColor(enabled: Boolean): Color {
+    return if (enabled) {
+        MaterialTheme.colorScheme.primary
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+}
 
 @Preview(showBackground = true)
 @Composable

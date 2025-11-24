@@ -1,7 +1,9 @@
 package ru.vsls.korotaevahomework.screens.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,20 +20,22 @@ internal fun InfoContent(
     title: String,
     description: String,
     painter: Painter,
-
+    modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = Modifier,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Image(
-            painter = painter,
-            contentDescription = stringResource(R.string.status),
-            modifier = Modifier.size(96.dp)
-        )
+    Box(modifier = modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+        Column(
+            modifier = Modifier,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Image(
+                painter = painter,
+                contentDescription = stringResource(R.string.status),
+                modifier = Modifier.size(96.dp)
+            )
 
-        TitleText(text = title)
+            TitleText(text = title)
 
-        DescriptionText(description)
+            DescriptionText(description)
+        }
     }
 }
