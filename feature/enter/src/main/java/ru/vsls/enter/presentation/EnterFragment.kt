@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.enter.R
+import ru.vsls.navigation.BottomBarController
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
@@ -43,4 +44,15 @@ class EnterFragment : Fragment() {
             }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? BottomBarController)?.setBottomBarVisible(false)
+    }
+
+    override fun onPause() {
+        (activity as? BottomBarController)?.setBottomBarVisible(true)
+        super.onPause()
+    }
+
 }

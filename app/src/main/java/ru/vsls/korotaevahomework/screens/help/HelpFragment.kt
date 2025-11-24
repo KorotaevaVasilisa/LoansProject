@@ -9,8 +9,8 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
 import ru.vsls.korotaevahomework.App
-import ru.vsls.korotaevahomework.MainActivity
 import ru.vsls.korotaevahomework.R
+import ru.vsls.navigation.BottomBarController
 import ru.vsls.navigation.Router
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
@@ -51,14 +51,13 @@ class HelpFragment : Fragment() {
         }
     }
 
-
     override fun onResume() {
         super.onResume()
-        (activity as? MainActivity)?.changeVisibleBottomBar(false)
+        (activity as? BottomBarController)?.setBottomBarVisible(false)
     }
 
     override fun onPause() {
-        (activity as? MainActivity)?.changeVisibleBottomBar(true)
+        (activity as? BottomBarController)?.setBottomBarVisible(true)
         super.onPause()
     }
 }

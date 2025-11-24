@@ -9,11 +9,12 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import ru.vsls.korotaevahomework.databinding.ActivityMainBinding
 import ru.vsls.navigation.ActivityHolder
+import ru.vsls.navigation.BottomBarController
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomBarController {
 
     private lateinit var bottomBar: BottomNavigationView
 
@@ -48,10 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun changeVisibleBottomBar(isVisible: Boolean) {
-        bottomBar.visibility = if (isVisible) View.VISIBLE else View.GONE
-    }
-
     private fun setListenerBottomBar() {
         bottomBar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
@@ -76,5 +73,9 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         holder.detachActivity()
+    }
+
+    override fun setBottomBarVisible(isVisible: Boolean) {
+        bottomBar.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 }

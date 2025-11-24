@@ -2,12 +2,11 @@ package ru.vsls.enter.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,12 +23,11 @@ internal fun EnterContent(
     registerUser: () -> Unit,
     onFieldChange: (FieldEvent) -> Unit,
 ) {
-
+    Scaffold(modifier = Modifier.fillMaxSize()) { paddingValues ->
         Column(
             modifier = Modifier
-                .verticalScroll(rememberScrollState())
-                .imePadding()
-                .fillMaxHeight()
+                .fillMaxSize()
+                .padding(top = paddingValues.calculateTopPadding())
                 .background(MaterialTheme.colorScheme.primaryContainer),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -48,6 +46,6 @@ internal fun EnterContent(
                 onFieldChange = onFieldChange
             )
         }
-
+    }
 }
 
