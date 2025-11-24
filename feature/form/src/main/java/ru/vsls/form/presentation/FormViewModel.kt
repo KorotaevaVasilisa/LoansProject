@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.presentation
+package ru.vsls.form.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.form.domain.usecase.SendRequestUseCase
-import ru.vsls.korotaevahomework.form.presentation.model.FormState
+import ru.vsls.form.domain.usecase.SendRequestUseCase
+import ru.vsls.form.presentation.model.FormState
 import ru.vsls.navigation.Router
 import ru.vsls.navigation.Screen
 import ru.vsls.shared.network.domain.model.LoanState

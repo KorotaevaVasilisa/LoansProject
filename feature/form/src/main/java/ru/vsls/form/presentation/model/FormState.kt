@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.presentation.model
+package ru.vsls.form.presentation.model
 
 import ru.vsls.utils.ErrorType
 

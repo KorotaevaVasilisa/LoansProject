@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.domain
+package ru.vsls.form.domain
 
 import ru.vsls.shared.network.domain.model.LoanRequest
 import ru.vsls.shared.network.domain.model.LoanResponse

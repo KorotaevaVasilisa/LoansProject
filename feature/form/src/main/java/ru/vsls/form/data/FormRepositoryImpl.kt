@@ -1,8 +1,8 @@
-package ru.vsls.korotaevahomework.form.data
+package ru.vsls.form.data
 
-import ru.vsls.korotaevahomework.form.data.mapper.toData
-import ru.vsls.korotaevahomework.form.data.mapper.toDomain
-import ru.vsls.korotaevahomework.form.domain.FormRepository
+import ru.vsls.form.data.mapper.toData
+import ru.vsls.form.data.mapper.toDomain
+import ru.vsls.form.domain.FormRepository
 import ru.vsls.shared.network.domain.model.LoanRequest
 import ru.vsls.shared.network.domain.model.LoanResponse
 import javax.inject.Inject

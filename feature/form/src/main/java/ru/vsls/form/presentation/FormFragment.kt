@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.presentation
+package ru.vsls.form.presentation
 
 import android.content.Context
 import android.os.Bundle
@@ -14,8 +14,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
-import ru.vsls.korotaevahomework.R
-import ru.vsls.korotaevahomework.form.presentation.model.FormState
+import ru.vsls.form.R
+import ru.vsls.form.presentation.model.FormState
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.utils.ErrorType
 import ru.vsls.utils.getErrorMessage

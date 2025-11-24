@@ -3,12 +3,6 @@
     <string name="condition">Под %1$d%% на %2$d дней</string>
     <string name="price_form">%1$d ₽</string>
     <string name="your_data">Ваши данные</string>
-    <string name="name">Имя</string>
-    <string name="surname">Фамилия</string>
-    <string name="number">Телефон</string>
-    <string name="form_condition">После оформления заявки на займ, банк проведет анализ вашей кредитной истории</string>
-    <string name="take_loan">Оформить займ</string>
-    <string name="title_form">Оформление займа</string>
     <string name="number_loan">№ %1$d</string>
     <string name="status">Статус</string>
     <string name="approved_state">Одобрен</string>

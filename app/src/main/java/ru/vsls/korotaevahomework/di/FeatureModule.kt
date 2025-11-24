@@ -6,10 +6,10 @@ import ru.vsls.details.di.DaggerDetailsComponent
 import ru.vsls.details.di.DetailsComponent
 import ru.vsls.enter.di.DaggerEnterComponent
 import ru.vsls.enter.di.EnterComponent
+import ru.vsls.form.di.DaggerFormComponent
+import ru.vsls.form.di.FormComponent
 import ru.vsls.history.di.DaggerHistoryComponent
 import ru.vsls.history.di.HistoryComponent
-import ru.vsls.korotaevahomework.form.di.DaggerFormComponent
-import ru.vsls.korotaevahomework.form.di.FormComponent
 import ru.vsls.korotaevahomework.screens.di.DaggerScreensComponent
 import ru.vsls.korotaevahomework.screens.di.ScreensComponent
 import ru.vsls.main.di.DaggerMainComponent

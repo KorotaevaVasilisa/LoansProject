@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.data.mapper
+package ru.vsls.form.data.mapper
 
 import ru.vsls.shared.network.data.model.LoanRequestDto
 import ru.vsls.shared.network.data.model.LoanResponseDto

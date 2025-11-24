@@ -6,7 +6,7 @@ import ru.vsls.enter.presentation.EnterFragment
 import ru.vsls.history.presentation.HistoryFragment
 import ru.vsls.details.presentation.DetailsFragment
 import ru.vsls.korotaevahomework.di.DaggerAppComponent
-import ru.vsls.korotaevahomework.form.presentation.FormFragment
+import ru.vsls.form.presentation.FormFragment
 import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.di.ComponentProvider
 import ru.vsls.navigation.di.DetailsComponentProvider

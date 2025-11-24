@@ -1,4 +1,4 @@
-package ru.vsls.korotaevahomework.form.data
+package ru.vsls.form.data
 
 import retrofit2.http.Body
 import retrofit2.http.POST

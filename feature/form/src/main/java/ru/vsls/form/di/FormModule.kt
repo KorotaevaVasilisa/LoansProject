@@ -1,12 +1,12 @@
-package ru.vsls.korotaevahomework.form.di
+package ru.vsls.form.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
-import ru.vsls.korotaevahomework.form.data.FormApiService
-import ru.vsls.korotaevahomework.form.data.FormRepositoryImpl
-import ru.vsls.korotaevahomework.form.domain.FormRepository
+import ru.vsls.form.data.FormApiService
+import ru.vsls.form.data.FormRepositoryImpl
+import ru.vsls.form.domain.FormRepository
 
 @Module
 interface FormModule {
