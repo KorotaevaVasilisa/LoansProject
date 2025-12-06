@@ -6,8 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import ru.vsls.korotaevahomework.databinding.ActivityMainBinding
+import ru.vsls.main.presentation.MainFragment
 import ru.vsls.navigation.ActivityHolder
 import ru.vsls.navigation.BottomBarController
 import ru.vsls.navigation.Router
@@ -16,7 +18,7 @@ import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), BottomBarController {
 
-    private lateinit var bottomBar: BottomNavigationView
+    private lateinit var binding: ActivityMainBinding
 
     @Inject
     lateinit var router: Router
@@ -32,8 +34,10 @@ class MainActivity : AppCompatActivity(), BottomBarController {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         ViewCompat.setOnApplyWindowInsetsListener(binding.mainContainer) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -43,16 +47,30 @@ class MainActivity : AppCompatActivity(), BottomBarController {
         holder.attachActivity(this)
 
         setListenerBottomBar()
+        setFragmentCallbacks()
 
         if (savedInstanceState == null) {
             router.navigateTo(Screen.EnterScreen)
         }
     }
 
-    private fun setListenerBottomBar() {
-        bottomBar = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+    private fun setFragmentCallbacks() {
+        supportFragmentManager.registerFragmentLifecycleCallbacks(fragmentLifecycleCallbacks, true)
+    }
 
-        bottomBar.setOnItemSelectedListener { item ->
+    private val fragmentLifecycleCallbacks =
+        object : FragmentManager.FragmentLifecycleCallbacks() {
+            override fun onFragmentResumed(fm: FragmentManager, f: Fragment) {
+                if (f is MainFragment) {
+                    binding.bottomNavigation.menu.findItem(R.id.nav_home)?.isChecked = true
+                }
+            }
+        }
+
+
+    private fun setListenerBottomBar() {
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
 
                 R.id.nav_home -> {
@@ -73,9 +91,10 @@ class MainActivity : AppCompatActivity(), BottomBarController {
     override fun onDestroy() {
         super.onDestroy()
         holder.detachActivity()
+        supportFragmentManager.unregisterFragmentLifecycleCallbacks(fragmentLifecycleCallbacks)
     }
 
     override fun setBottomBarVisible(isVisible: Boolean) {
-        bottomBar.visibility = if (isVisible) View.VISIBLE else View.GONE
+        binding.bottomNavigation.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 }
