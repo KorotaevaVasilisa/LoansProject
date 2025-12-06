@@ -8,14 +8,18 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import ru.vsls.history.R
+import ru.vsls.navigation.di.ViewModelFactory
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
 
 class HistoryFragment : Fragment() {
+
     @Inject
-    lateinit var viewModel: HistoryViewModel
+    lateinit var factory: ViewModelFactory
+    private val viewModel: HistoryViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         context.getComponentProvider().getHistoryComponent().inject(this)

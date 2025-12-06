@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import ru.vsls.main.R
+import ru.vsls.navigation.di.ViewModelFactory
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
@@ -16,7 +18,10 @@ import javax.inject.Inject
 class MainFragment : Fragment() {
 
     @Inject
-    lateinit var viewModel: MainViewModel
+    lateinit var factory: ViewModelFactory
+    private val viewModel by lazy {
+        ViewModelProvider(this, factory)[MainViewModel::class.java]
+    }
 
     override fun onAttach(context: Context) {
         context.getComponentProvider().getMainComponent().inject(this)

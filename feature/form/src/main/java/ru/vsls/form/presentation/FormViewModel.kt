@@ -83,8 +83,7 @@ class FormViewModel @AssistedInject constructor(
         )
     }
 
-    fun onSurnameChanged(value: String) {
-        val error = validateRussian(value)
+    fun onSurnameChanged(value: String) { val error = validateRussian(value)
 
         _state.value = _state.value.copy(
             surname = value,

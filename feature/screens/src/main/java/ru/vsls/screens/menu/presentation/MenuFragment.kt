@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import ru.vsls.navigation.di.ViewModelFactory
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.screens.R
 import ru.vsls.ui.theme.ShiftTheme
@@ -15,7 +17,9 @@ import javax.inject.Inject
 
 class MenuFragment : Fragment() {
     @Inject
-    lateinit var viewModel: MenuViewModel
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val viewModel: MenuViewModel by viewModels { viewModelFactory }
 
     override fun onAttach(context: Context) {
         context.getComponentProvider().getScreensComponent().inject(this)

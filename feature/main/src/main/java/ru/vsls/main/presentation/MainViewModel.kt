@@ -31,7 +31,7 @@ class MainViewModel @Inject constructor(
     private val getSomeUserLoanUseCase: GetSomeUserLoanUseCase,
     private val router: Router,
 ) : ViewModel() {
-    private var _state = MutableStateFlow<MainState>(MainState.Loading)
+    private var _state = MutableStateFlow<MainState>(MainState.Initial)
     val state = _state.asStateFlow()
 
     private val _errors = MutableSharedFlow<ErrorType>()

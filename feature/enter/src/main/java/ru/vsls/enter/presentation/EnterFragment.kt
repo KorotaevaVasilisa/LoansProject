@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import ru.vsls.enter.R
 import ru.vsls.navigation.BottomBarController
+import ru.vsls.navigation.di.ViewModelFactory
 import ru.vsls.navigation.di.getComponentProvider
 import ru.vsls.ui.theme.ShiftTheme
 import javax.inject.Inject
@@ -17,7 +19,8 @@ import javax.inject.Inject
 class EnterFragment : Fragment() {
 
     @Inject
-    lateinit var viewModel: EnterViewModel
+    lateinit var factory: ViewModelFactory
+    private val viewModel: EnterViewModel by viewModels { factory }
 
     override fun onAttach(context: Context) {
         context.getComponentProvider().getEnterComponent().inject(this)

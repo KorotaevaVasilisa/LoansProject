@@ -67,7 +67,7 @@ class ResultFragment : Fragment() {
     }
 
     private fun navigateToBanks() {
-        router.clearBackStackAndNavigate(Screen.BanksScreen)
+        router.replaceFragment(Screen.BanksScreen)
     }
 
     override fun onResume() {
