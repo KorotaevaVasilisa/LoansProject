@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), BottomBarController {
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.mainContainer) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(systemBars.left, 0, systemBars.right, 0)
             insets
         }
 

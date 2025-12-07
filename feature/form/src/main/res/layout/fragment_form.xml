@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
     android:orientation="vertical"
-    android:paddingBottom="?attr/actionBarSize"
     tools:context="ru.vsls.form.presentation.FormFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -22,8 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingVertical="12.dp"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp">
 
         <TextView
             style="@style/TextAppearance.Material3.BodyLarge"

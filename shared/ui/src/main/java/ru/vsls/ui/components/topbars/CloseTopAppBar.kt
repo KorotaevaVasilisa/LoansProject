@@ -1,6 +1,5 @@
 package ru.vsls.ui.components.topbars
 
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -16,7 +15,6 @@ import ru.vsls.ui.R
 @androidx.compose.runtime.Composable
 fun CloseTopAppBar(navigateTo: () -> Unit) {
     TopAppBar(
-        windowInsets = WindowInsets(0),
         title = { },
         navigationIcon = {
             IconButton(onClick = navigateTo) {
