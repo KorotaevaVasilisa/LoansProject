@@ -49,7 +49,7 @@ internal fun DetailsScreen(viewModel: DetailsViewModel) {
 
             DetailsState.Initial,
             DetailsState.Loading,
-                -> LoadingBlock(Modifier.padding(paddingValues))
+                -> LoadingBlock()
         }
 
     }

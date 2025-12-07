@@ -1,8 +1,13 @@
 package ru.vsls.screens.offers
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBars
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -30,7 +35,9 @@ fun OffersScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(top = paddingValues.calculateTopPadding())
-                .padding(16.dp)
+                .windowInsetsPadding(
+                    WindowInsets.navigationBars.only(WindowInsetsSides.Bottom)
+                )
         ) {
 
             InfoContent(
@@ -43,6 +50,7 @@ fun OffersScreen(
             BaseButton(
                 onClick = navigateTo,
                 text = stringResource(R.string.show_address),
+                modifier = Modifier.padding(16.dp)
             )
 
         }

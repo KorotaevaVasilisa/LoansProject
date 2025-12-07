@@ -10,9 +10,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun LoadingBlock(modifier: Modifier = Modifier) {
+fun LoadingBlock() {
     Box(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.secondary),
         contentAlignment = Alignment.Center,

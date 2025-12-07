@@ -2,6 +2,7 @@ package ru.vsls.history.presentation
 
 import android.widget.Toast
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -55,12 +56,12 @@ internal fun HistoryScreen(viewModel: HistoryViewModel) {
             is HistoryState.Content -> HistoryContent(
                 loans = currentState.loans,
                 navigateToDetail = viewModel::navigateToDetails,
-                modifier = Modifier.padding(paddingValues)
+                paddingValues = paddingValues
             )
 
             HistoryState.Initial,
             HistoryState.Loading,
-                -> LoadingBlock(modifier = Modifier.padding(paddingValues))
+                -> LoadingBlock()
         }
     }
 }
@@ -69,11 +70,12 @@ internal fun HistoryScreen(viewModel: HistoryViewModel) {
 fun HistoryContent(
     loans: List<LoanResponse>,
     navigateToDetail: (id: Int) -> Unit,
-    modifier: Modifier = Modifier,
+    paddingValues: PaddingValues,
 ) {
     LazyColumn(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxSize()
+            .padding(top = paddingValues.calculateTopPadding())
     ) {
         items(items = loans, key = { it.id }) { item ->
             LoanItem(

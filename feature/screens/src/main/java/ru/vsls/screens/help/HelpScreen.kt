@@ -28,7 +28,7 @@ fun HelpScreen(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top = paddingValues.calculateTopPadding())
+                .padding(paddingValues)
                 .padding(16.dp),
             contentAlignment = Alignment.Center
         ) {

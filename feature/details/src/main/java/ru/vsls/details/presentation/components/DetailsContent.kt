@@ -30,8 +30,8 @@ import ru.vsls.ui.theme.LocalStatusColors
 internal fun DetailsContent(loan: LoanResponse, paddingValues: PaddingValues) {
     Column(
         modifier = Modifier
-            .verticalScroll(rememberScrollState())
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(paddingValues)
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
